@@ -70,29 +70,29 @@
 }
 .hero-slider-1 {
 	position: relative;
+	overflow: hidden;
 	.display-2{
 		color: $color-heading-light;
 	}
+	
 	.single-hero-slider {
 		// height: 538px;
 		// border-radius: 30px;
 		background-size: cover;
 		background-position: center center;
-		&.rectangle {
-			border-radius: 0;
-			.slider-content {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				-webkit-transform: translateY(-50%);
-				transform: translateY(-50%) translateX(-50%);
-				text-align: center;
-				form {
-					margin: 0 auto;
-				}
-			}
+
+		&:nth-child(n+1){
+			display: none;
 		}
+
+		
 	}
+
+	&.slick-initialized, 
+	.single-hero-slider:first-child {
+		display: block;
+	}
+	
 	img {
 		// max-height: 538px;
 		// border-radius: 30px;
