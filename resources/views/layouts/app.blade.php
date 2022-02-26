@@ -43,8 +43,6 @@
     <script src="/js/plugins/perfect-scrollbar.js"></script>
     <script src="/js/plugins/magnific-popup.js"></script>
     <script src="/js/plugins/select2.min.js"></script>
-    <script src="/js/plugins/counterup.js"></script>
-    <script src="/js/plugins/jquery.countdown.min.js"></script>
     <script src="/js/plugins/images-loaded.js"></script>
     <script src="/js/plugins/isotope.js"></script>
     <script src="/js/plugins/scrollup.js"></script>
