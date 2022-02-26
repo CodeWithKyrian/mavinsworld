@@ -15837,19 +15837,20 @@ label {
   animation-name: fadeInUp;
 }
 
+.single-hero-slider:nth-child(n+1) {
+  display: none;
+}
+
+.slick-initialized .single-hero-slider:nth-child(n+1) {
+  display: block;
+}
+
 .hero-slider-1 {
   position: relative;
   overflow: hidden;
 }
 .hero-slider-1 .display-2 {
   color: #f4f5f9;
-}
-.hero-slider-1 .single-hero-slider {
-  background-size: cover;
-  background-position: center center;
-}
-.hero-slider-1 .single-hero-slider:nth-child(n+1) {
-  display: none;
 }
 .hero-slider-1.slick-initialized,
 .hero-slider-1 .single-hero-slider:first-child {

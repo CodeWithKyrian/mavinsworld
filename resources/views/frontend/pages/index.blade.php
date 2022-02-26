@@ -26,7 +26,7 @@
                     </div>
                     @endforeach
                     <div class="col-12 d-md-none">
-                        <div class="banner-img mb-sm-0 wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
+                        <div class="banner-img mb-sm-0">
                             {{ $mediaLibrary->getFirstMedia('hero_banners_md') }}
                             <div class="banner-text d-none d-md-block">
                                 <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i

@@ -68,6 +68,13 @@
 	-webkit-animation-name: fadeInUp;
 	animation-name: fadeInUp;
 }
+.single-hero-slider:nth-child(n+1){
+		display: none;
+}
+.slick-initialized .single-hero-slider:nth-child(n+1){
+	display: block;
+}
+
 .hero-slider-1 {
 	position: relative;
 	overflow: hidden;
@@ -75,18 +82,7 @@
 		color: $color-heading-light;
 	}
 	
-	.single-hero-slider {
-		// height: 538px;
-		// border-radius: 30px;
-		background-size: cover;
-		background-position: center center;
-
-		&:nth-child(n+1){
-			display: none;
-		}
-
-		
-	}
+	
 
 	&.slick-initialized, 
 	.single-hero-slider:first-child {
