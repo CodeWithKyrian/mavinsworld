@@ -13,7 +13,7 @@
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <section class="row align-items-center mb-50">
                         <div class="col-lg-6">
-                            <img src="{{asset('img/site marvins about us.jpg')}}" alt=""
+                            <img src="{{asset('img/about/about-marvins-main.jpg')}}" alt=""
                                 class="border-radius-15 mb-md-3 mb-lg-0 mb-sm-4" />
                         </div>
                         <div class="col-lg-6">
@@ -24,10 +24,10 @@
                                 <div class="carausel-3-columns-cover position-relative">
                                     <div id="carausel-3-columns-arrows"></div>
                                     <div class="carausel-3-columns" id="carausel-3-columns">
-                                        <img src="/img/page/about-2.png" alt="" />
-                                        <img src="/img/page/about-3.png" alt="" />
-                                        <img src="/img/page/about-4.png" alt="" />
-                                        <img src="/img/page/about-2.png" alt="" />
+                                        <img src="{{asset('img/about/about-marvins-one.jpg')}}" alt="" />
+                                        <img src="{{asset('img/about/about-marvins-two.jpg')}}" alt="" />
+                                        <img src="{{asset('img/about/about-marvins-three.jpg')}}" alt="" />
+                                        <img src="{{asset('img/about/about-marvins-four.jpg')}}" alt="" />
                                     </div>
                                 </div>
                             </div>
