@@ -13,12 +13,12 @@
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <section class="row align-items-center mb-50">
                         <div class="col-lg-6">
-                            <img src="/img/page/about-1.png" alt=""
+                            <img src="{{asset('img/site marvins about us.jpg')}}" alt=""
                                 class="border-radius-15 mb-md-3 mb-lg-0 mb-sm-4" />
                         </div>
                         <div class="col-lg-6">
                             <div class="lg-pl-25">
-                                <h1 class="heading-1 mb-20">Welcome to Marvins World </p>
+                                <h1 class="heading-1 mb-20">Welcome to Marvins World </h1>
                                 <p class="mb-20">Marvins World is a registered herbal brand under CAC, Nigeria. Through hard work, dedication, and determination, Marvins World provides the best herbal solutions for body enhancement, sexual-related problems, and a lasting solution to restore sexual confidence. </p>
                                 <p class="mb-30">We have taken a lead through our various reviews from our clients and we are glad you would become part of our success stories. Remarkably, we specialize in giving permanent solutions for quick ejaculation, poor erection, low sperm count, infection, infertility, pile, ulcer, boobs and butt enlargement, and lots more.  </p>
                                 <div class="carausel-3-columns-cover position-relative">
@@ -94,7 +94,7 @@
                     </section> --}}
                     <section class="row align-items-center mb-50">
                         <div class="row mb-50 align-items-center">
-                            <div class="col-lg-7 pr-30">
+                            <div class="col-lg-7 lg-pr-25">
                                 <img style="width: 100%" src="{{asset('img/16-9-video.png')}}" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
                             </div>
                             <div class="col-lg-5">
