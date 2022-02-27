@@ -24,9 +24,9 @@
                                 <!-- MAIN SLIDES -->
                                 <div class="product-image-slider">
                                     @foreach ($product->media as $media)
-                                    <figure class="border-radius-10">
-                                        {{ $media }}
-                                    </figure>
+                                        <figure class="border-radius-10">
+                                            {{ $media }}
+                                        </figure>
                                     @endforeach
                                 </div>
                             </div>
@@ -39,7 +39,8 @@
                                 <div class="product-detail-rating">
                                     <div class="product-rate-cover text-end">
                                         <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: {{ ($product->rating / 5) * 100 }}%"></div>
+                                            <div class="product-rating"
+                                                style="width: {{ ($product->rating / 5) * 100 }}%"></div>
                                         </div>
                                         <span class="font-small ml-5 text-muted"> (32 reviews)</span>
                                     </div>
@@ -48,19 +49,16 @@
                                     <div class="product-price primary-color float-left">
                                         <span class="current-price text-brand">{{ get_sell_price($product) }}</span>
                                         <span>
-                                            <span class="save-price font-md color3 ml-15">{{
-                                                calc_percentage_off($product) }}%
-                                                Off</span>
-                                            <span class="old-price font-md ml-15">{{ get_cost_price($product) }}</span>
+                                            <span class="save-price font-md color3 ml-15">
+                                                {{ calc_percentage_off($product) }} % Off</span>
+                                            <span
+                                                class="old-price font-md ml-15">{{ get_cost_price($product) }}</span>
                                         </span>
                                     </div>
                                 </div>
                                 <div class="short-desc mb-30">
-                                    <p class="font-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Aliquam rem officia, corrupti reiciendis minima nisi modi, quasi, odio minus
-                                        dolore impedit fuga eum eligendi.</p>
-                                </div>
-                                <!-- <div class="attr-detail attr-size mb-30">
+                                    <p class="font-lg">{{ $product->details?->description }}
+                                        <!-- <div class="attr-detail attr-size mb-30">
                                     <strong class="mr-10">Size / Weight: </strong>
                                     <ul class="list-filter size-filter font-small">
                                         <li><a href="#">50g</a></li>
@@ -68,8 +66,8 @@
                                         <li><a href="#">80g</a></li>
                                         <li><a href="#">100g</a></li>
                                         <li><a href="#">150g</a></li>
-                                    </ul>
-                                </div> -->
+                                    </ul> -->
+                                </div>
                                 <form id="product-buy-form" method="POST" class="detail-extralink mb-50">
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
@@ -102,7 +100,7 @@
                             <!-- Detail Info -->
                         </div>
                     </div>
-                    <div class="product-info">
+                    {{-- <div class="product-info">
                         <div class="tab-style3">
                             <ul class="nav nav-tabs text-uppercase">
                                 <li class="nav-item">
@@ -114,21 +112,26 @@
                                         href="#Additional-info">Additional info</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews
+                                    <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab"
+                                        href="#Reviews">Reviews
                                         (3)</a>
                                 </li>
                             </ul>
                             <div class="tab-content shop_info_tab entry-main-content">
                                 <div class="tab-pane fade show active" id="Description">
                                     <div class="">
-                                        <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending
+                                        <p>Uninhibited carnally hired played in whimpered dear gorilla koala
+                                            depending
                                             and much yikes off far quetzal goodness and from for grimaced goodness
                                             unaccountably and meadowlark near unblushingly crucial scallop tightly
                                             neurotic hungrily some and dear furiously this apart.</p>
                                         <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much
-                                            hello on spoon-fed that alas rethought much decently richly and wow against
-                                            the frequent fluidly at formidable acceptably flapped besides and much circa
-                                            far over the bucolically hey precarious goldfinch mastodon goodness gnashed
+                                            hello on spoon-fed that alas rethought much decently richly and wow
+                                            against
+                                            the frequent fluidly at formidable acceptably flapped besides and much
+                                            circa
+                                            far over the bucolically hey precarious goldfinch mastodon goodness
+                                            gnashed
                                             a jellyfish and one however because.</p>
                                         <ul class="product-more-infor mt-30">
                                             <li><span>Type Of Packing</span> Bottle</li>
@@ -138,23 +141,36 @@
                                             <li><span>Piece In One</span> Carton</li>
                                         </ul>
                                         <hr class="wp-block-separator is-style-dots" />
-                                        <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello
-                                            far meadowlark imitatively egregiously hugged that yikes minimally unanimous
-                                            pouted flirtatiously as beaver beheld above forward energetic across this
-                                            jeepers beneficently cockily less a the raucously that magic upheld far so
-                                            the this where crud then below after jeez enchanting drunkenly more much wow
+                                        <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey
+                                            hello
+                                            far meadowlark imitatively egregiously hugged that yikes minimally
+                                            unanimous
+                                            pouted flirtatiously as beaver beheld above forward energetic across
+                                            this
+                                            jeepers beneficently cockily less a the raucously that magic upheld far
+                                            so
+                                            the this where crud then below after jeez enchanting drunkenly more much
+                                            wow
                                             callously irrespective limpet.</p>
                                         <h4 class="mt-30">Packaging & Delivery</h4>
                                         <hr class="wp-block-separator is-style-wide" />
-                                        <p>Less lion goodness that euphemistically robin expeditiously bluebird smugly
-                                            scratched far while thus cackled sheepishly rigid after due one assenting
-                                            regarding censorious while occasional or this more crane went more as this
-                                            less much amid overhung anathematic because much held one exuberantly sheep
+                                        <p>Less lion goodness that euphemistically robin expeditiously bluebird
+                                            smugly
+                                            scratched far while thus cackled sheepishly rigid after due one
+                                            assenting
+                                            regarding censorious while occasional or this more crane went more as
+                                            this
+                                            less much amid overhung anathematic because much held one exuberantly
+                                            sheep
                                             goodness so where rat wry well concomitantly.</p>
-                                        <p>Scallop or far crud plain remarkably far by thus far iguana lewd precociously
-                                            and and less rattlesnake contrary caustic wow this near alas and next and
-                                            pled the yikes articulate about as less cackled dalmatian in much less well
-                                            jeering for the thanks blindly sentimental whimpered less across objectively
+                                        <p>Scallop or far crud plain remarkably far by thus far iguana lewd
+                                            precociously
+                                            and and less rattlesnake contrary caustic wow this near alas and next
+                                            and
+                                            pled the yikes articulate about as less cackled dalmatian in much less
+                                            well
+                                            jeering for the thanks blindly sentimental whimpered less across
+                                            objectively
                                             fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious
                                             luridly irrationally attractively dachshund.</p>
                                         <h4 class="mt-30">Suggested Use</h4>
@@ -165,9 +181,11 @@
                                         <h4 class="mt-30">Other Ingredients</h4>
                                         <ul class="product-more-infor mt-30">
                                             <li>Organic raw pecans, organic raw cashews.</li>
-                                            <li>This butter was produced using a LTG (Low Temperature Grinding) process
+                                            <li>This butter was produced using a LTG (Low Temperature Grinding)
+                                                process
                                             </li>
-                                            <li>Made in machinery that processes tree nuts but does not process peanuts,
+                                            <li>Made in machinery that processes tree nuts but does not process
+                                                peanuts,
                                                 gluten, dairy or soy</li>
                                         </ul>
                                         <h4 class="mt-30">Warnings</h4>
@@ -282,20 +300,26 @@
                                                             <div class="desc">
                                                                 <div class="d-flex justify-content-between mb-10">
                                                                     <div class="d-flex align-items-center">
-                                                                        <span class="font-xs text-muted">December 4,
+                                                                        <span class="font-xs text-muted">December
+                                                                            4,
                                                                             2021 at 3:12 pm </span>
                                                                     </div>
                                                                     <div class="product-rate d-inline-block">
-                                                                        <div class="product-rating" style="width: 100%">
+                                                                        <div class="product-rating"
+                                                                            style="width: 100%">
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <p class="mb-10">Lorem ipsum dolor sit amet,
+                                                                <p class="mb-10">Lorem ipsum dolor sit
+                                                                    amet,
                                                                     consectetur adipisicing elit. Delectus, suscipit
-                                                                    exercitationem accusantium obcaecati quos voluptate
+                                                                    exercitationem accusantium obcaecati quos
+                                                                    voluptate
                                                                     nesciunt facilis itaque modi commodi dignissimos
-                                                                    sequi repudiandae minus ab deleniti totam officia id
-                                                                    incidunt? <a href="#" class="reply">Reply</a></p>
+                                                                    sequi repudiandae minus ab deleniti totam
+                                                                    officia id
+                                                                    incidunt? <a href="#"
+                                                                        class="reply">Reply</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -309,7 +333,8 @@
                                                             <div class="desc">
                                                                 <div class="d-flex justify-content-between mb-10">
                                                                     <div class="d-flex align-items-center">
-                                                                        <span class="font-xs text-muted">December 4,
+                                                                        <span class="font-xs text-muted">December
+                                                                            4,
                                                                             2021 at 3:12 pm </span>
                                                                     </div>
                                                                     <div class="product-rate d-inline-block">
@@ -317,12 +342,16 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <p class="mb-10">Lorem ipsum dolor sit amet,
+                                                                <p class="mb-10">Lorem ipsum dolor sit
+                                                                    amet,
                                                                     consectetur adipisicing elit. Delectus, suscipit
-                                                                    exercitationem accusantium obcaecati quos voluptate
+                                                                    exercitationem accusantium obcaecati quos
+                                                                    voluptate
                                                                     nesciunt facilis itaque modi commodi dignissimos
-                                                                    sequi repudiandae minus ab deleniti totam officia id
-                                                                    incidunt? <a href="#" class="reply">Reply</a></p>
+                                                                    sequi repudiandae minus ab deleniti totam
+                                                                    officia id
+                                                                    incidunt? <a href="#"
+                                                                        class="reply">Reply</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -335,7 +364,8 @@
                                                             <div class="desc">
                                                                 <div class="d-flex justify-content-between mb-10">
                                                                     <div class="d-flex align-items-center">
-                                                                        <span class="font-xs text-muted">December 4,
+                                                                        <span class="font-xs text-muted">December
+                                                                            4,
                                                                             2021 at 3:12 pm </span>
                                                                     </div>
                                                                     <div class="product-rate d-inline-block">
@@ -343,12 +373,16 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <p class="mb-10">Lorem ipsum dolor sit amet,
+                                                                <p class="mb-10">Lorem ipsum dolor sit
+                                                                    amet,
                                                                     consectetur adipisicing elit. Delectus, suscipit
-                                                                    exercitationem accusantium obcaecati quos voluptate
+                                                                    exercitationem accusantium obcaecati quos
+                                                                    voluptate
                                                                     nesciunt facilis itaque modi commodi dignissimos
-                                                                    sequi repudiandae minus ab deleniti totam officia id
-                                                                    incidunt? <a href="#" class="reply">Reply</a></p>
+                                                                    sequi repudiandae minus ab deleniti totam
+                                                                    officia id
+                                                                    incidunt? <a href="#"
+                                                                        class="reply">Reply</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -392,7 +426,8 @@
                                                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%
                                                     </div>
                                                 </div>
-                                                <a href="#" class="font-xs text-muted">How are ratings calculated?</a>
+                                                <a href="#" class="font-xs text-muted">How are ratings
+                                                    calculated?</a>
                                             </div>
                                         </div>
                                     </div>
@@ -425,8 +460,8 @@
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <input class="form-control" name="website" id="website"
-                                                                    type="text" placeholder="Website" />
+                                                                <input class="form-control" name="website"
+                                                                    id="website" type="text" placeholder="Website" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -441,7 +476,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row mt-60">
                         <div class="col-12">
                             <h2 class="section-title style-1 mb-30">Related products</h2>
@@ -449,44 +484,45 @@
                         <div class="col-12">
                             <div class="row related-products">
                                 @foreach ($related_products as $related)
-                                <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                    <div class="product-cart-wrap hover-up">
-                                        <div class="product-img-action-wrap">
-                                            <div class="product-img product-img-zoom">
-                                                <a href="{{ route('product.details', $related) }}" tabindex="0">
-                                                    {{ $related->getFirstMedia('thumbnail') }}
-                                                </a>
+                                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                        <div class="product-cart-wrap hover-up">
+                                            <div class="product-img-action-wrap">
+                                                <div class="product-img product-img-zoom">
+                                                    <a href="{{ route('product.details', $related) }}" tabindex="0">
+                                                        {{ $related->getFirstMedia('thumbnail') }}
+                                                    </a>
+                                                </div>
+                                                <div class="product-action-1">
+                                                    <a aria-label="Quick view" class="action-btn small hover-up"
+                                                        data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                            class="fi-rs-search"></i></a>
+                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
+                                                        href="shop-wishlist.html" tabindex="0"><i
+                                                            class="fi-rs-heart"></i></a>
+                                                    <a aria-label="Compare" class="action-btn small hover-up"
+                                                        href="shop-compare.html" tabindex="0"><i
+                                                            class="fi-rs-shuffle"></i></a>
+                                                </div>
+                                                <div class="product-badges product-badges-position product-badges-mrg">
+                                                    <span class="hot">Hot</span>
+                                                </div>
                                             </div>
-                                            <div class="product-action-1">
-                                                <a aria-label="Quick view" class="action-btn small hover-up"
-                                                    data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
-                                                        class="fi-rs-search"></i></a>
-                                                <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                    href="shop-wishlist.html" tabindex="0"><i
-                                                        class="fi-rs-heart"></i></a>
-                                                <a aria-label="Compare" class="action-btn small hover-up"
-                                                    href="shop-compare.html" tabindex="0"><i
-                                                        class="fi-rs-shuffle"></i></a>
-                                            </div>
-                                            <div class="product-badges product-badges-position product-badges-mrg">
-                                                <span class="hot">Hot</span>
-                                            </div>
-                                        </div>
-                                        <div class="product-content-wrap">
-                                            <h2>
-                                                <a href="{{ route('product.details', $related) }}" tabindex="0">{{
-                                                    $related->name }}</a>
-                                            </h2>
-                                            <div class="rating-result" title="90%">
-                                                <span> </span>
-                                            </div>
-                                            <div class="product-price">
-                                                <span>{{ get_sell_price($related) }}</span>
-                                                <span class="old-price">{{ get_cost_price($related) }}</span>
+                                            <div class="product-content-wrap">
+                                                <h2>
+                                                    <a href="{{ route('product.details', $related) }}"
+                                                        tabindex="0">{{ $related->name }}</a>
+                                                </h2>
+                                                <div class="rating-result" title="90%">
+                                                    <span> </span>
+                                                </div>
+                                                <div class="product-price">
+                                                    <span>{{ get_sell_price($related) }}</span>
+                                                    <span
+                                                        class="old-price">{{ get_cost_price($related) }}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -497,8 +533,8 @@
     </section>
 
     @push('inline-scripts')
-    <script>
-        $('#cart-add #loading').hide()
-    </script>
+        <script>
+            $('#cart-add #loading').hide()
+        </script>
     @endpush
 </x-app-layout>

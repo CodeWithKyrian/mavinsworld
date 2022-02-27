@@ -30,10 +30,8 @@
                                 value="{{ $product->details?->meta_description }}" />
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Full description</label>
-                            <textarea placeholder="Type here" class="form-control" rows="4">
-                            {{ $product->details?->description }}
-                            </textarea name="description">
+                            <label class="form-label">Full Description</label>
+                            <textarea placeholder="Type here" name="description" class="form-control" rows="4">{{ $product->details?->description }}</textarea name="description">
                         </div>
                         <div class="row">
                             <div class="col-lg-4">

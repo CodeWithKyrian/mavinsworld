@@ -22,6 +22,7 @@ footer {
 }
 .newsletter {
     position: relative;
+    padding: 0 .75rem;
     .newsletter-inner {
         background: url(../../img/banner/long-banner.jpeg) no-repeat center;
         background-size: cover;
@@ -47,23 +48,9 @@ footer {
             h2{
                 color: $color-heading-light;
             }
-            form {
-                background-color: #fff;
-                max-width: 450px;
-                border-radius: 50px;
-                position: relative;
-                z-index: 4;
-                input {
-                    border: 0;
-                    border-radius: 50px 0 0 50px;
-                    padding-left: 58px;
-                    background: url(../../img/theme/icons/icon-plane.png) no-repeat 25px center;
-                }
-                button {
-                    border: 0;
-                    border-radius: 50px;
-                    font-weight: 700;
-                }
+            a {
+                i {margin-left: 5px;transition-duration: 0.3s;font-size: 10px;}
+                &:hover i {margin-left: 10px; transition-duration: 0.3s;}
             }
         }
     }

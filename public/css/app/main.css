@@ -21374,6 +21374,27 @@ span.fi-rs-apps {
   opacity: 0.7;
 }
 
+.whatsapp-button {
+  position: fixed;
+  z-index: 100;
+  bottom: 1rem;
+  left: 1rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: #F8BA06;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.whatsapp-button svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+}
+
 /*LAYOUT -> NAVIGATION STYLE*/
 .main-menu.main-menu-mrg-1 {
   margin: 0 0 0 27px;
@@ -22287,6 +22308,7 @@ footer .hotline img {
 
 .newsletter {
   position: relative;
+  padding: 0 0.75rem;
 }
 .newsletter .newsletter-inner {
   background: url(../../img/banner/long-banner.jpeg) no-repeat center;
@@ -22313,23 +22335,14 @@ footer .hotline img {
 .newsletter .newsletter-inner .newsletter-content h2 {
   color: #f4f5f9;
 }
-.newsletter .newsletter-inner .newsletter-content form {
-  background-color: #fff;
-  max-width: 450px;
-  border-radius: 50px;
-  position: relative;
-  z-index: 4;
+.newsletter .newsletter-inner .newsletter-content a i {
+  margin-left: 5px;
+  transition-duration: 0.3s;
+  font-size: 10px;
 }
-.newsletter .newsletter-inner .newsletter-content form input {
-  border: 0;
-  border-radius: 50px 0 0 50px;
-  padding-left: 58px;
-  background: url(../../img/theme/icons/icon-plane.png) no-repeat 25px center;
-}
-.newsletter .newsletter-inner .newsletter-content form button {
-  border: 0;
-  border-radius: 50px;
-  font-weight: 700;
+.newsletter .newsletter-inner .newsletter-content a:hover i {
+  margin-left: 10px;
+  transition-duration: 0.3s;
 }
 
 .widget-about {
@@ -22461,7 +22474,7 @@ footer .hotline img {
 
 @media only screen and (min-width: 768px) {
   .section-padding {
-    padding: 2.5rem;
+    padding: 2rem 2.5rem;
   }
 
   .lg-pt-0 {
@@ -24019,6 +24032,17 @@ footer .hotline img {
     padding-left: 0.2rem;
   }
 
+  .newsletter .newsletter-inner {
+    padding: 60px 20px;
+  }
+  .newsletter .newsletter-inner h2 {
+    font-size: 22px;
+  }
+  .newsletter .newsletter-inner .newsletter-content p {
+    font-size: 14px;
+    margin-bottom: 25px !important;
+  }
+
   .totall-product h2 {
     font-size: 28px;
   }
@@ -24841,6 +24865,15 @@ footer .hotline img {
     padding: 12px 20px;
   }
 
+  .whatsapp-button {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .whatsapp-button svg {
+    width: 1.7rem;
+    height: 2.7rem;
+  }
+
   .banners {
     padding-left: 2px;
     padding-right: 2px;
@@ -25201,20 +25234,6 @@ footer .hotline img {
   .product-list-small .col-md-8 {
     float: left;
     max-width: 70%;
-  }
-
-  .newsletter .newsletter-inner {
-    padding: 60px 20px;
-  }
-  .newsletter .newsletter-inner h2 {
-    font-size: 22px;
-  }
-  .newsletter .newsletter-inner .newsletter-content p {
-    font-size: 14px;
-    margin-bottom: 25px !important;
-  }
-  .newsletter .newsletter-inner button.submit, .newsletter .newsletter-inner button[type=submit] {
-    padding: 12px 20px;
   }
 
   .sub-page-header {

@@ -13,9 +13,13 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::with('user')->latest()->paginate(10);
+        $orders = Order::with('user')
+            ->search($request->input('s'))
+            ->latest()
+            ->paginate(10);
+            
         return view('admin.order.index', compact('orders'));
     }
 

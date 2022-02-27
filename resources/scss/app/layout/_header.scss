@@ -1649,3 +1649,26 @@ span.fi-rs-apps {
 .hotline i {
 	opacity: 0.7;
 }
+
+
+.whatsapp-button{
+	position: fixed;
+	z-index: 100;
+	bottom: 1rem;
+	left: 1rem;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	background: $color-brand;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	svg{
+		width: 2rem;
+		height: 2rem;
+		fill: currentColor;
+		box-shadow: $box-shadown-2;
+	}
+}

@@ -32,7 +32,7 @@
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Full description</label>
-                            <textarea placeholder="Type here" class="form-control" rows="4"></textarea name="description">
+                            <textarea placeholder="Type here" class="form-control" rows="4" name="description"></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">

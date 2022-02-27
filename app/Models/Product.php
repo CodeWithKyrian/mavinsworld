@@ -89,7 +89,7 @@ class Product extends Model implements HasMedia
     }
 
     /**
-     * Scope a query to search posts
+     * Scope a query to search products
      */
     public function scopeSearch(Builder $query, ?string $search)
     {

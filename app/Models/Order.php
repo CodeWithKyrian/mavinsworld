@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -77,5 +78,19 @@ class Order extends Model
             $this->delivered_at => 2,
             default => 3
         };
+    }
+
+        /**
+     * Scope a query to search posts
+     */
+    public function scopeSearch(Builder $query, ?string $search)
+    {
+        if ($search) {
+            return $query
+            ->where('code', 'LIKE', "%{$search}%")
+            ->orWhereRelation('user', 'firstname', 'LIKE', "%{$search}%")
+            ->orWhereRelation('user', 'lastname', 'LIKE', "%{$search}%")
+            ->latest();
+        }
     }
 }

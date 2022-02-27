@@ -4,22 +4,23 @@
             <h2 class="content-title card-title">Order List</h2>
             <p>Here's a list of all orders</p>
         </div>
-        <div>
-            <input type="text" placeholder="Search order ID" class="form-control bg-white" />
-        </div>
+        <form action="{{route('admin.order.index')}}" method="get">
+            <input type="text" placeholder="Search order ID" name="s" class="form-control bg-white" />
+        </form>
     </div>
     <div class="card mb-4">
         <header class="card-header">
             <div class="row gx-3">
-                <div class="col-lg-4 col-md-6 me-auto">
-                    <input type="text" placeholder="Search..." class="form-control" />
-                </div>
+                <form action="{{route('admin.order.index')}}" method="get" class="col-lg-4 col-md-6 me-auto">
+                    <input type="text" placeholder="Search..." name="s" class="form-control" />
+                </form>
                 <div class="col-lg-2 col-6 col-md-3">
                     <select class="form-select">
-                        <option disabled>Status</option>
-                        <option>Active</option>
-                        <option>Disabled</option>
-                        <option>Show all</option>
+                        <option disabled >Show All</option>
+                        <option>Unpaid</option>
+                        <option>Paid</option>
+                        <option>Dispatched</option>
+                        <option>Delivered</option>
                     </select>
                 </div>
             </div>

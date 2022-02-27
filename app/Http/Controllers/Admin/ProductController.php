@@ -116,10 +116,10 @@ class ProductController extends Controller
             'is_featured' => $request->boolean('is_featured'),
         ]);
 
-        $product->details()->update([
-            'description' => $request->description,
-            'meta_description' => $request->meta_description,
-        ]);
+        $product->details()->updateOrCreate(
+            ['product_id' => $product->id],
+            ['description' => $request->description, 'meta_description' => $request->meta_description]
+        );
 
         if ($request->boolean('has_discount')) {
             $product->discount()->updateOrCreate(
