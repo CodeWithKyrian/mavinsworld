@@ -78,7 +78,7 @@
         <div class="pt-15 pb-20">
             <div class="row">
                 <div class="footer-link-widget col">
-                    <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp"
+                    <div class="widget-about font-md mb-md-3 pr-20 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp"
                         data-wow-delay="0">
                         <div class="logo mb-30">
                             <a href="index.html" class="mb-15"><img src="/img/mavinsworld.png"
@@ -109,7 +109,7 @@
                     <h4 class="widget-title">Reach us</h4>
                     <ul class="contact-infor">
                         <li><img src="/img/theme/icons/icon-location.svg" alt="" /><strong>Address:
-                            </strong> <span>65 Matuta Street, Lagos, Nigeria</span>
+                            </strong> <span>Anambra State, Nigeria</span>
                         </li>
                         <li><img src="/img/theme/icons/icon-contact.svg" alt="" /><strong>Call
                                 Us:</strong><span>+234 907 6363 8553</span></li>

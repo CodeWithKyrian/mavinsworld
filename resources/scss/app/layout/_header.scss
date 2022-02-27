@@ -1653,19 +1653,23 @@ span.fi-rs-apps {
 
 .whatsapp-button{
 	position: fixed;
-	z-index: 100;
+	z-index: 200;
 	bottom: 1rem;
 	left: 1rem;
 	width: 4rem;
 	height: 4rem;
 	border-radius: 50%;
-	background: $color-brand;
-	opacity: 80;
+	background: rgba(27, 197, 64, 0.8);
 	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	box-shadow: $box-shadown-2;
+
+	&:hover{
+		color: #fff;
+		background: $color-brand;
+	}
 
 	svg{
 		width: 2rem;

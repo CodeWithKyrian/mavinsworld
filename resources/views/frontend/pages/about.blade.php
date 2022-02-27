@@ -1,9 +1,9 @@
 <x-app-layout title="About Us">
     <div class="page-header breadcrumb-wrap">
         <div class="container">
-            <div class="breadcrumb">
-                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Pages <span></span> About us
+            <div class="breadcrumb light">
+                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                 <span></span> About us
             </div>
         </div>
     </div>
@@ -18,17 +18,9 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="lg-pl-25">
-                                <h1 class="heading-1 mb-30">Welcome to Marvins World</h1>
-                                <p class="mb-25">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate id est laborum.</p>
-                                <p class="mb-50">Ius ferri velit sanctus cu, sed at soleat accusata. Dictas prompta et
-                                    Ut placerat legendos interpre.Donec vitae sapien ut libero venenatis faucibus.
-                                    Nullam quis ante Etiam sit amet orci eget. Quis commodo odio aenean sed adipiscing.
-                                    Turpis massa tincidunt dui ut ornare lectus. Auctor elit sed vulputate mi sit amet.
-                                    Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate id est
-                                    laborum.</p>
+                                <h1 class="heading-1 mb-20">Welcome to Marvins World </p>
+                                <p class="mb-20">Marvins World is a registered herbal brand under CAC, Nigeria. Through hard work, dedication, and determination, Marvins World provides the best herbal solutions for body enhancement, sexual-related problems, and a lasting solution to restore sexual confidence. </p>
+                                <p class="mb-30">We have taken a lead through our various reviews from our clients and we are glad you would become part of our success stories. Remarkably, we specialize in giving permanent solutions for quick ejaculation, poor erection, low sperm count, infection, infertility, pile, ulcer, boobs and butt enlargement, and lots more.  </p>
                                 <div class="carausel-3-columns-cover position-relative">
                                     <div id="carausel-3-columns-arrows"></div>
                                     <div class="carausel-3-columns" id="carausel-3-columns">
@@ -41,7 +33,7 @@
                             </div>
                         </div>
                     </section>
-                    <section class="text-center mb-50">
+                    {{-- <section class="text-center mb-50">
                         <h1 class="title heading-1 style-3 mb-40">What We Provide?</h1>
                         <div class="row">
                             <div class="col-lg-4 col-md-6 mb-24">
@@ -99,37 +91,30 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> --}}
                     <section class="row align-items-center mb-50">
                         <div class="row mb-50 align-items-center">
                             <div class="col-lg-7 pr-30">
-                                <img src="/img/page/about-5.png" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
+                                <img style="width: 100%" src="{{asset('img/16-9-video.png')}}" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" />
                             </div>
                             <div class="col-lg-5">
-                                <h4 class="mb-20 text-muted">Our performance</h4>
-                                <h1 class="heading-1 mb-40">Your Infection Solution</h1>
-                                <p class="mb-30">Ed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                    accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
-                                    inventore veritatis et quasi architecto</p>
-                                <p>Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                                    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia</p>
+                                <h6 class="mb-5 text-brand">Our Performance</h6>
+                                <h1 class="heading-1 mb-40">We are the best in Nigeria</h1>
+                                <p class="mb-30">With our fast-growing form within and outside Nigeria, Marvins World creates a favorable and safe platform for reliable distributions of Products around its sphere of operations. Diverse testimonies precede the resounding name of our brand; the genuine and accurate mixture of herbal products singles us out as the best in this field of herbal medicine. </p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-4 pr-30 mb-md-5 mb-lg-0 mb-sm-5">
                                 <h3 class="mb-30">Who we are</h3>
-                                <p>Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros
-                                    donec ac odio orci ultrices in. ellus eros donec ac odio orci ultrices in.</p>
+                                <p>We are Marvins Herbal World with undeniable proofs of originality in the world of herbal medicine. Several research before production justifies our products as the best. </p>
                             </div>
                             <div class="col-lg-4 pr-30 mb-md-5 mb-lg-0 mb-sm-5">
-                                <h3 class="mb-30">Our history</h3>
-                                <p>Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros
-                                    donec ac odio orci ultrices in. ellus eros donec ac odio orci ultrices in.</p>
+                                <h3 class="mb-30">Our Goal</h3>
+                                <p>To create a safe world where herbal medications will receive the attention it deserves. Our products and customer services are defined channels for a productive and reliable platform.</p>
                             </div>
                             <div class="col-lg-4">
-                                <h3 class="mb-30">Our mission</h3>
-                                <p>Volutpat diam ut venenatis tellus in metus. Nec dui nunc mattis enim ut tellus eros
-                                    donec ac odio orci ultrices in. ellus eros donec ac odio orci ultrices in.</p>
+                                <h3 class="mb-30">Our Vision</h3>
+                                <p>We seek to restore sexual confidence of all our esteemed customers and redefine the body system of every reachable person for a healthy performance.  </p>
                             </div>
                         </div>
                     </section>
@@ -165,48 +150,23 @@
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <section class="mb-50">
                         <div class="row">
-                            <div class="col-lg-4 mb-lg-0 mb-md-5 mb-sm-5">
+                            <div class="col-lg-6 mb-lg-0 mb-md-5 mb-sm-5">
                                 <h6 class="mb-5 text-brand">Our Team</h6>
                                 <h1 class="heading-1 mb-30">Meet Our CEO</h1>
-                                <p class="mb-30">Proin ullamcorper pretium orci. Donec necscele risque leo. Nam massa
-                                    dolor imperdiet neccon sequata congue idsem. Maecenas malesuada faucibus finibus.
+                                <p class="mb-30"><strong>ONYIA, LAWRENCE CHIAGOZIE</strong>  is the founder and CEO of Marvins Herbal World; a decorated mastermind in the world of herbs who through sleepless nights, hard work and self-determination created and redefined the world of herbs. 
                                 </p>
-                                <p class="mb-30">Proin ullamcorper pretium orci. Donec necscele risque leo. Nam massa
-                                    dolor imperdiet neccon sequata congue idsem. Maecenas malesuada faucibus finibus.
+                                <p class="mb-30">Through hard work and resilience, Lawrence built an empire with herbs and fortified it with consistency, durability, and a strong desire to restore the body system for a healthy performance. He is the brain behind remarkable discoveries of extraordinary traditional/native herbs which have gained a lot of relevance in Nigeria and abroad.     
                                 </p>
                                 {{-- <a href="#" class="btn">View All Members</a> --}}
                             </div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-6">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-12">
                                         <div class="team-card">
-                                            <img src="/img/page/about-6.png" alt="" />
+                                            <img src="{{asset('img/people/onyia-lawrence.jpeg')}}" alt="" />
                                             <div class="content text-center">
-                                                <h4 class="mb-5">H. Merinda</h4>
-                                                <span>CEO & Co-Founder</span>
-                                                <div class="social-network mt-20">
-                                                    <a href="#"><img
-                                                            src="/img/theme/icons/icon-facebook-brand.svg"
-                                                            alt="" /></a>
-                                                    <a href="#"><img
-                                                            src="/img/theme/icons/icon-twitter-brand.svg"
-                                                            alt="" /></a>
-                                                    <a href="#"><img
-                                                            src="/img/theme/icons/icon-instagram-brand.svg"
-                                                            alt="" /></a>
-                                                    <a href="#"><img
-                                                            src="/img/theme/icons/icon-youtube-brand.svg"
-                                                            alt="" /></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="team-card">
-                                            <img src="/img/page/about-8.png" alt="" />
-                                            <div class="content text-center">
-                                                <h4 class="mb-5">Dilan Specter</h4>
-                                                <span>Head Engineer</span>
+                                                <h4 class="mb-5">Onyia Lawrence</h4>
+                                                <span>CEO</span>
                                                 <div class="social-network mt-20">
                                                     <a href="#"><img
                                                             src="/img/theme/icons/icon-facebook-brand.svg"

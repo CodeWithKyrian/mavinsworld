@@ -76,9 +76,9 @@ footer {
     }
 }
 .footer-link-widget {
-    &:not(:last-child) {
-        margin-right: 50px;
-    }
+    // &:not(:last-child) {
+    //     margin-right: 50px;
+    // }
     p {
         font-size: 15px;
         color: $color-heading-light;
