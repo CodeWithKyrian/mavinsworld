@@ -21383,16 +21383,17 @@ span.fi-rs-apps {
   height: 4rem;
   border-radius: 50%;
   background: #F8BA06;
+  opacity: 80;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
 }
 .whatsapp-button svg {
   width: 2rem;
   height: 2rem;
   fill: currentColor;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /*LAYOUT -> NAVIGATION STYLE*/

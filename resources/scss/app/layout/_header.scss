@@ -1660,15 +1660,16 @@ span.fi-rs-apps {
 	height: 4rem;
 	border-radius: 50%;
 	background: $color-brand;
+	opacity: 80;
 	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	box-shadow: $box-shadown-2;
 
 	svg{
 		width: 2rem;
 		height: 2rem;
 		fill: currentColor;
-		box-shadow: $box-shadown-2;
 	}
 }
