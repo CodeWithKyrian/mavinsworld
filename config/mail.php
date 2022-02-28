@@ -42,6 +42,12 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
+            'streamOptions' => [
+                'ssl' => [
+                    'verify_peer' => false,
+                    'allow_self_signed' => true
+                ],
+            ],
         ],
 
         'ses' => [
