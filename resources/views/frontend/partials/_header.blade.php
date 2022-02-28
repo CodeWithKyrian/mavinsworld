@@ -250,7 +250,7 @@ $categories = App\Models\Category::all();
             </div>
             <div class="mobile-header-info-wrap">
                 <div class="single-mobile-header-info">
-                    <a href="page-contact.html"><i class="fi-rs-marker"></i> Our location </a>
+                    <a href="page-contact.html"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
                 </div>
 
                 <div class="single-mobile-header-info">
@@ -268,7 +268,7 @@ $categories = App\Models\Category::all();
                     </div>
                 @endauth
                 <div class="single-mobile-header-info">
-                    <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>
+                    <a href="tel:+2349033510205"><i class="fi-rs-headphones"></i>+234 903 351 0205 </a>
                 </div>
             </div>
             <div class="mobile-social-icon mb-50">
