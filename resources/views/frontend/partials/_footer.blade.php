@@ -136,7 +136,9 @@
                     <script>
                         document.write(new Date().getFullYear());
                     </script>, <strong class="text-brand">Marvins World</strong> -
-                    Powered By <strong class="text-brand">CodeWithKyrian</strong> <br />All rights reserved</p>
+                    Powered By <strong class="text-brand">
+                        <a href="https://codewithkyrian.com" target="_blank">CodeWithKyrian</a>
+                    </strong> <br />All rights reserved</p>
             </div>
             <div class="col-md-6 text-end d-none d-md-block">
                 <div class="mobile-social-icon">

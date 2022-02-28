@@ -88,7 +88,7 @@
                         </div>
                         <div class="d-flex flex-column justify-content-end align-items-end">
                             <div class="font-weight-bold">Need Help?</div>
-                            <div>Call - <a href="tel:+23490763638553">+234 907 6363 8553</a> </div>
+                            <div>Call - <a href="tel:+23490763638553">+234 903 351 0205</a> </div>
                         </div>
                     </div>
                 </div>

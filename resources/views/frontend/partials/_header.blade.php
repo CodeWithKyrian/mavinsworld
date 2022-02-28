@@ -10,7 +10,7 @@ $categories = App\Models\Category::all();
 
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
-        <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>
+        <span>Grand opening, <strong>up to 25%</strong> off all items. Only <strong>3 days</strong> left</span>
     </div>
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
         <div class="container">
@@ -116,10 +116,12 @@ $categories = App\Models\Category::all();
                                             </li>
                                         @endauth
 
-                                        <li>
-                                            <a href="{{ route('account.orders.index') }}"><i
-                                                    class="fi fi-rs-receipt mr-10"></i>My Orders</a>
-                                        </li>
+                                        @auth
+                                            <li>
+                                                <a href="{{ route('account.orders.index') }}"><i
+                                                        class="fi fi-rs-receipt mr-10"></i>My Orders</a>
+                                            </li>
+                                        @endauth
                                         <li>
                                             <a href="{{ route('about') }}"><i class="fi fi-rs-heart mr-10"></i>About
                                                 Us</a>
@@ -134,8 +136,7 @@ $categories = App\Models\Category::all();
                                         @guest
                                             <li>
                                                 <a href="{{ route('auth.login') }}"><i
-                                                        class="fi fi-rs-sign-in mr-10"></i>Sign
-                                                    in</a>
+                                                        class="fi fi-rs-sign-in mr-10"></i>Login</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('auth.register') }}"><i class="fi fi-rs-add mr-10"></i>
@@ -239,7 +240,8 @@ $categories = App\Models\Category::all();
                             <a href="#">Categories</a>
                             <ul class="dropdown">
                                 @foreach ($categories as $category)
-                                    <li><a href="{{ route('category.show', $category) }}">{{ $category->name }}</a>
+                                    <li><a
+                                            href="{{ route('category.show', $category) }}">{{ $category->name }}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -250,7 +252,7 @@ $categories = App\Models\Category::all();
             </div>
             <div class="mobile-header-info-wrap">
                 <div class="single-mobile-header-info">
-                    <a href="{{route('contact')}}"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
+                    <a href="{{ route('contact') }}"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
                 </div>
 
                 <div class="single-mobile-header-info">
@@ -279,7 +281,8 @@ $categories = App\Models\Category::all();
                 <a href="#"><img src="/img/theme/icons/icon-pinterest-white.svg" alt="" /></a>
                 <a href="#"><img src="/img/theme/icons/icon-youtube-white.svg" alt="" /></a>
             </div>
-            <div class="site-copyright">Copyright 2022 © Marvins World. All rights reserved. Powered by CodeWithKyrian.
+            <div class="site-copyright">Copyright 2022 © <strong class="text-brand">Marvins World</strong> . All
+                rights reserved. Powered by <a href="https://codewithkyrian.com" target="_blank">CodeWithKyrian.</a>
             </div>
         </div>
     </div>
