@@ -102,9 +102,9 @@
         </div>
         <div class="d-flex justify-content-center mb-15">
             <a href="{{ route('home') }}" class="btn mt-10 mb-sm-15 mr-5">
-                <i class="fi-rs-arrow-left mr-10"></i>Back to Shop</a>
+                <i class="fi-rs-arrow-left mr-20"></i>Back to Shop</a>
             <a href="{{ route('account.orders.index') }}" class="btn mt-10 mb-sm-15 ml-5">
-                My Orders<i class="fi-rs-arrow-right ml-10"></i></a>
+                My Orders<i class="fi-rs-arrow-right"></i></a>
         </div>
 
     </div>
