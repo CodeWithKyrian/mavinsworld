@@ -50,13 +50,9 @@ class CountrySeeder extends Seeder
             foreach ($c['states'] as $key => $state ) {
                 $state  = $country->states()->create(['name' => $state]);
 
-                $cost1 = ShippingCost::inRandomOrder()->first();
-                $cost2 = ShippingCost::inRandomOrder()->first();
+                $cost = ShippingCost::inRandomOrder()->first();
                 
-                $state->shipping_costs()->attach([
-                    $cost1->id =>  ['type' => 'pickup'],
-                    $cost2->id =>  ['type' => 'delivery'],
-                ]);
+                $cost->states()->save($state);
             }
         }
     }

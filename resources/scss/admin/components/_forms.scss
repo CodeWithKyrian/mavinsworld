@@ -3,7 +3,8 @@
 }
 
 
-.form-control,.form-select {
+.form-control,.form-select,
+.select2-container .select2-selection--multiple {
     background-color: #f4f5f9;
     border: 2px solid #f4f5f9;
     font-size: 13px;
@@ -13,7 +14,7 @@
     color: #4f5d77;
     width: 100%;
     border-radius: 4px;
-	height: 41px;
+	min-height: 41px;
     &:focus {
         background: transparent;
         border-color: #f4f5f9;
@@ -23,6 +24,16 @@
 		height: unset;
 		border-radius: 4px;
 	}
+}
+.select2-container.select2-container--focus{
+	border-color: #f4f5f9;
+}
+.select2-container.select2-container--open{
+	background: transparent;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+	padding: 3px 6px;
+	border: 1px solid #cacaca;
 }
 .form-label {
 	font-size: 13px;

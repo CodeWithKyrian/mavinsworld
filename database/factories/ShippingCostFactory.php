@@ -17,7 +17,9 @@ class ShippingCostFactory extends Factory
     public function definition()
     {
         return [
-            'amount' => $this->faker->numberBetween(1000, 3000)
+            'group_name' => $this->faker->word(),
+            'pickup_amount' => $this->faker->numberBetween(1000, 3000),
+            'delivery_amount' => $this->faker->numberBetween(1000, 3000)
         ];
     }
     

@@ -20,6 +20,12 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $categories = Category::factory()->count(2)->create();
+        $categories->push(Category::create([
+            'name' => 'Sexual Enhancement',
+            'slug' => 'sexual-enhancement',
+            'tags' => ['secual'],
+            'description' => 'Some description'
+        ]));
         $products = [
             [
                 'name' => 'Boob Enlargement', 'slug' => 'boob-enlargement', 'sku' => Str::random(8), 'tags' => ['sperm', 'booster'], 'cost_price' => 20000, 'selling_price' => 10000, 'current_stock' => 10, 'total_stock' => 50, 'unit' => 'bottles', 'is_published' => true, 'rating' => 3.5, 'url' => asset('img/product/boob-enlargement.jpg'), 'is_featured' => true

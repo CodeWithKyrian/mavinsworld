@@ -18176,7 +18176,8 @@ b {
   max-width: 100px;
 }
 
-.form-control, .form-select {
+.form-control, .form-select,
+.select2-container .select2-selection--multiple {
   background-color: #f4f5f9;
   border: 2px solid #f4f5f9;
   font-size: 13px;
@@ -18185,16 +18186,31 @@ b {
   color: #4f5d77;
   width: 100%;
   border-radius: 4px;
-  height: 41px;
+  min-height: 41px;
 }
-.form-control:focus, .form-select:focus {
+.form-control:focus, .form-select:focus,
+.select2-container .select2-selection--multiple:focus {
   background: transparent;
   border-color: #f4f5f9;
   box-shadow: none;
 }
-.form-control.select-multiple, .form-select.select-multiple {
+.form-control.select-multiple, .form-select.select-multiple,
+.select2-container .select2-selection--multiple.select-multiple {
   height: unset;
   border-radius: 4px;
+}
+
+.select2-container.select2-container--focus {
+  border-color: #f4f5f9;
+}
+
+.select2-container.select2-container--open {
+  background: transparent;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  padding: 3px 6px;
+  border: 1px solid #cacaca;
 }
 
 .form-label {

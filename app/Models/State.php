@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class State extends Model
 {
-    protected $fillable = ['name', 'country_id', 'status'];
+    protected $fillable = ['name', 'country_id', 'status', 'shipping_cost_id'];
     public $timestamps = false;
 
     protected $casts = [
@@ -18,8 +18,8 @@ class State extends Model
         return $this->belongsTo(Country::class);
     }
     
-    public function shipping_costs()
+    public function shipping_cost()
     {
-        return $this->belongsToMany(ShippingCost::class)->withPivot(['type']);
+        return $this->belongsTo(ShippingCost::class);
     }
 }

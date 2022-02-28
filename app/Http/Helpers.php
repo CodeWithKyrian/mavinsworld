@@ -87,3 +87,15 @@ if (!function_exists('media_library')) {
     }
 }
 
+if (!function_exists('get_shipping_fee')) {
+    function get_shipping_fee($state, $method): float
+    {
+        $state->load('shipping_cost');
+
+        if ($method == 'pickup')
+            return $state->shipping_cost->pickup_amount;
+        else
+            return $state->shipping_cost->delivery_amount;
+    }
+}
+

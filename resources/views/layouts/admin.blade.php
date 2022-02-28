@@ -104,13 +104,14 @@
             </ul>
             <hr />
             <ul class="menu-aside">
-                <li class="menu-item has-submenu">
+                <li class="menu-item has-submenu @route('admin.settings.*') active @endroute">
                     <a class="menu-link" href="#">
                         <i class="icon material-icons md-settings"></i>
                         <span class="text">Settings</span>
                     </a>
                     <div class="submenu">
                         <a href="{{route('admin.settings.general.index')}}">General Settings</a>
+                        <a href="{{route('admin.settings.shipping.index')}}">Shipping Settings</a>
                     </div>
                 </li>
             </ul>

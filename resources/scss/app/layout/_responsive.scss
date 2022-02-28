@@ -1058,6 +1058,11 @@
 			display: none;
 		}
 	}
+	.order-details .table{
+		thead {
+			display: table-header-group;
+		}
+	}
 	.table-subtotal{
 		td {
 			display: table-cell;

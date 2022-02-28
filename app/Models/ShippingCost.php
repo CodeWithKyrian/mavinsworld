@@ -9,12 +9,12 @@ class ShippingCost extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['amount'];
+    protected $fillable = ['group_name', 'pickup_amount', 'delivery_amount'];
 
     public $timestamps = false;
 
     public function states()
     {
-        return $this->belongsToMany(State::class)->withPivot(['type']);
+        return $this->hasMany(State::class);
     }
 }

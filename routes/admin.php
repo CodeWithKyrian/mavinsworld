@@ -25,7 +25,10 @@ Route::name('admin.')->group(function () {
         Route::resource('product', ProductController::class);
         Route::resource('order', OrderController::class)->only(['index', 'show', 'destroy', 'update']);
         Route::resource('category', CategoryController::class)->except(['show']);
-        Route::get('general-settings', [SettingsController::class, 'general_settings'])->name('settings.general.index');
+        Route::get('settings/general', [SettingsController::class, 'general'])->name('settings.general.index');
+        Route::get('settings/shipping', [SettingsController::class, 'shipping'])->name('settings.shipping.index');
+        Route::get('settings/shipping/{cost}', [SettingsController::class, 'editShippingCost'])->name('settings.shipping.edit');
+        Route::put('settings/shipping/{cost}', [SettingsController::class, 'updateShippingCost'])->name('settings.shipping.update');
     });
 
     Route::get('login', [AuthController::class, 'loginForm'])->name('login');

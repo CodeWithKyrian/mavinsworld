@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
@@ -40,15 +41,23 @@ Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('ca
 Route::post('/cart/delete', [CartController::class, 'deleteFromCart'])->name('cart.delete');
 Route::get('/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 Route::post('/get_shipping_methods/{state}', [CartController::class, 'getShippingMethods'])->name('cart.get_shipping_methods');
-Route::get('/update_order_summary/{shipping_cost}', [CartController::class, 'updateOrderSummary'])->name('cart.order-summary-update');
+Route::post('/update_order_summary', [CartController::class, 'updateOrderSummary'])->name('cart.update-order-summary');
 Route::post('/place-order', [CartController::class, 'placeOrder'])->name('cart.place-order');
 
 // PAYMENT
-Route::post('/payment', [OrderController::class, 'checkout'])->name('order.payment');
+Route::post('/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+
 Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])->name('order.payment.cancelled');
-Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
+
 
 
 Route::middleware('auth')->group(function (){
-    Route::get('/my-account', [HomeController::class, 'my_account'])->name('my-account');
+    Route::get('/account/dashboard', [AccountController::class, 'dashboard'])->name('account.dashboard');
+    Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders.index');
+    Route::get('/account/orders/{order}', [AccountController::class, 'viewOrder'])->name('account.orders.show');
+    Route::get('/account/details', [AccountController::class, 'account_details'])->name('account.details');
+    Route::put('/account/details', [AccountController::class, 'update_details'])->name('account.details.update');
+    Route::put('/account/password', [AccountController::class, 'update_password'])->name('account.password.update');
+    Route::get('/pay/{order}', [OrderController::class, 'pay'])->name('order.pay');
+    Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
 });

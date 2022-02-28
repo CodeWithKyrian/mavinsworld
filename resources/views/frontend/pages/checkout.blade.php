@@ -13,7 +13,7 @@
             <div class="col-lg-8 mb-40">
                 <h1 class="heading-2 mb-10">Checkout</h1>
                 <div class="d-flex justify-content-between">
-                    <h6 class="text-body">There are <span class="text-brand">3</span> products in your cart
+                    <h6 class="text-body">There are <span class="text-brand">{{$cart->item_count}}</span> products in your cart
                     </h6>
                 </div>
             </div>
@@ -34,9 +34,10 @@
                                         details
                                         below. If you are a new customer, please proceed to the Billing &amp; Shipping
                                         section.</p>
-                                    <form method="post">
+                                    <form method="post" action="{{route('auth.login')}}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" name="email" placeholder="Username Or Email">
+                                            <input type="email" name="email" placeholder=" Email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" placeholder="Password">
@@ -69,7 +70,7 @@
                 </div>
                 <div class="row">
                     <h4 class="mb-30">Billing Details</h4>
-                    <form action="{{ route('order.payment') }}" id="checkout-form" method="POST">
+                    <form action="{{ route('order.checkout') }}" id="checkout-form" method="POST">
                         @csrf
                         <input type="hidden" name="cart_id" value="{{ $cart->id }}">
 
@@ -123,23 +124,9 @@
                             <div class="form-group mb-30">
                                 <textarea rows="5" name="additional_info" placeholder="Additional information"></textarea>
                             </div>
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <div class="custome-checkbox">
-                                        <input class="form-check-input" type="checkbox" name="create_account"
-                                            id="createaccount">
-                                        <label class="form-check-label label_info" data-bs-toggle="collapse"
-                                            href="#collapsePassword" data-target="#collapsePassword"
-                                            aria-controls="collapsePassword" for="createaccount"><span>Create an
-                                                account?</span></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="collapsePassword" class="form-group create-account collapse in">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <input type="password" placeholder="Password" name="password">
-                                    </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="password" required placeholder="Password" name="password">
                                 </div>
                             </div>
                         @endguest
@@ -150,7 +137,7 @@
                                     <input type="hidden" autocomplete="off" name="address_id" id="address_id">
                                     <div class="form-group col-md-6">
                                         <div class="custom_select">
-                                            <select onchange="setShippingCosts(this);setCountryId(this)" id="address-select"
+                                            <select onchange="setShippingCosts(this);setCountryId(this)" id="state-select"
                                                 name="state_id" required autocomplete="off"
                                                 class="form-control select-active">
                                                 <option value="" selected disabled>Select Shipping Address...</option>
@@ -224,21 +211,29 @@
             @guest
                 setStates()
             @endguest
+            @auth
+                @if (!$addresses->count())
+                    setStates()
+                @endif
+            @endauth
+
             var methodSelectDefault = $('#method_select').html()
 
             function setStates() {
                 var country_id = $('#country-select').val()
 
-                $.get({
-                    url: route('states.get', country_id),
-                    success: function(data) {
-                        $('#state_select').html(data.states_view)
-                        $('#method_select').html(data.options)
-                    },
-                    complete: function() {
-                        $('#method_select').html(methodSelectDefault)
-                    }
-                })
+                if (country_id != null) {
+                    $.get({
+                        url: route('states.get', country_id),
+                        success: function(data) {
+                            $('#state_select').html(data.states_view)
+                            $('#method_select').html(data.options)
+                        },
+                        complete: function() {
+                            $('#method_select').html(methodSelectDefault)
+                        }
+                    })
+                }
             }
 
             function setShippingCosts(element) {

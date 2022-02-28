@@ -15154,7 +15154,7 @@ h5.widget-title {
 button.submit, button[type=submit] {
   font-size: 16px;
   font-weight: 500;
-  padding: 15px 40px;
+  padding: 13px 30px;
   color: #ffffff;
   border: none;
   background-color: #F8BA06;
@@ -19140,6 +19140,20 @@ table.no-border thead {
 
 .mw-200 {
   min-width: 200px;
+}
+
+.order-confirmation .product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+.order-confirmation .product-details .product-image {
+  width: 80px;
+  margin-right: 1rem;
+}
+.order-confirmation .product-details .product-image img {
+  height: auto;
 }
 
 /*BLOG*/
@@ -25060,6 +25074,10 @@ footer .hotline img {
   }
   .table thead {
     display: none;
+  }
+
+  .order-details .table thead {
+    display: table-header-group;
   }
 
   .table-subtotal td {

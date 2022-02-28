@@ -66,11 +66,6 @@ class HomeController extends Controller
         ]);
     }
 
-    public function my_account()
-    {
-        return view('frontend.pages.my-account');
-    }
-
     public function product_details(Product $product)
     {
         $product->load(['media', 'category', 'discount']);

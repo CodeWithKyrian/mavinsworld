@@ -90,7 +90,7 @@ $categories = App\Models\Category::all();
                                     </svg>
                                     <span class="cart-count pro-count blue">{{ $cart->itemCount }}</span>
                                 </a>
-                                <a href="shop-cart.html"><span class="lable">Cart</span></a>
+                                <a href="{{route('cart.index')}}"><span class="lable">Cart</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown cart-dropdown-hm2">
                                     @include('frontend.partials._cart-dropdown')
                                 </div>
@@ -109,7 +109,7 @@ $categories = App\Models\Category::all();
                                     <ul>
                                         @auth
                                         <li>
-                                            <a href="{{route('my-account')}}"><i class="fi fi-rs-user mr-10"></i>My
+                                            <a href="{{route('account.dashboard')}}"><i class="fi fi-rs-user mr-10"></i>My
                                                 Account</a>
                                         </li>
                                         @endauth
@@ -254,7 +254,7 @@ $categories = App\Models\Category::all();
                     <a href="{{route('auth.login')}}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
                     @endguest
                     @auth
-                    <a href="{{route('my-account')}}"><i class="fi-rs-user"></i>My Account</a>
+                    <a href="{{route('account.dashboard')}}"><i class="fi-rs-user"></i>My Account</a>
                     @endauth
                 </div>
                 @auth

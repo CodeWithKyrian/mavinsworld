@@ -1,26 +1,26 @@
 <footer class="main">
     <section class="newsletter mb-15 wow animate__animated animate__fadeIn">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="position-relative newsletter-inner">
-                        <div class="newsletter-content">
-                            <h2 class="mb-20">
-                                Are you worried about your <br />
-                                sexual performance in bed?
-                            </h2>
-                            <p class="mb-45">Get started with all sexual enhancement products from <span
-                                    class="text-brand">Marvins
-                                    World</span></p>
-                            @php
-                                $sex_enh_category = \App\Models\Category::where('name', 'LIKE', '%Sexual%')->first();
-                            @endphp
-                            <a href="{{ route('category.show', $sex_enh_category) }}" class="btn">Shop Now <i
-                                    class="fi-rs-arrow-small-right"></i></a>
-                        </div>
-                        {{-- <img src="/img/light-gold-bg.svg" alt="newsletter" /> --}}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="position-relative newsletter-inner">
+                    <div class="newsletter-content">
+                        <h2 class="mb-20">
+                            Are you worried about your <br />
+                            sexual performance in bed?
+                        </h2>
+                        <p class="mb-45">Get started with all sexual enhancement products from <span
+                                class="text-brand">Marvins
+                                World</span></p>
+                        @php
+                            $sex_enh_category = \App\Models\Category::where('name', 'LIKE', '%Sexual%')->first();
+                        @endphp
+                        <a href="{{ route('category.show', $sex_enh_category) }}" class="btn">Shop Now <i
+                                class="fi-rs-arrow-small-right"></i></a>
                     </div>
+                    {{-- <img src="/img/light-gold-bg.svg" alt="newsletter" /> --}}
                 </div>
             </div>
+        </div>
     </section>
     <section class="featured section-padding">
         <div class="row">
@@ -109,12 +109,17 @@
                     <h4 class="widget-title">Reach us</h4>
                     <ul class="contact-infor">
                         <li><img src="/img/theme/icons/icon-location.svg" alt="" /><strong>Address:
-                            </strong> <span>Anambra State, Nigeria</span>
+                            </strong> <span> Onitsha, Anambra State, Nigeria</span>
                         </li>
-                        <li><img src="/img/theme/icons/icon-contact.svg" alt="" /><strong>Call
-                                Us:</strong><span>+234 907 6363 8553</span></li>
-                        <li><img src="/img/theme/icons/icon-email-2.svg" alt="" /><strong>Email:
-                            </strong><span>support@marvinsworld.com</span></li>
+                        <li>
+                            <img src="/img/theme/icons/icon-contact.svg" alt="" />
+                            <strong>Call Us:</strong>
+                            <a href="tel:+2349033510205">+234 903 351 0205</a></li>
+                        <li>
+                            <img src="/img/theme/icons/icon-email-2.svg" alt="" />
+                            <strong>Email: </strong>
+                            <a href="mailto:marvinworld23@gmail.com"> marvinworld23@gmail.com</a>
+                        </li>
                     </ul>
                 </div>
             </div>

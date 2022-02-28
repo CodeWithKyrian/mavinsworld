@@ -16,6 +16,6 @@ class ShippingCostSeeder extends Seeder
     public function run()
     {
 
-        ShippingCost::factory()->count(10)->create();
+        ShippingCost::factory()->count(3)->create();
     }
 }

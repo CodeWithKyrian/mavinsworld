@@ -85,13 +85,12 @@ class CartController extends Controller
         $cart = get_current_cart();
 
         $addresses = collect();
+
         if (auth()->check()) {
             $user = request()->user();
             $user->load('addresses');
             $addresses = $user->addresses;
             $default_address = $addresses->where('is_default', true)->first();
-            $pickup_cost = $default_address->state->shipping_costs->where('pivot.type', 'pickup')->first();
-            $delivery_cost = $default_address->state->shipping_costs->where('pivot.type', 'delivery')->first();
         }
 
         $cart->items->load(['product.discount', 'product.media']);
@@ -130,23 +129,28 @@ class CartController extends Controller
 
     public function getShippingMethods(State $state)
     {
-        $state->load('shipping_costs');
+        $state->load('shipping_cost');
 
-        $pickup_cost = $state->shipping_costs->where('pivot.type', 'pickup')->first();
-        $delivery_cost = $state->shipping_costs->where('pivot.type', 'delivery')->first();
+        $shipping_cost = $state->shipping_cost;
 
         return response()->json([
             'options' => view(
                 'frontend.partials.checkout-shipping-method',
-                compact('pickup_cost', 'delivery_cost')
+                compact('shipping_cost')
             )->render()
         ]);
     }
 
-    public function updateOrderSummary(ShippingCost $shippingCost)
+    public function updateOrderSummary(Request $request)
     {
         $cart = get_current_cart();
+
+        $state = State::find($request->state_id);
+
+        $shipping_fee = get_shipping_fee($state, $request->shipping_method);
+
         $cart->items->load(['product.discount', 'product.media']);
-        return view('frontend.partials._checkout-order-summary', ['shipping_fee' => $shippingCost->amount, 'cart' => $cart]);
+
+        return view('frontend.partials._checkout-order-summary', ['shipping_fee' => $shipping_fee, 'cart' => $cart]);
     }
 }

@@ -7,7 +7,9 @@ use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\ShippingCost;
+use App\Models\State;
 use App\Models\User;
+use Auth;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -30,14 +32,19 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      *
      */
-    public function store(Request $request): Order
+    public function store(Request $request)
     {
         if (auth()->check()) {
 
             $user = $request->user();
+            $cart = Cart::with('items.product.discount')->find($request->cart_id);
+            $state = State::find($request->state_id);
 
             if ($user->addresses()->exists()) {
-                $address = Address::find($request->address_id);
+                $address = Address::query()
+                    ->where('user_id', $user->id)
+                    ->whereRelation('state', 'id', '=', $request->state_id)
+                    ->first();
             } else {
                 $address = $user->addresses()->create([
                     'country_id' => $request->country_id,
@@ -52,7 +59,7 @@ class OrderController extends Controller
                 'lastname' => $request->input('lastname'),
                 'email' => $request->input('email'),
                 'phone' => $request->phone,
-                'password' =>  $request->input('password') != null ? Hash::make($request->password) : null,
+                'password' =>  Hash::make($request->password),
             ]);
 
             $address = $user->addresses()->create([
@@ -61,23 +68,32 @@ class OrderController extends Controller
                 'state_id' => $request->state_id,
                 'is_default' => true
             ]);
+
+            Auth::login($user);
+
+            $cart = Cart::with('items.product.discount')->find($request->cart_id);
+
+            $cart->user_id = $user->id;
+            $cart->temp_user_id = null;
+            $cart->save();
+
+            $request->session()->regenerate();
+
+            $state = State::find($request->state_id);
         }
 
-        $cart = Cart::with('items.product.discount')->find($request->cart_id);
 
-        $shipping_cost = ShippingCost::with(['states' => function ($query) use ($address) {
-            return $query->where('state_id', $address->state_id);
-        }])->find($request->shipping_cost_id);
+        // By now, I should have four variables ready - $user, $address, $state and $cart
 
-        $shipping_fee = $shipping_cost->amount;
+        $shipping_fee = get_shipping_fee($state, $request->shipping_method);
 
         $order =  $user->orders()->create([
-            'code' =>  date('Ymd-s') . rand(10, 99),
+            'code' =>  date('Ymds') . rand(10, 99),
             'address_id' => $address->id,
             'sub_total' => $cart->total,
             'shipping_fee' => $shipping_fee,
             'grand_total' => $cart->total + $shipping_fee,
-            'shipping_method' => $shipping_cost->states->first()->pivot->type,
+            'shipping_method' => $request->shipping_method,
             'ordered_at' => now(),
         ]);
 
@@ -98,10 +114,12 @@ class OrderController extends Controller
 
     public function checkout(Request $request)
     {
-        DB::beginTransaction();
-
         $order = $this->store($request);
+        return $this->pay($order);
+    }
 
+    public function pay(Order $order)
+    {
         $order->load('user');
         $secretKey = config('paystack.secret_key');
         $baseUrl = config('paystack.payment_url');
@@ -127,15 +145,14 @@ class OrderController extends Controller
                 ->post('/transaction/initialize', $data)
                 ->json();
         } catch (\Exception $exp) {
-            DB::rollBack();
             flash('Something went wrong. Please try again!')->error();
             return redirect()
                 ->back();
         }
 
+
+
         $redirectUrl = $response['data']['authorization_url'];
-        DB::commit();
-        session()->forget('temp_user_id');
 
         return redirect()->away($redirectUrl);
     }
@@ -164,20 +181,23 @@ class OrderController extends Controller
             $order_id = $data['metadata']['order_id'];
             $order = Order::find($order_id);
 
-            $order->paid_at = now();
+            $order->paid_at = $data['paid_at'];
 
-            $order->transaction()->create([
-                'amount' => $order->grand_total,
-                'confirmed' => true,
-                'meta' => [
-                    'channel' => $data['channel'],
-                    'ip_address' => $data['ip_address']
-                ],
-                'reference' => $data['reference']
-            ]);
+            $order->transaction()->updateOrCreate(
+                ['order_id' => $order->id],
+                [
+                    'amount' => $order->grand_total,
+                    'confirmed' => true,
+                    'meta' => [
+                        'channel' => $data['channel'],
+                        'ip_address' => $data['ip_address']
+                    ],
+                    'reference' => $data['reference']
+                ]
+            );
 
             $order->save();
-            dd($order);
+            // dd($order);
         } else {
             session()->flash('flash_notification', [
                 'message' => 'Payment Cancelled',
@@ -186,16 +206,18 @@ class OrderController extends Controller
             return redirect()->route('home');
         }
 
-        return view('payment-complete');
+        $order->load(['items', 'address']);
+        $order->items->load(['product.media', 'product.category']);
+        $order->address->load(['state', 'country']);
+
+        return view('frontend.pages.order-complete', compact('order'));
     }
 
     public function cancelled(Order $order)
     {
-        $order->delete();
-
         flash('Payment Cancelled. Try again!')->error();
         return redirect()
-            ->route('cart.index');
+            ->route('account.orders.show', $order);
     }
 
 

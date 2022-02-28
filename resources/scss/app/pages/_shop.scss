@@ -1713,3 +1713,20 @@ table.no-border {
 .mw-200 {
 	min-width: 200px;
 }
+
+.order-confirmation{
+.product-details{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 12px;
+
+	.product-image{
+		width: 80px;
+margin-right: 1rem;
+		img{
+			height: auto;
+		}
+	}
+}
+}

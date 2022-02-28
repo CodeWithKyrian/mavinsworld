@@ -1,10 +1,11 @@
-<select name="shipping_cost_id" onchange="setShippingFee()" id="shipping-method-select" required class="form-control select-active">
+<select name="shipping_method" onchange="setShippingFee()" id="shipping-method-select" required
+    class="form-control select-active">
     <option value="">Select Shipping Method...</option>
-    @if ($pickup_cost != null)
-        <option value="{{$pickup_cost->id}}">Pickup - {{ format_price($pickup_cost->amount) }}</option>
+    @if ($shipping_cost->pickup_amount != null)
+        <option value="pickup">Pickup - {{ format_price($shipping_cost->pickup_amount) }}</option>
     @endif
-    @if ($delivery_cost != null)
-        <option value="{{$delivery_cost->id}}">Home Delivery - {{ format_price($delivery_cost->amount) }}</option>
+    @if ($shipping_cost->delivery_amount != null)
+        <option value="delivery">Home Delivery (Recommended) - {{ format_price($shipping_cost->delivery_amount) }}</option>
     @endif
 </select>
 
@@ -12,10 +13,16 @@
     $(".select-active").select2();
 
     function setShippingFee() {
-        var cost_id = $('#shipping-method-select').val()
+        var shipping_method = $('#shipping-method-select').val()
+        var state_id = $('#state-select').val()
 
-        $.get({
-            url: route('cart.order-summary-update', cost_id),
+        $.post({
+            url: route('cart.update-order-summary'),
+            data: {
+                _token: MARVINS.data.csrf,
+                state_id: state_id,
+                shipping_method: shipping_method
+            },
             success: function(data) {
                 $('#checkout-order-summary').html(data)
             },

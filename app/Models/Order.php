@@ -10,6 +10,11 @@ class Order extends Model
 {
     use HasFactory;
 
+    const STATUS_UNPAID = 'Awaiting Payment';
+    const STATUS_PAID = 'Payment done';
+    const STATUS_DISPATCHED = 'Order Dispatched';
+    const STATUS_DELIVERED = 'Delivered';
+
     protected $fillable = [
         'code', 'user_id', 'address_id', 'sub_total', 'shipping_fee', 'grand_total', 'shipping_method', 'paid_at', 'dispatched_at',
         'ordered_at', 'delivered_at'
@@ -54,28 +59,28 @@ class Order extends Model
     public function getStatusAttribute()
     {
         return match (null) {
-            $this->paid_at => 'Awaiting Payment',
-            $this->dispatched_at => 'Payment done',
-            $this->delivered_at => 'Order Dispatched',
-            default => 'Delivered'
+            $this->paid_at => self::STATUS_UNPAID,
+            $this->dispatched_at => self::STATUS_PAID,
+            $this->delivered_at => self::STATUS_DISPATCHED,
+            default => self::STATUS_DELIVERED
         };
     }
 
     public function getStatusColorAttribute()
     {
-        return match (null) {
-            $this->paid_at => 'alert-danger',
-            $this->dispatched_at => 'alert-warning',
-            $this->delivered_at => 'alert-info',
+        return match ($this->status) {
+            self::STATUS_UNPAID => 'alert-danger',
+            self::STATUS_PAID => 'alert-warning',
+            self::STATUS_DISPATCHED => 'alert-info',
             default => 'alert-success'
         };
     }
     public function getStatusLevelAttribute()
     {
-        return match (null) {
-            $this->paid_at => 0,
-            $this->dispatched_at => 1,
-            $this->delivered_at => 2,
+        return match ($this->status) {
+            self::STATUS_UNPAID => 0,
+            self::STATUS_PAID => 1,
+            self::STATUS_DISPATCHED => 2,
             default => 3
         };
     }
@@ -92,5 +97,14 @@ class Order extends Model
             ->orWhereRelation('user', 'lastname', 'LIKE', "%{$search}%")
             ->latest();
         }
+    }
+
+    public function getItemCountAttribute()
+    {
+        $cartCount = 0;
+        foreach ($this->items as $item) {
+            $cartCount += $item->quantity;
+        }
+        return $cartCount;
     }
 }
