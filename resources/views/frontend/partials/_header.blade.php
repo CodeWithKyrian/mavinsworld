@@ -233,7 +233,7 @@ $categories = App\Models\Category::all();
                             <a href="{{ route('about') }}">About Us</a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{ route('about') }}">Contact Us</a>
+                            <a href="{{ route('contact') }}">Contact Us</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#">Categories</a>
@@ -250,7 +250,7 @@ $categories = App\Models\Category::all();
             </div>
             <div class="mobile-header-info-wrap">
                 <div class="single-mobile-header-info">
-                    <a href="page-contact.html"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
+                    <a href="{{route('contact')}}"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
                 </div>
 
                 <div class="single-mobile-header-info">

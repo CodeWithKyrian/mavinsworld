@@ -6,7 +6,11 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\FlashDeal;
 use App\Models\Product;
+use App\Models\User;
+use App\Notifications\ContactForm;
 use Illuminate\Http\Request;
+use Mail;
+use Notification;
 
 class HomeController extends Controller
 {
@@ -27,6 +31,31 @@ class HomeController extends Controller
     public function about()
     {
         return view('frontend.pages.about');
+    }
+
+    public function contact()
+    {
+        return view('frontend.pages.contact');
+    }
+
+    public function contactPost(Request $request)
+    {
+        $user = new User(['email' => 'marvinworld23@gmail.com']);
+
+        Notification::route('mail', ['marvinworld23@gmail.com' => 'Marvins World Administrator'])
+            ->notify(
+                new ContactForm(
+                    $request->name,
+                    $request->email,
+                    $request->phone,
+                    $request->subject,
+                    $request->message
+                )
+            );
+
+        flash('Message Sent Successfully')->success();
+
+        return redirect()->route('home');
     }
 
     public function shop(Request $request)
@@ -77,7 +106,7 @@ class HomeController extends Controller
 
     public function getStates(Country $country)
     {
-        $country->load(['states' => function($query) {
+        $country->load(['states' => function ($query) {
             $query->where('shipping_cost_id', '!=', null);
         }]);
 

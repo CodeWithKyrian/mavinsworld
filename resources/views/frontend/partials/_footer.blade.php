@@ -92,8 +92,8 @@
                     <ul class="footer-list mb-sm-5 mb-md-0">
                         <li><a href="{{ route('about') }}">About Us</a></li>
                         <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
-                        <li><a href="{{ route('terms') }}">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        {{-- <li><a href="{{ route('terms') }}">Terms &amp; Conditions</a></li> --}}
+                        <li><a href="{{ route('contact') }}">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
@@ -101,7 +101,7 @@
                     <ul class="footer-list mb-sm-5 mb-md-0">
                         <li><a href="{{ route('auth.login') }}">Sign In</a></li>
                         <li><a href="{{ route('cart.index') }}">View Cart</a></li>
-                        <li><a href="#">My Wishlist</a></li>
+                        {{-- <li><a href="#">My Wishlist</a></li> --}}
                         <li><a href="#">Track My Order</a></li>
                     </ul>
                 </div>
@@ -114,7 +114,8 @@
                         <li>
                             <img src="/img/theme/icons/icon-contact.svg" alt="" />
                             <strong>Call Us:</strong>
-                            <a href="tel:+2349033510205">+234 903 351 0205</a></li>
+                            <a href="tel:+2349033510205">+234 903 351 0205</a>
+                        </li>
                         <li>
                             <img src="/img/theme/icons/icon-email-2.svg" alt="" />
                             <strong>Email: </strong>
