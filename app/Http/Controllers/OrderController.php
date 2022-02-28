@@ -54,6 +54,11 @@ class OrderController extends Controller
                 ]);
             }
         } else {
+
+            $request->validate([
+                'email' => ['unique:users', 'email']
+            ]);
+
             $user = User::create([
                 'firstname' => $request->input('firstname'),
                 'lastname' => $request->input('lastname'),

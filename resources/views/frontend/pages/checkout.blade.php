@@ -13,7 +13,8 @@
             <div class="col-lg-8 mb-40">
                 <h1 class="heading-2 mb-10">Checkout</h1>
                 <div class="d-flex justify-content-between">
-                    <h6 class="text-body">There are <span class="text-brand">{{$cart->item_count}}</span> products in your cart
+                    <h6 class="text-body">There are <span class="text-brand">{{ $cart->item_count }}</span>
+                        products in your cart
                     </h6>
                 </div>
             </div>
@@ -34,7 +35,7 @@
                                         details
                                         below. If you are a new customer, please proceed to the Billing &amp; Shipping
                                         section.</p>
-                                    <form method="post" action="{{route('auth.login')}}">
+                                    <form method="post" action="{{ route('auth.login') }}">
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" name="email" placeholder=" Email">
@@ -116,6 +117,9 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <input type="email" name="email" placeholder="Email address *" required>
+                                    @error('email')
+                                        <p class="font-sm text-red">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" name="phone" placeholder="Phone *" required>
@@ -124,7 +128,7 @@
                             <div class="form-group mb-30">
                                 <textarea rows="5" name="additional_info" placeholder="Additional information"></textarea>
                             </div>
-                            <div class="row">
+                            <div class="row mb-15">
                                 <div class="col-lg-6">
                                     <input type="password" required placeholder="Password" name="password">
                                 </div>
