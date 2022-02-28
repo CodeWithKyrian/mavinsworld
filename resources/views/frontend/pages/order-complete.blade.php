@@ -25,7 +25,8 @@
                         </div>
                         <div class="col-md-3 col-6">
                             <span class="d-block font-xxs">Shipping Address</span>
-                            <span class="font-weight-bold text-brand">{{$order->address->state->name}} State, {{$order->address->country->name}}</span>
+                            <span class="font-weight-bold text-brand">{{ $order->address->state->name }} State,
+                                {{ $order->address->country->name }}</span>
                         </div>
                     </div>
                     <hr>
@@ -94,8 +95,16 @@
             </div>
         </div>
         <div class="d-flex justify-content-center mb-15">
-            <a href="{{ route('home') }}" class="btn mt-10 mb-sm-15">
+            <div class="mt-3 text-black-50 font-md">
+                <strong>* Please take a screenshot of this page (including the order number). Click on the WhatsApp
+                    button on the bottom left corner and forward the screenshot to the Admin.</strong>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mb-15">
+            <a href="{{ route('home') }}" class="btn mt-10 mb-sm-15 mr-5">
                 <i class="fi-rs-arrow-left mr-10"></i>Back to Shop</a>
+            <a href="{{ route('account.orders.index') }}" class="btn mt-10 mb-sm-15 ml-5">
+                My Orders<i class="fi-rs-arrow-right ml-10"></i></a>
         </div>
 
     </div>
