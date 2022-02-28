@@ -52,7 +52,7 @@ Route::post('/update_order_summary', [CartController::class, 'updateOrderSummary
 Route::post('/place-order', [CartController::class, 'placeOrder'])->name('cart.place-order');
 
 // PAYMENT
-Route::post('/checkout', [OrderController::class, 'checkout'])->name('order.checkout');
+Route::post('/checkout', [OrderController::class, 'store'])->name('order.checkout');
 
 Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])->name('order.payment.cancelled');
 
@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders.index');
     Route::get('/account/orders/track', [AccountController::class, 'trackOrder'])->name('account.orders.track');
     Route::get('/account/orders/{order}', [AccountController::class, 'viewOrder'])->name('account.orders.show');
+    Route::delete('/account/orders/{order}', [AccountController::class, 'deleteOrder'])->name('account.orders.destroy');
     Route::get('/account/details', [AccountController::class, 'account_details'])->name('account.details');
     Route::put('/account/details', [AccountController::class, 'update_details'])->name('account.details.update');
     Route::put('/account/password', [AccountController::class, 'update_password'])->name('account.password.update');

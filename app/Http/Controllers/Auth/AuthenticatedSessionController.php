@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Cart;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,15 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
+
+        if (session('temp_user_id') != null) {
+            Cart::where('user_id', auth()->user()->id)->delete();
+            Cart::where('temp_user_id', session('temp_user_id'))
+                ->update([
+                    'user_id' => auth()->user()->id,
+                    'temp_user_id' => null
+                ]);
+        }
 
         $request->session()->regenerate();
 

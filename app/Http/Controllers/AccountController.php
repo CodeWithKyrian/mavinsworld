@@ -32,6 +32,15 @@ class AccountController extends Controller
         return view('frontend.pages.view-order', compact('order'));
     }
 
+    public function deleteOrder(Order $order)
+    {
+        $order->delete();
+
+        flash('Order deleted successfully')->success();
+
+        return redirect()->route('account.orders.index');
+    }
+
     public function trackOrder()
     {
         return view('frontend.pages.track-order');

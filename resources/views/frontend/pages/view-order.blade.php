@@ -40,7 +40,8 @@
                                         </div>
                                         <div class="col-md-3 col-6">
                                             <span class="d-block font-xxs">Shipping Address</span>
-                                            <span class="font-weight-bold text-brand">{{ $order->address->state->name }}
+                                            <span
+                                                class="font-weight-bold text-brand">{{ $order->address->state->name }}
                                                 State, {{ $order->address->country->name }}</span>
                                         </div>
                                     </div>
@@ -98,8 +99,15 @@
                                     <hr>
                                     <div class="d-flex justify-content-center footer">
                                         @if ($order->status == \App\Models\Order::STATUS_UNPAID)
-                                            <a href="{{ route('order.pay', $order) }}" class="btn mt-10 mb-sm-15">
+                                            <a href="{{ route('order.pay', $order) }}" class="btn mt-10 mb-sm-15 mr-20">
                                                 Pay Now</a>
+                                            <button onclick="document.getElementById('delete-order-form').submit();" class="btn mt-10 mb-sm-15">
+                                                Cancel Order</button>
+                                            <form id="delete-order-form" action="{{ route('account.orders.destroy', $order) }}"
+                                                method="POST" style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         @endif
                                         @if ($order->status == \App\Models\Order::STATUS_PAID)
                                             <a href="" class="btn mt-10 mb-sm-15">

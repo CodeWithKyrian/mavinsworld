@@ -15,6 +15,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 use Mail;
 use Str;
 
@@ -57,9 +58,14 @@ class OrderController extends Controller
             }
         } else {
 
-            $request->validate([
+            $validator = Validator::make($request->all(), [
                 'email' => ['unique:users', 'email']
             ]);
+            
+            if($validator->fails()) {
+                flash('You already have an account with this email. Login to continue')->error();
+                return redirect()->route('auth.login');
+            }
 
             $user = User::create([
                 'firstname' => $request->input('firstname'),
@@ -116,14 +122,14 @@ class OrderController extends Controller
 
         $cart->delete();
 
-        return $order;
-    }
-
-    public function checkout(Request $request)
-    {
-        $order = $this->store($request);
         return $this->pay($order);
     }
+
+    // public function checkout(Request $request)
+    // {
+    //     $order = $this->store($request);
+        
+    // }
 
     public function pay(Order $order)
     {
