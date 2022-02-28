@@ -59,9 +59,6 @@
                     @foreach ($order->items as $item)
                         <div class="product-details d-flex justify-content-between align-items-center mt-10">
                             <div class="d-flex">
-                                <div class="product-image">
-                                    {{ $item->product->getFirstMedia('thumbnail') }}
-                                </div>
                                 <div class="d-flex flex-column justify-content-between">
                                     <div>
                                         <strong class="d-block font-weight-bold p-name">
