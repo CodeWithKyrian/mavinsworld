@@ -34,6 +34,6 @@ class OrderCreated extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->view('emails.orders.created');
+        return $this->view('emails.orders.created')->subject('Order Confirmed');
     }
 }
