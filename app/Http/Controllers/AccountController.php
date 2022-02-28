@@ -18,7 +18,7 @@ class AccountController extends Controller
     {
         $user = request()->user();
 
-        $orders = Order::query()->where('user_id', $user->id)->latest()->paginate(10);
+        $orders = Order::with('items')->where('user_id', $user->id)->latest()->paginate(10);
 
         return view('frontend.pages.my-orders', compact('orders'));
     }
