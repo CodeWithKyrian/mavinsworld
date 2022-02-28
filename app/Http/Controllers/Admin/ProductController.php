@@ -51,6 +51,7 @@ class ProductController extends Controller
             'unit' => 'capsules',
             'is_published' => $request->should_publish,
             'is_featured' => $request->boolean('is_featured'),
+            'is_popular' => $request->boolean('is_popular'),
             'rating' => 4.5
         ]);
 
@@ -114,6 +115,7 @@ class ProductController extends Controller
             'selling_price' => $request->sell_price,
             'is_published' => $request->should_publish,
             'is_featured' => $request->boolean('is_featured'),
+            'is_popular' => $request->boolean('is_popular'),
         ]);
 
         $product->details()->updateOrCreate(

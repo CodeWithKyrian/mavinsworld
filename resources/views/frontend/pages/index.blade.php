@@ -129,7 +129,7 @@
                     <div class="slider-arrow slider-arrow-2 carausel-4-columns-arrow" id="carausel-4-columns-arrows">
                     </div>
                     <div class="carausel-4-columns carausel-arrow-center" id="carausel-4-columns">
-                        @foreach ($products as $product)
+                        @foreach ($popular as $product)
                             <div class="product-cart-wrap">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">

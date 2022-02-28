@@ -55,10 +55,20 @@
                                 </div>
                             </div>
                         </div>
-                        <label for="is_featured" class="form-check mb-4">
-                            <input @if ($product->is_featured) checked @endif class="form-check-input" type="checkbox" name="is_featured" />
-                            <span class="form-check-label"> Featured </span>
-                        </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="is_featured" class="form-check mb-4">
+                                    <input @if ($product->is_featured) checked @endif class="form-check-input" type="checkbox" id="is_featured" name="is_featured" />
+                                    <span class="form-check-label"> Featured </span>
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="is_popular" class="form-check mb-4">
+                                    <input @if ($product->is_popular) checked @endif  class="form-check-input" type="checkbox" id="is_popular" name="is_popular" />
+                                    <span class="form-check-label"> Popular </span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- card end// -->
@@ -167,25 +177,25 @@
 
     @push('inline-scripts')
     <script src="{{ asset('js/plugins/taggle.js') }}"></script>
-                <script src="{{ asset('js/plugins/datepicker.min.js') }}"></script>
-                <script>
-                    $(window).on("load", function() {
-                        $('#collapseDiscount').collapse($('#has_discount').prop('checked') ? "show" : "hide");
-                        $('.input-daterange').datepicker({
-                            format: 'D, M dd, yyyy'
-                        });
-                    });
-                    const taggle = new Taggle('tags', {
-                        placeholder: 'Enter tags (seperate by comma)',
-                        hiddenInputName: 'tags[]',
-                        tags: <?= json_encode($product->tags) ?>,
-                        maxTags: 3
-                    })
+                                            <script src="{{ asset('js/plugins/datepicker.min.js') }}"></script>
+                                            <script>
+                                                $(window).on("load", function() {
+                                                    $('#collapseDiscount').collapse($('#has_discount').prop('checked') ? "show" : "hide");
+                                                    $('.input-daterange').datepicker({
+                                                        format: 'D, M dd, yyyy'
+                                                    });
+                                                });
+                                                const taggle = new Taggle('tags', {
+                                                    placeholder: 'Enter tags (seperate by comma)',
+                                                    hiddenInputName: 'tags[]',
+                                                    tags: <?= json_encode($product->tags) ?>,
+                                                    maxTags: 3
+                                                })
 
-                    function submit(val) {
-                        $("#product-create-form input[name='should_publish']").val(val)
-                        $('#product-create-form').submit()
-                    }
-                </script>
+                                                function submit(val) {
+                                                    $("#product-create-form input[name='should_publish']").val(val)
+                                                    $('#product-create-form').submit()
+                                                }
+                                            </script>
 @endpush
 </x-admin-layout>

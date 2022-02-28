@@ -17,12 +17,13 @@ class Product extends Model implements HasMedia
         'name', 'slug', 'sku', 'category_id',
         'tags', 'cost_price', 'selling_price',
         'current_stock', 'total_stock', 'unit',
-        'is_published', 'is_featured', 'rating'
+        'is_published', 'is_featured', 'is_popular', 'rating'
     ];
 
     protected $casts = [
         'is_published' => 'boolean',
         'is_featured' => 'boolean',
+        'is_popular' => 'boolean',
         'tags' => 'array'
     ];
 
@@ -76,6 +77,17 @@ class Product extends Model implements HasMedia
     public function scopeFeatured(Builder $query): Builder
     {
         return $query->where('is_featured', true)
+            ->where('is_published', true)
+            ->latest();
+    }
+
+    /**
+     * Scope a query to only include popular products.
+     */
+    public function scopePopular(Builder $query): Builder
+    {
+        return $query->where('is_popular', true)
+            ->where('is_published', true)
             ->latest();
     }
 
@@ -95,10 +107,10 @@ class Product extends Model implements HasMedia
     {
         if ($search) {
             return $query
-            ->where('name', 'LIKE', "%{$search}%")
-            ->orWhereRelation('details', 'description', 'LIKE', "%{$search}%")
-            ->orWhereRelation('category', 'name', 'LIKE', "%{$search}%")
-            ->latest();
+                ->where('name', 'LIKE', "%{$search}%")
+                ->orWhereRelation('details', 'description', 'LIKE', "%{$search}%")
+                ->orWhereRelation('category', 'name', 'LIKE', "%{$search}%")
+                ->latest();
         }
     }
 }

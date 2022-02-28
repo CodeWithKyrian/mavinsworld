@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderDispatched;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Mail;
 
 class OrderController extends Controller
 {
@@ -19,7 +21,7 @@ class OrderController extends Controller
             ->search($request->input('s'))
             ->latest()
             ->paginate(10);
-            
+
         return view('admin.order.index', compact('orders'));
     }
 
@@ -57,13 +59,15 @@ class OrderController extends Controller
         $status = $request->new_status;
 
         switch ($status) {
-            case 'paid':
+            case Order::STATUS_PAID:
                 $order->paid_at = now();
                 break;
-            case 'dispatched':
+            case Order::STATUS_DISPATCHED:
                 $order->dispatched_at = now();
+                $order->load('user');
+                Mail::to($order->user)->send(new OrderDispatched($order));
                 break;
-            case 'delivered':
+            case Order::STATUS_DELIVERED:
                 $order->delivered_at = now();
             default:
                 break;

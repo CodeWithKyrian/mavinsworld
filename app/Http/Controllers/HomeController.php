@@ -12,18 +12,13 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $featured_categories = Category::where('is_featured', 1)->get();
-        $flashDeal = FlashDeal::with('products')->current()->first();
-
         $featured = Product::with(['media', 'discount', 'category'])->featured()->limit(4)->get();
 
-        $products = Product::with(['media', 'discount', 'category'])->published()->limit(8)->get();
+        $popular = Product::with(['media', 'discount', 'category'])->popular()->limit(8)->get();
 
 
         return view('frontend.pages.index', [
-            'featured_categories' => $featured_categories,
-            'flashDeal' => $flashDeal,
-            'products' => $products,
+            'popular' => $popular,
             'featured' => $featured,
             'mediaLibrary' => media_library()
         ]);

@@ -1,9 +1,9 @@
 <x-app-layout title="Account Login">
     <div class="page-header breadcrumb-wrap">
         <div class="container">
-            <div class="breadcrumb">
+            <div class="breadcrumb light">
                 <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> Pages <span></span> Login
+                 <span></span> Login
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
                 <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                     <div class="row">
                         <div class="col-lg-6 pr-30 d-none d-lg-block">
-                            <img class="border-radius-15" src="img/page/login-1.png" alt="" />
+                            <img class="border-radius-15" src="{{asset('img/about/about-marvins-one.jpg')}}" alt="" />
                         </div>
                         <div class="col-lg-6 col-md-8">
                             <div class="login_wrap widget-taber-content background-white">
@@ -39,7 +39,7 @@
                                         <div class="login_footer form-group mb-50">
                                             <div class="chek-form">
                                                 <div class="custome-checkbox">
-                                                    <input class="form-check-input" type="checkbox" name="remember"
+                                                    <input class="form-check-input" type="checkbox" name="remember" checked autocomplete="off"
                                                         id="exampleCheckbox1"/>
                                                     <label class="form-check-label"
                                                         for="exampleCheckbox1"><span>Remember me</span></label>

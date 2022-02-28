@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test-order-created', function() {
+Route::get('/test-order-dispatched', function() {
     $order = \App\Models\Order::with('user')->where('code', '20220228-5136')->first();
 
-    return new \App\Mail\OrderCreated($order);
+    return new \App\Mail\OrderDispatched($order);
 });
 
 // HOME PAGES
