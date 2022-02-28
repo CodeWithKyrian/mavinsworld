@@ -82,7 +82,9 @@ class HomeController extends Controller
 
     public function getStates(Country $country)
     {
-        $country->load('states');
+        $country->load(['states' => function($query) {
+            $query->where('shipping_cost_id', '!=', null);
+        }]);
 
         return response()->json([
             'states_view' => view('frontend.partials._checkout-states', ['states' => $country->states])->render()
