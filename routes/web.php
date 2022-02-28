@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test-order-created', function() {
+    $order = \App\Models\Order::with('user')->where('code', '20220228-5136')->first();
+
+    return new \App\Mail\OrderCreated($order);
+});
+
 // HOME PAGES
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');

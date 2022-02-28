@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Mail\OrderCreated;
 use App\Models\Address;
 use App\Models\Cart;
 use App\Models\ShippingCost;
@@ -14,6 +15,7 @@ use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Mail;
 use Str;
 
 class OrderController extends Controller
@@ -184,6 +186,7 @@ class OrderController extends Controller
             $data = $response['data'];
 
             $order_id = $data['metadata']['order_id'];
+
             $order = Order::find($order_id);
 
             $order->paid_at = $data['paid_at'];
@@ -202,10 +205,14 @@ class OrderController extends Controller
             );
 
             $order->save();
-            // dd($order);
+
+            $order->load('user');
+
+            Mail::to($order->user)->send(new OrderCreated($order));
+            
         } else {
             session()->flash('flash_notification', [
-                'message' => 'Payment Cancelled',
+                'message' => 'Payment Error',
                 'level' => 'success'
             ]);
             return redirect()->route('home');
