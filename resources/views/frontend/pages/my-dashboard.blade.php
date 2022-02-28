@@ -24,9 +24,8 @@
                                     <div class="card-body">
                                         <p>
                                             From your account dashboard. you can easily check &amp; view your <a
-                                                href="#">recent orders</a>,<br />
-                                            manage your <a href="#">shipping and billing addresses</a> and <a
-                                                href="#">edit your password and account details.</a>
+                                                href="{{route('account.orders.index')}}">recent orders</a> and <a
+                                                href="{{route('account.details')}}">edit your password and account details.</a>
                                         </p>
                                     </div>
                                 </div>

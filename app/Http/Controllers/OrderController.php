@@ -50,7 +50,7 @@ class OrderController extends Controller
             } else {
                 $address = $user->addresses()->create([
                     'country_id' => $request->country_id,
-                    'address' => $request->address,
+                    'name' => $request->address,
                     'state_id' => $request->state_id,
                     'is_default' => true
                 ]);
@@ -71,7 +71,7 @@ class OrderController extends Controller
 
             $address = $user->addresses()->create([
                 'country_id' => $request->country_id,
-                'address' => $request->address,
+                'name' => $request->address,
                 'state_id' => $request->state_id,
                 'is_default' => true
             ]);

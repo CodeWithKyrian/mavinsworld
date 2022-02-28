@@ -32,6 +32,11 @@ class AccountController extends Controller
         return view('frontend.pages.view-order', compact('order'));
     }
 
+    public function trackOrder()
+    {
+        return view('frontend.pages.track-order');
+    }
+
     public function account_details()
     {
         $user = request()->user();

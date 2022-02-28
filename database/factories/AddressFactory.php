@@ -19,6 +19,7 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
+            'name' => $this->faker->address(),
             'country_id' => Country::inRandomOrder()->first()->id,
             'state_id' => State::inRandomOrder()->first()->id,
             'is_default' => 1

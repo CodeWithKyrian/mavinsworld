@@ -10,16 +10,16 @@
                 <i class="fi-rs-shopping-bag mr-10"></i>Orders</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('account.orders.track')}}">
                 <i class="fi-rs-shopping-cart-check mr-10"></i>Track
                 Your Order
             </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link" href="">
                 <i class="fi-rs-marker mr-10"></i>My Address
             </a>
-        </li>
+        </li> --}}
         <li class="nav-item @route('account.details') active @endroute">
             <a class="nav-link" href="{{route('account.details')}}">
                 <i class="fi-rs-user mr-10"></i>Account details

@@ -60,6 +60,7 @@ Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])-
 Route::middleware('auth')->group(function (){
     Route::get('/account/dashboard', [AccountController::class, 'dashboard'])->name('account.dashboard');
     Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders.index');
+    Route::get('/account/orders/track', [AccountController::class, 'trackOrder'])->name('account.orders.track');
     Route::get('/account/orders/{order}', [AccountController::class, 'viewOrder'])->name('account.orders.show');
     Route::get('/account/details', [AccountController::class, 'account_details'])->name('account.details');
     Route::put('/account/details', [AccountController::class, 'update_details'])->name('account.details.update');

@@ -10,7 +10,7 @@ class Address extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'country_id', 'state_id', 'is_default'
+        'user_id', 'name', 'country_id', 'state_id', 'is_default'
     ];
 
     protected $casts = [

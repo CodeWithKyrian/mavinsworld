@@ -1,7 +1,7 @@
 @php
 
 if (!isset($cart)) {
-$cart = get_current_cart();
+    $cart = get_current_cart();
 }
 
 $categories = App\Models\Category::all();
@@ -55,12 +55,13 @@ $categories = App\Models\Category::all();
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                        <form id="search-form-lg" onchange="switchAction()" action="{{route('shop')}}" method="get">
+                        <form id="search-form-lg" onchange="switchAction()" action="{{ route('shop') }}" method="get">
                             <select class="select-active">
-                                <option data-action="{{route('shop')}}" value="all">All Categories</option>
+                                <option data-action="{{ route('shop') }}" value="all">All Categories</option>
                                 @foreach ($categories as $category)
-                                <option data-action="{{route('category.show', $category)}}" value="{{$category->id}}">
-                                    {{$category->name}}</option>
+                                    <option data-action="{{ route('category.show', $category) }}"
+                                        value="{{ $category->id }}">
+                                        {{ $category->name }}</option>
                                 @endforeach
                             </select>
                             <input type="text" name="s" placeholder="Search for items..." />
@@ -81,7 +82,7 @@ $categories = App\Models\Category::all();
                                 <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="{{route('cart.index')}}">
+                                <a class="mini-cart-icon" href="{{ route('cart.index') }}">
                                     <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -90,7 +91,7 @@ $categories = App\Models\Category::all();
                                     </svg>
                                     <span class="cart-count pro-count blue">{{ $cart->itemCount }}</span>
                                 </a>
-                                <a href="{{route('cart.index')}}"><span class="lable">Cart</span></a>
+                                <a href="{{ route('cart.index') }}"><span class="lable">Cart</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown cart-dropdown-hm2">
                                     @include('frontend.partials._cart-dropdown')
                                 </div>
@@ -108,36 +109,38 @@ $categories = App\Models\Category::all();
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                     <ul>
                                         @auth
-                                        <li>
-                                            <a href="{{route('account.dashboard')}}"><i class="fi fi-rs-user mr-10"></i>My
-                                                Account</a>
-                                        </li>
+                                            <li>
+                                                <a href="{{ route('account.dashboard') }}"><i
+                                                        class="fi fi-rs-user mr-10"></i>My
+                                                    Account</a>
+                                            </li>
                                         @endauth
 
                                         <li>
-                                            <a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order
-                                                Tracking</a>
+                                            <a href="{{ route('account.orders.index') }}"><i
+                                                    class="fi fi-rs-receipt mr-10"></i>My Orders</a>
                                         </li>
                                         <li>
-                                            <a href="{{route('about')}}"><i class="fi fi-rs-heart mr-10"></i>About
+                                            <a href="{{ route('about') }}"><i class="fi fi-rs-heart mr-10"></i>About
                                                 Us</a>
                                         </li>
                                         @auth
-                                        <li>
-                                            <a onclick="document.getElementById('logout-form').submit();"
-                                                href="javascript:void(0)"><i class="fi fi-rs-sign-out mr-10"></i>Sign
-                                                out</a>
-                                        </li>
+                                            <li>
+                                                <a onclick="document.getElementById('logout-form').submit();"
+                                                    href="javascript:void(0)"><i class="fi fi-rs-sign-out mr-10"></i>Sign
+                                                    out</a>
+                                            </li>
                                         @endauth
                                         @guest
-                                        <li>
-                                            <a href="{{route('auth.login')}}"><i class="fi fi-rs-sign-in mr-10"></i>Sign
-                                                in</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('auth.register')}}"><i class="fi fi-rs-add mr-10"></i>
-                                                Register</a>
-                                        </li>
+                                            <li>
+                                                <a href="{{ route('auth.login') }}"><i
+                                                        class="fi fi-rs-sign-in mr-10"></i>Sign
+                                                    in</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('auth.register') }}"><i class="fi fi-rs-add mr-10"></i>
+                                                    Register</a>
+                                            </li>
                                         @endguest
 
                                     </ul>
@@ -211,7 +214,7 @@ $categories = App\Models\Category::all();
         </div>
         <div class="mobile-header-content-area">
             <div class="mobile-search search-style-3 mobile-header-border">
-                <form method="GET" action="{{route('shop')}}">
+                <form method="GET" action="{{ route('shop') }}">
                     <input type="text" name="s" placeholder="Search for items…" />
                     <button type="submit"><i class="fi-rs-search"></i></button>
                 </form>
@@ -221,22 +224,23 @@ $categories = App\Models\Category::all();
                 <nav>
                     <ul class="mobile-menu font-heading">
                         <li class="menu-item">
-                            <a href="{{route('home')}}">Home</a>
+                            <a href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="menu-item">
                             <a href="#">Shop</a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{route('about')}}">About Us</a>
+                            <a href="{{ route('about') }}">About Us</a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{route('about')}}">Contact Us</a>
+                            <a href="{{ route('about') }}">Contact Us</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="#">Categories</a>
                             <ul class="dropdown">
                                 @foreach ($categories as $category)
-                                <li><a href="{{route('category.show', $category)}}">{{$category->name}}</a></li>
+                                    <li><a href="{{ route('category.show', $category) }}">{{ $category->name }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </li>
@@ -251,17 +255,17 @@ $categories = App\Models\Category::all();
 
                 <div class="single-mobile-header-info">
                     @guest
-                    <a href="{{route('auth.login')}}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
+                        <a href="{{ route('auth.login') }}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
                     @endguest
                     @auth
-                    <a href="{{route('account.dashboard')}}"><i class="fi-rs-user"></i>My Account</a>
+                        <a href="{{ route('account.dashboard') }}"><i class="fi-rs-user"></i>My Account</a>
                     @endauth
                 </div>
                 @auth
-                <div class="single-mobile-header-info">
-                    <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();"><i
-                            class="fi-rs-sign-out"></i>Sign Out</a>
-                </div>
+                    <div class="single-mobile-header-info">
+                        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();"><i
+                                class="fi-rs-sign-out"></i>Sign Out</a>
+                    </div>
                 @endauth
                 <div class="single-mobile-header-info">
                     <a href="#"><i class="fi-rs-headphones"></i>(+01) - 2345 - 6789 </a>
@@ -285,8 +289,11 @@ $categories = App\Models\Category::all();
     @csrf
 </form>
 
-<a href="https://api.whatsapp.com/send?phone=2347019906126&text=Hello Marvins! I just came from your website and my name is" target="_blank" class="whatsapp-button">
-    <svg enable-background="new 0 0 30.667 30.667" version="1.1" viewBox="0 0 30.667 30.667" xmlns="http://www.w3.org/2000/svg">
-        <path d="m30.667 14.939c0 8.25-6.74 14.938-15.056 14.938-2.639 0-5.118-0.675-7.276-1.857l-8.335 2.647 2.717-8.017c-1.37-2.25-2.159-4.892-2.159-7.712 1e-3 -8.25 6.739-14.938 15.055-14.938 8.315 2e-3 15.054 6.689 15.054 14.939zm-15.057-12.557c-6.979 0-12.656 5.634-12.656 12.56 0 2.748 0.896 5.292 2.411 7.362l-1.58 4.663 4.862-1.545c2 1.312 4.393 2.076 6.963 2.076 6.979 0 12.658-5.633 12.658-12.559 2e-3 -6.923-5.678-12.557-12.658-12.557zm7.604 15.998c-0.094-0.151-0.34-0.243-0.708-0.427-0.367-0.184-2.184-1.069-2.521-1.189-0.34-0.123-0.586-0.185-0.832 0.182-0.243 0.367-0.951 1.191-1.168 1.437-0.215 0.245-0.43 0.276-0.799 0.095-0.369-0.186-1.559-0.57-2.969-1.817-1.097-0.972-1.838-2.169-2.052-2.536-0.217-0.366-0.022-0.564 0.161-0.746 0.165-0.165 0.369-0.428 0.554-0.643 0.185-0.213 0.246-0.364 0.369-0.609 0.121-0.245 0.06-0.458-0.031-0.643-0.092-0.184-0.829-1.984-1.138-2.717-0.307-0.732-0.614-0.611-0.83-0.611-0.215 0-0.461-0.03-0.707-0.03s-0.646 0.089-0.983 0.456-1.291 1.252-1.291 3.054c0 1.804 1.321 3.543 1.506 3.787 0.186 0.243 2.554 4.062 6.305 5.528 3.753 1.465 3.753 0.976 4.429 0.914 0.678-0.062 2.184-0.885 2.49-1.739 0.308-0.858 0.308-1.593 0.215-1.746z"/>
-       </svg>
+<a href="https://api.whatsapp.com/send?phone=2347019906126&text=Hello Marvins! I just came from your website and my name is"
+    target="_blank" class="whatsapp-button">
+    <svg enable-background="new 0 0 30.667 30.667" version="1.1" viewBox="0 0 30.667 30.667"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="m30.667 14.939c0 8.25-6.74 14.938-15.056 14.938-2.639 0-5.118-0.675-7.276-1.857l-8.335 2.647 2.717-8.017c-1.37-2.25-2.159-4.892-2.159-7.712 1e-3 -8.25 6.739-14.938 15.055-14.938 8.315 2e-3 15.054 6.689 15.054 14.939zm-15.057-12.557c-6.979 0-12.656 5.634-12.656 12.56 0 2.748 0.896 5.292 2.411 7.362l-1.58 4.663 4.862-1.545c2 1.312 4.393 2.076 6.963 2.076 6.979 0 12.658-5.633 12.658-12.559 2e-3 -6.923-5.678-12.557-12.658-12.557zm7.604 15.998c-0.094-0.151-0.34-0.243-0.708-0.427-0.367-0.184-2.184-1.069-2.521-1.189-0.34-0.123-0.586-0.185-0.832 0.182-0.243 0.367-0.951 1.191-1.168 1.437-0.215 0.245-0.43 0.276-0.799 0.095-0.369-0.186-1.559-0.57-2.969-1.817-1.097-0.972-1.838-2.169-2.052-2.536-0.217-0.366-0.022-0.564 0.161-0.746 0.165-0.165 0.369-0.428 0.554-0.643 0.185-0.213 0.246-0.364 0.369-0.609 0.121-0.245 0.06-0.458-0.031-0.643-0.092-0.184-0.829-1.984-1.138-2.717-0.307-0.732-0.614-0.611-0.83-0.611-0.215 0-0.461-0.03-0.707-0.03s-0.646 0.089-0.983 0.456-1.291 1.252-1.291 3.054c0 1.804 1.321 3.543 1.506 3.787 0.186 0.243 2.554 4.062 6.305 5.528 3.753 1.465 3.753 0.976 4.429 0.914 0.678-0.062 2.184-0.885 2.49-1.739 0.308-0.858 0.308-1.593 0.215-1.746z" />
+    </svg>
 </a>
