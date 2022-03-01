@@ -87,7 +87,7 @@
                     </span>
                     <div class="text">
                         <h6 class="mb-1">Deliver to</h6>
-                        <p class="mb-1">
+                        <p class="mb-1 capitalize">
                             @if ($order->address)
                                 {{ ucfirst($order->address->name) }}<br />
                                 {{ $order->address->state->name }} State,

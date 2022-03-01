@@ -18412,12 +18412,12 @@ textarea.form-control {
 .icontext small, .icontext .title {
   display: block;
 }
-.icontext span {
+.icontext > span {
   font-size: 22px;
   font-weight: 600;
   display: block;
 }
-.icontext span.text-sm {
+.icontext > span.text-sm {
   font-size: 12px;
   font-weight: 400;
   color: #6c757d;
