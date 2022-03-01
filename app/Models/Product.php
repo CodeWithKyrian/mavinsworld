@@ -56,9 +56,9 @@ class Product extends Model implements HasMedia
 
     public function getRouteKeyName(): string
     {
-        if (request()->expectsJson()) {
-            return 'id';
-        }
+        // if (request()->expectsJson()) {
+        //     return 'id';
+        // }
 
         return 'slug';
     }

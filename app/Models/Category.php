@@ -26,9 +26,9 @@ class Category extends Model
 
     public function getRouteKeyName(): string
     {
-        if (request()->expectsJson()) {
-            return 'id';
-        }
+        // if (request()->expectsJson()) {
+        //     return 'id';
+        // }
 
         return 'slug';
     }
