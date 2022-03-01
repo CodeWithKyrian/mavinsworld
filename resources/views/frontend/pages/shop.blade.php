@@ -1,48 +1,29 @@
-<x-app-layout
-    title="{!! request()->has('s') ? __('product.search_results', ['search' => request()->input('s')]) :  'Shop'!!}">
+<x-app-layout title="{!! request()->has('s') ? __('product.search_results', ['search' => request()->input('s')]) : 'Shop' !!}">
     <div class="page-header mt-5 pl-5 pr-5 mb-50">
         <div class="">
             <div class="sub-page-header">
                 <div class="row align-items-center">
                     <div class="col-xl-5">
                         @if (request()->has('s'))
-                        <h1 class="heading-1 mb-15">{{__('product.search_results', ['search' =>
-                            request()->input('s')])}}</h1>
-                        <div class="breadcrumb">
-                            <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span>
-                            <a href="{{route('shop')}}" rel="nofollow">Shop </a>
-                            <span></span>
-                            "{{request()->input('s')}}"
-                        </div>
+                            <h1 class="heading-1 mb-15">
+                                {{ __('product.search_results', ['search' => request()->input('s')]) }}
+                            </h1>
+                            <div class="breadcrumb">
+                                <a href="{{ route('home') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                                <span></span>
+                                <a href="{{ route('shop') }}" rel="nofollow">Shop </a>
+                                <span></span>
+                                "{{ request()->input('s') }}"
+                            </div>
                         @else
-                        <h1 class="heading-1 mb-15">Shop</h1>
-                        <div class="breadcrumb">
-                            <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span> Shop
-                        </div>
+                            <h1 class="heading-1 mb-15">Shop</h1>
+                            <div class="breadcrumb">
+                                <a href="{{ route('home') }}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                                <span></span> Shop
+                            </div>
                         @endif
 
                     </div>
-                    {{-- <div class="col-xl-9 text-end d-none d-xl-block">
-                        <ul class="tags-list">
-                            <li class="hover-up">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Cabbage</a>
-                            </li>
-                            <li class="hover-up active">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Broccoli</a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Artichoke</a>
-                            </li>
-                            <li class="hover-up">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Celery</a>
-                            </li>
-                            <li class="hover-up mr-0">
-                                <a href="blog-category-grid.html"><i class="fi-rs-cross mr-10"></i>Spinach</a>
-                            </li>
-                        </ul>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -95,79 +76,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="row product-grid">
-                    @foreach ($products as $product)
-                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                        <div class="product-cart-wrap mb-30">
-                            <div class="product-img-action-wrap">
-                                <div class="product-img product-img-zoom">
-                                    <a href="{{route('product.details', $product)}}">
-                                        {{$product->getFirstMedia('thumbnail')}}
-                                    </a>
-                                </div>
-                                <div class="product-action-1">
-                                    <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
-                                            class="fi-rs-heart"></i></a>
-                                    <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                            class="fi-rs-shuffle"></i></a>
-                                    <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-                                        data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                </div>
-                                @if ($product->hasDiscount())
-                                <div class="product-badges product-badges-position product-badges-mrg">
-                                    <span class="hot">-{{ calc_percentage_off($product) }}%</span>
-                                </div>
-                                @endif
-                            </div>
-                            <div class="product-content-wrap">
-                                <div class="product-category">
-                                    <a
-                                        href="{{route('category.show', $product->category)}}">{{$product->category->name}}</a>
-                                </div>
-                                <h2><a href="{{route('product.details', $product)}}">{{$product->name}}</a></h2>
-                                <div class="product-rate-cover">
-                                    <div class="product-rate d-inline-block">
-                                        <div class="product-rating" style="width: {{ ($product->rating / 5) * 100 }}%">
-                                        </div>
-                                    </div>
-                                    <span class="font-small ml-5 text-muted"> {{ $product->rating }}</span>
-                                </div>
-                                {{-- <div class="product-card-bottom"> --}}
-                                    <div class="product-price">
-                                        <span>{{ get_sell_price($product) }}</span>
-                                        <span class="old-price">{{ get_cost_price($product) }}</span>
-                                    </div>
-                                    <button class="btn mt-15 w-100 hover-up" data-product-id="{{ $product->id }}"
-                                        style="position: relative">
-                                        <div class="loading-overlay" style="display: none">
-                                            <div class="spinner-border" style="width: 20px;height:20px" role="status">
-                                            </div>
-                                        </div>
-                                        <span id="idle">
-                                            <i class="fi-rs-shopping-cart mr-5"></i>
-                                            Add
-                                        </span>
-                                    </button>
-                                    {{--
-                                </div> --}}
+                <div class="row justify-content-center product-grid">
+                    @include('frontend.partials._shop-posts')
+                </div>
+                {{-- {{ $products->links('pagination::marvins-front') }} --}}
+                <div class="ajax-load text-center mb-15" style="display:none">
+                    <button class="button position-relative" style="min-height: 40px;width: 80px">
+                        <div class="loading-overlay">
+                            <div class="spinner-border" style="width: 20px;height:20px" role="status">
                             </div>
                         </div>
-                    </div>
-                    @endforeach
+                    </button>
                 </div>
-                {{$products->links('pagination::marvins-front')}}
             </div>
             <div class="col-lg-1-5 primary-sidebar sticky-sidebar">
                 <div class="sidebar-widget widget-category-2 mb-30">
                     <h5 class="section-title style-1 mb-30">Categories</h5>
                     <ul>
                         @foreach ($categories as $category)
-                        <li>
-                            <a href="{{route('category.show', $category)}}">
-                                <img src="/img/theme/icons/category-1.svg" alt="" />{{$category->name}}
-                            </a>
-                            <span class="count">{{$category->products_count}}</span>
-                        </li>
+                            <li>
+                                <a href="{{ route('category.show', $category) }}">
+                                    <img src="/img/theme/icons/category-1.svg" alt="" />{{ $category->name }}
+                                </a>
+                                <span class="count">{{ $category->products_count }}</span>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -185,4 +117,52 @@
             </div>
         </div>
     </div>
+
+    @push('inline-scripts')
+        <script type="text/javascript">
+            var page = 1;
+            var load_more = true;
+            $(function() {
+                $(window).scroll(function() {
+                    if (load_more) {
+                        if ($(window).scrollTop() >= ($('.product-grid').offset().top + $('.product-grid')
+                                .outerHeight() -
+                                window
+                                .innerHeight)) {
+
+                            /* load ajax content */
+                            load_more = false;
+                            page++;
+                            loadMoreData(page);
+                        }
+
+                    }
+                });
+            });
+
+
+            function loadMoreData(page) {
+                $.ajax({
+                        url: '?page=' + page,
+                        type: "get",
+                        beforeSend: function() {
+                            $('.ajax-load').show();
+                        }
+                    })
+                    .done(function(data) {
+                        if (data.posts_view == "") {
+                            $('.ajax-load').html("<h6>No more records found</h6>");
+                            load_more = false;
+                            return;
+                        }
+                        $('.ajax-load').hide();
+                        $(".product-grid").append(data.posts_view);
+                        load_more = true;
+                    })
+                    .fail(function(jqXHR, ajaxOptions, thrownError) {
+                        alert('server not responding...');
+                    });
+            }
+        </script>
+    @endpush
 </x-app-layout>

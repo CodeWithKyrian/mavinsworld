@@ -22,7 +22,7 @@ footer {
 }
 .newsletter {
     position: relative;
-    padding: 0 .75rem;
+    // padding: 0 0.75rem;
     .newsletter-inner {
         background: url(../../img/banner/long-banner.jpeg) no-repeat center;
         background-size: cover;
@@ -31,7 +31,7 @@ footer {
         clear: both;
         display: table;
         width: 100%;
-        border-radius: 20px;
+        // border-radius: 20px;
         overflow: hidden;
         min-height: 230px;
         img {
@@ -45,16 +45,77 @@ footer {
                 font-size: 18px;
                 color: #d6d6d6;
             }
-            h2{
+            h2 {
                 color: $color-heading-light;
             }
             a {
-                i {margin-left: 5px;transition-duration: 0.3s;font-size: 10px;}
-                &:hover i {margin-left: 10px; transition-duration: 0.3s;}
+                i {
+                    margin-left: 5px;
+                    transition-duration: 0.3s;
+                    font-size: 10px;
+                }
+                &:hover i {
+                    margin-left: 10px;
+                    transition-duration: 0.3s;
+                }
             }
         }
     }
 }
+
+.testimonial {
+    color: #8d97ad;
+    font-weight: 300;
+
+    .wrapper{
+        position: relative;
+        padding-bottom: 45px;
+    }
+    .testmonial-slider-arrow{
+        top: unset;
+    }
+    .subtitle {
+        color: #8d97ad;
+        line-height: 24px;
+    }
+    .testmonial-slider .card-body {
+        padding: 35px;
+        .thumb {
+            padding: 10px 20px 10px;
+            padding-left: 90px;
+            margin-left: -35px;
+        }
+        .thumb .thumb-img {
+            width: 60px;
+            left: 20px;
+            top: -10px;
+        }
+        .devider {
+            height: 1px;
+            background: rgba(120, 130, 140, 0.13);
+            width: 100px;
+        }
+        h5 {
+            line-height: 30px;
+            font-size: 18px;
+        }
+    }
+    .bg-brand {
+        background: $color-brand;
+    }
+    .item{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .card {
+        border: 1px solid $border-color;
+    }
+    .owl-theme .owl-dots .owl-dot.active span,
+    .testimonial1 .owl-theme .owl-dots .owl-dot:hover span {
+        background: #316ce8;
+    }
+}
+
 .widget-about {
     min-width: 300px;
     font-size: 15px;
@@ -82,23 +143,6 @@ footer {
     p {
         font-size: 15px;
         color: $color-heading-light;
-    }
-}
-.download-app {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin: 25px 0 33px;
-    a {
-        display: block;
-        margin-right: 12px;
-        img {
-            max-width: 128px;
-        }
     }
 }
 

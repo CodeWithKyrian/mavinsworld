@@ -68,6 +68,12 @@ class HomeController extends Controller
 
         $categories = Category::withCount('products')->get();
 
+        if ($request->ajax()) {
+            return response()->json([
+                'posts_view' => view('frontend.partials._shop-posts', compact('products'))->render()
+            ]);
+        }
+
         return view('frontend.pages.shop', [
             'products' => $products,
             'categories' => $categories

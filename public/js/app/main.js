@@ -305,108 +305,20 @@
     });
 
     /*------ Testimonial active 1 ----*/
-    $(".testimonial-active-1").slick({
-        slidesToShow: 3,
+    $(".testmonial-slider").slick({
+        slidesToShow: 2,
         slidesToScroll: 1,
+        autoplay: true,
         fade: false,
         loop: true,
         dots: false,
         arrows: true,
-        prevArrow: '<span class="pro-icon-1-prev"><i class="fi-rs-angle-small-left"></i></span>',
-        nextArrow: '<span class="pro-icon-1-next"><i class="fi-rs-angle-small-right"></i></span>',
+        prevArrow: '<span class="slider-btn slider-prev"><i class="fi-rs-angle-left"></i></span>',
+        nextArrow: '<span class="slider-btn slider-next"><i class="fi-rs-angle-right"></i></span>',
+        appendArrows: ".testmonial-slider-arrow",
         responsive: [
             {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    });
-
-    /*------ Testimonial active 3 ----*/
-    $(".testimonial-active-3").slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: true,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    });
-
-    /*------ Categories slider 1 ----*/
-    $(".categories-slider-1").slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        fade: false,
-        loop: true,
-        dots: false,
-        arrows: false,
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 4
-                }
-            },
-            {
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2
-                }
-            },
-            {
-                breakpoint: 575,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1
                 }
@@ -569,26 +481,13 @@
     $(".checkout-toggle").on("click", function () {
         $(".open-toggle").slideToggle(1000);
     });
-
-    /*-------------------------------------
-        Checkout paymentMethod function
-    ---------------------------------------*/
-    paymentMethodChanged();
-    function paymentMethodChanged() {
-        var $order_review = $(".payment-method");
-
-        $order_review.on("click", 'input[name="payment_method"]', function () {
-            var selectedClass = "payment-selected";
-            var parent = $(this).parents(".sin-payment").first();
-            parent.addClass(selectedClass).siblings().removeClass(selectedClass);
-        });
-    }
+    
 
     /*---- CounterUp ----*/
-    $(".count").counterUp({
-        delay: 10,
-        time: 2000
-    });
+    // $(".count").counterUp({
+    //     delay: 10,
+    //     time: 2000
+    // });
 
     // Isotope active
     $(".grid").imagesLoaded(function () {

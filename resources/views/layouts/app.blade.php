@@ -43,13 +43,15 @@
     <script src="/js/plugins/perfect-scrollbar.js"></script>
     <script src="/js/plugins/magnific-popup.js"></script>
     <script src="/js/plugins/select2.min.js"></script>
-    <script src="/js/plugins/counterup.js"></script>
+    {{-- <script src="/js/plugins/counterup.js"></script> --}}
     <script src="/js/plugins/jquery.countdown.min.js"></script>
     <script src="/js/plugins/images-loaded.js"></script>
     <script src="/js/plugins/isotope.js"></script>
     <script src="/js/plugins/scrollup.js"></script>
     <script src="/js/plugins/jquery.vticker-min.js"></script>
     <script src="/js/plugins/jquery.theia.sticky.js"></script>
+    {{-- <script src="/js/plugins/jquery.jscroll.min.js"></script> --}}
+    <script src="//unpkg.com/jscroll/dist/jquery.jscroll.min.js"></script>
     <script src="/js/plugins/jquery.elevatezoom.js"></script>
     <script src="/js/plugins/notify.js"></script>
     <script src="/js/plugins/prettify.js"></script>

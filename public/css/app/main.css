@@ -17580,6 +17580,11 @@ table .product-thumbnail img {
 }
 
 /*SHOP*/
+.my-container {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .product-cart-wrap {
   position: relative;
   background-color: #fff;
@@ -22326,7 +22331,6 @@ footer .hotline img {
 
 .newsletter {
   position: relative;
-  padding: 0 0.75rem;
 }
 .newsletter .newsletter-inner {
   background: url(../../img/banner/long-banner.jpeg) no-repeat center;
@@ -22336,7 +22340,6 @@ footer .hotline img {
   clear: both;
   display: table;
   width: 100%;
-  border-radius: 20px;
   overflow: hidden;
   min-height: 230px;
 }
@@ -22363,6 +22366,58 @@ footer .hotline img {
   transition-duration: 0.3s;
 }
 
+.testimonial {
+  color: #8d97ad;
+  font-weight: 300;
+}
+.testimonial .wrapper {
+  position: relative;
+  padding-bottom: 45px;
+}
+.testimonial .testmonial-slider-arrow {
+  top: unset;
+}
+.testimonial .subtitle {
+  color: #8d97ad;
+  line-height: 24px;
+}
+.testimonial .testmonial-slider .card-body {
+  padding: 35px;
+}
+.testimonial .testmonial-slider .card-body .thumb {
+  padding: 10px 20px 10px;
+  padding-left: 90px;
+  margin-left: -35px;
+}
+.testimonial .testmonial-slider .card-body .thumb .thumb-img {
+  width: 60px;
+  left: 20px;
+  top: -10px;
+}
+.testimonial .testmonial-slider .card-body .devider {
+  height: 1px;
+  background: rgba(120, 130, 140, 0.13);
+  width: 100px;
+}
+.testimonial .testmonial-slider .card-body h5 {
+  line-height: 30px;
+  font-size: 18px;
+}
+.testimonial .bg-brand {
+  background: #F8BA06;
+}
+.testimonial .item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.testimonial .card {
+  border: 1px solid #ececec;
+}
+.testimonial .owl-theme .owl-dots .owl-dot.active span,
+.testimonial .testimonial1 .owl-theme .owl-dots .owl-dot:hover span {
+  background: #316ce8;
+}
+
 .widget-about {
   min-width: 300px;
   font-size: 15px;
@@ -22387,19 +22442,6 @@ footer .hotline img {
 .footer-link-widget p {
   font-size: 15px;
   color: #f4f5f9;
-}
-
-.download-app {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 25px 0 33px;
-}
-.download-app a {
-  display: block;
-  margin-right: 12px;
-}
-.download-app a img {
-  max-width: 128px;
 }
 
 .footer-list {
@@ -22484,12 +22526,14 @@ footer .hotline img {
 }
 
 .section-padding {
-  padding: 1rem 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @media only screen and (min-width: 768px) {
   .section-padding {
-    padding: 2rem 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .lg-pt-0 {
@@ -24060,6 +24104,11 @@ footer .hotline img {
   .newsletter .newsletter-inner .newsletter-content p {
     font-size: 14px;
     margin-bottom: 25px !important;
+  }
+
+  .testimonial .item {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .totall-product h2 {
