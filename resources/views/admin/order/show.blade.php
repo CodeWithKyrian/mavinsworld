@@ -87,7 +87,7 @@
                         <h6 class="mb-1">Deliver to</h6>
                         <p class="mb-1">
                             @if ($order->address)
-                                {{ $order->address->name }}<br />
+                                {{ ucfirst($order->address->name) }}<br />
                                 {{ $order->address->state->name }} State,
                                 {{ $order->address->country->name }}.<br />
                             @else
