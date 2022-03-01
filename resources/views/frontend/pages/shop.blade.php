@@ -1,6 +1,6 @@
 <x-app-layout title="{!! request()->has('s') ? __('product.search_results', ['search' => request()->input('s')]) : 'Shop' !!}">
     <div class="page-header mt-5 pl-5 pr-5 mb-50">
-        <div class="">
+        <div class="my-container">
             <div class="sub-page-header">
                 <div class="row align-items-center">
                     <div class="col-xl-5">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="container mb-30">
+    <div class="my-container mb-30">
         <div class="row">
             <div class="col-lg-4-5">
                 <div class="shop-product-fillter">
