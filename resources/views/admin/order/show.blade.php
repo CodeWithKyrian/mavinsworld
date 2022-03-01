@@ -71,8 +71,10 @@
                         <h6 class="mb-1">Order info</h6>
                         <p class="mb-1">
                             Pay method: {{ $order->transaction?->meta['channel'] }} <br />
-                            Status: {{ $order->status }} <br />
-                            Additional Info: 
+                            Status: <span
+                                class="badge rounded-pill {{ $order->status_color }}">{{ $order->status }}</span>
+                            <br />
+                            Additional Info:
                         </p>
                     </div>
                 </article>
@@ -93,7 +95,7 @@
                             @else
                                 No shipping address specified
                             @endif
-                            Method: <strong class="text-brand">{{ ucfirst($order->shipping_method)}}</strong> 
+                            Method: <strong class="text-brand">{{ ucfirst($order->shipping_method) }}</strong>
                         </p>
                     </div>
                 </article>
