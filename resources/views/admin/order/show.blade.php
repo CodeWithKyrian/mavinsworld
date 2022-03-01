@@ -57,7 +57,7 @@
                             {{ $order->user->email }}<br />
                             {{ $order->user->phone }}
                         </p>
-                        <a href="#">View profile</a>
+                        {{-- <a href="#">View profile</a> --}}
                     </div>
                 </article>
             </div>
@@ -70,11 +70,10 @@
                     <div class="text">
                         <h6 class="mb-1">Order info</h6>
                         <p class="mb-1">
-                            Shipping: GIG Logistics <br />
                             Pay method: {{ $order->transaction?->meta['channel'] }} <br />
-                            Status: {{ $order->status }}
+                            Status: {{ $order->status }} <br />
+                            Additional Info: 
                         </p>
-                        <a href="#">Download info</a>
                     </div>
                 </article>
             </div>
@@ -88,14 +87,14 @@
                         <h6 class="mb-1">Deliver to</h6>
                         <p class="mb-1">
                             @if ($order->address)
-                                {{ $order->address->state->name }} State, <br />
+                                {{ $order->address->name }}<br />
+                                {{ $order->address->state->name }} State,
                                 {{ $order->address->country->name }}.<br />
                             @else
                                 No shipping address specified
                             @endif
-                            Method: {{ $order->shipping_method }}
+                            Method: <strong class="text-brand">{{ ucfirst($order->shipping_method)}}</strong> 
                         </p>
-                        <a href="#">Mark As Delivered</a>
                     </div>
                 </article>
             </div>
