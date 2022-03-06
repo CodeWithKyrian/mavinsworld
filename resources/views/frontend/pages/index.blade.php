@@ -91,7 +91,9 @@
                                 <div class="product-card-bottom">
                                     <div class="product-price">
                                         <span>{{ get_sell_price($product) }}</span>
-                                        <span class="old-price">{{ get_cost_price($product) }}</span>
+                                        @if ($product->hasPromoPrice())
+                                            <span class="old-price">{{ get_cost_price($product) }}</span>
+                                        @endif
                                     </div>
                                     <div class="add-cart">
                                         <button class="add" data-product-id="{{ $product->id }}"
@@ -172,7 +174,9 @@
                                         </div>
                                         <div class="product-price mt-10">
                                             <span>{{ get_sell_price($product) }} </span>
-                                            <span class="old-price">{{ get_cost_price($product) }}</span>
+                                            @if ($product->hasPromoPrice())
+                                                <span class="old-price">{{ get_cost_price($product) }}</span>
+                                            @endif
                                         </div>
                                         <div class="sold mt-15 mb-15">
                                             <div class="progress mb-5">

@@ -37,7 +37,9 @@
                 {{-- <div class="product-card-bottom"> --}}
                 <div class="product-price">
                     <span>{{ get_sell_price($product) }}</span>
-                    <span class="old-price">{{ get_cost_price($product) }}</span>
+                    @if ($product->hasPromoPrice())
+                        <span class="old-price">{{ get_cost_price($product) }}</span>
+                    @endif
                 </div>
                 <button class="btn mt-15 w-100 hover-up" data-product-id="{{ $product->id }}"
                     style="position: relative">

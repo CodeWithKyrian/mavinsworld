@@ -20,59 +20,8 @@
             </div>
         </div>
     </section>
-    {{-- <section class="featured section-padding">
-        <div class="row">
-            <div class="col-lg-1-4 col-md-4 col-12 col-sm-6 mb-10 mb-xl-0">
-                <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp"
-                    data-wow-delay="0">
-                    <div class="banner-icon">
-                        <img src="/img/theme/icons/icon-1.svg" alt="" />
-                    </div>
-                    <div class="banner-text">
-                        <h3 class="icon-box-title">Best prices & offers</h3>
-                        <p>Orders ₦50 or more</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1-4 col-md-4 col-12 col-sm-6 mb-10">
-                <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp"
-                    data-wow-delay=".1s">
-                    <div class="banner-icon">
-                        <img src="/img/theme/icons/icon-2.svg" alt="" />
-                    </div>
-                    <div class="banner-text">
-                        <h3 class="icon-box-title">Free delivery</h3>
-                        <p>24/7 amazing services</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1-4 col-md-4 col-12 col-sm-6 mb-10">
-                <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp"
-                    data-wow-delay=".2s">
-                    <div class="banner-icon">
-                        <img src="/img/theme/icons/icon-3.svg" alt="" />
-                    </div>
-                    <div class="banner-text">
-                        <h3 class="icon-box-title">Great daily deal</h3>
-                        <p>When you sign up</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1-4 col-md-4 col-12 col-sm-6 mb-10">
-                <div class="banner-left-icon d-flex align-items-center wow animate__animated animate__fadeInUp"
-                    data-wow-delay=".3s">
-                    <div class="banner-icon">
-                        <img src="/img/theme/icons/icon-4.svg" alt="" />
-                    </div>
-                    <div class="banner-text">
-                        <h3 class="icon-box-title">Wide assortment</h3>
-                        <p>Mega Discounts</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <section class="testimonial py-4">
+    
+    {{-- <section class="testimonial py-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
@@ -144,7 +93,7 @@
                 <div class="slider-arrow testmonial-slider-arrow"></div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="section-padding footer-mid">
         <div class="my-container pt-15 pb-20">
             <div class="row">

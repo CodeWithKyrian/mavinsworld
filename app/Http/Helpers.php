@@ -27,6 +27,10 @@ if (!function_exists('get_cost_price')) {
 if (!function_exists('get_sell_price')) {
     function get_sell_price(Product $product, bool $formatPrice = true)
     {
+        if (!$product->hasPromoPrice())
+            return $formatPrice ? format_price($product->cost_price) : $product->cost_price;
+
+
         $cost_price = $product->cost_price;
         $sell_price = $product->selling_price;
 
@@ -98,4 +102,3 @@ if (!function_exists('get_shipping_fee')) {
             return $state->shipping_cost->delivery_amount;
     }
 }
-

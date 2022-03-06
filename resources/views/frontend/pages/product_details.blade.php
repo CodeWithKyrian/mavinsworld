@@ -48,12 +48,14 @@
                                 <div class="clearfix product-price-cover">
                                     <div class="product-price primary-color float-left">
                                         <span class="current-price text-brand">{{ get_sell_price($product) }}</span>
-                                        <span>
-                                            <span class="save-price font-md color3 ml-15">
-                                                {{ calc_percentage_off($product) }} % Off</span>
-                                            <span
-                                                class="old-price font-md ml-15">{{ get_cost_price($product) }}</span>
-                                        </span>
+                                        @if ($product->hasPromoPrice())
+                                            <span>
+                                                <span class="save-price font-md color3 ml-15">
+                                                    {{ calc_percentage_off($product) }} % Off</span>
+                                                <span
+                                                    class="old-price font-md ml-15">{{ get_cost_price($product) }}</span>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="short-desc mb-30">
