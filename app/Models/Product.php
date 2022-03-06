@@ -51,7 +51,7 @@ class Product extends Model implements HasMedia
 
     public function hasPromoPrice(): bool
     {
-        return $this->hasDiscount() || ($this->selling_price != $this->cost_price);
+        return $this->hasDiscount() || ($this->selling_price < $this->cost_price);
     }
 
     public function category(): BelongsTo
