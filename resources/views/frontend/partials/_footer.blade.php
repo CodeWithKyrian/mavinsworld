@@ -21,7 +21,7 @@
         </div>
     </section>
     
-    {{-- <section class="testimonial py-4">
+    <section class="testimonial py-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
@@ -93,7 +93,7 @@
                 <div class="slider-arrow testmonial-slider-arrow"></div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <section class="section-padding footer-mid">
         <div class="my-container pt-15 pb-20">
             <div class="row">
