@@ -1,5 +1,5 @@
 /*SHOP*/
-.my-container{
+.my-container {
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
 }
@@ -545,7 +545,6 @@
 		}
 	}
 }
-
 
 input.checkout-address-input + .checkout-address-label {
 	cursor: pointer;
@@ -1304,7 +1303,32 @@ input.checkout-address-input:checked + .checkout-address-label {
 .product-info {
 	border: 1px solid $border-color;
 	border-radius: 15px;
-	padding: 40px 50px;
+	padding: 1rem 2rem;
+
+	.rating {
+		width: 180px;
+		display: flex;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+
+	.rating__star {
+		cursor: pointer;
+		color: #dabd18b2;
+		width: 25px;
+		height: 25px;
+	}
+
+	.star-empty{
+		background-image: url("data:image/svg+xml,%3Csvg version='1.1' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m19.467 23.597-7.467-5.488-7.467 5.488 2.867-8.863-7.463-5.453h9.214l2.849-8.878 2.849 8.878h9.213l-7.462 5.453zm-7.467-7.97 3.658 2.689-1.4-4.344 3.679-2.691h-4.547l-1.39-4.331-1.39 4.331h-4.548l3.683 2.691-1.4 4.344z' fill='%23fc0'/%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+	}
+
+	.star-filled{
+		background-image: url("data:image/svg+xml,%3Csvg version='1.1' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m19.467 23.597-7.467-5.488-7.467 5.488 2.867-8.863-7.463-5.453h9.214l2.849-8.878 2.849 8.878h9.213l-7.462 5.453z' fill='%23fc0'/%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+	}
+
 }
 
 .tab-style3 {
@@ -1717,19 +1741,19 @@ table.no-border {
 	min-width: 200px;
 }
 
-.order-confirmation{
-.product-details{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 12px;
+.order-confirmation {
+	.product-details {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 12px;
 
-	.product-image{
-		width: 80px;
-margin-right: 1rem;
-		img{
-			height: auto;
+		.product-image {
+			width: 80px;
+			margin-right: 1rem;
+			img {
+				height: auto;
+			}
 		}
 	}
-}
 }

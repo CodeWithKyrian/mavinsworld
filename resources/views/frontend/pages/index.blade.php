@@ -170,7 +170,9 @@
                                                 href="{{ route('product.details', $product) }}">{{ $product->name }}</a>
                                         </h2>
                                         <div class="product-rate d-inline-block">
-                                            <div class="product-rating" style="width: 80%"></div>
+                                            <div class="product-rating"
+                                                style="width: {{ ($product->rating / 5) * 100 }}%">
+                                            </div>
                                         </div>
                                         <div class="product-price mt-10">
                                             <span>{{ get_sell_price($product) }} </span>

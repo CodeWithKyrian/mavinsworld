@@ -68,34 +68,13 @@
                         <span class="text">Orders</span>
                     </a>
                 </li>
-                {{-- <li class="menu-item has-submenu">
-                    <a class="menu-link" href="page-transactions-1.html">
-                        <i class="icon material-icons md-monetization_on"></i>
-                        <span class="text">Transactions</span>
-                    </a>
-                    <div class="submenu">
-                        <a href="page-transactions-1.html">Transaction 1</a>
-                        <a href="page-transactions-2.html">Transaction 2</a>
-                    </div>
-                </li>
-                <li class="menu-item has-submenu">
-                    <a class="menu-link" href="#">
-                        <i class="icon material-icons md-person"></i>
-                        <span class="text">Account</span>
-                    </a>
-                    <div class="submenu">
-                        <a href="page-account-login.html">User login</a>
-                        <a href="page-account-register.html">User registration</a>
-                        <a href="page-error-404.html">Error 404</a>
-                    </div>
-                </li>
-                <li class="menu-item">
-                    <a class="menu-link" href="page-reviews.html">
+                <li class="menu-item @route('admin.review.*') active @endroute">
+                    <a class="menu-link" href="{{route('admin.review.index')}}">
                         <i class="icon material-icons md-comment"></i>
                         <span class="text">Reviews</span>
                     </a>
                 </li>
-                <li class="menu-item">
+                {{-- <li class="menu-item">
                     <a class="menu-link" disabled href="#">
                         <i class="icon material-icons md-pie_chart"></i>
                         <span class="text">Statistics</span>

@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,9 @@ Route::post('/get_shipping_methods/{state}', [CartController::class, 'getShippin
 Route::post('/update_order_summary', [CartController::class, 'updateOrderSummary'])->name('cart.update-order-summary');
 Route::post('/place-order', [CartController::class, 'placeOrder'])->name('cart.place-order');
 
+// REVIEWS AND RATINGS
+Route::resource('product.reviews', ReviewController::class)->only(['index']);
+
 // PAYMENT
 Route::post('/checkout', [OrderController::class, 'store'])->name('order.checkout');
 
@@ -67,6 +71,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/account/details', [AccountController::class, 'account_details'])->name('account.details');
     Route::put('/account/details', [AccountController::class, 'update_details'])->name('account.details.update');
     Route::put('/account/password', [AccountController::class, 'update_password'])->name('account.password.update');
+    Route::resource('product.reviews', ReviewController::class)->only(['store', 'update']);
     Route::get('/pay/{order}', [OrderController::class, 'pay'])->name('order.pay');
     Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
 });

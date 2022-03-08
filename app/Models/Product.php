@@ -32,6 +32,11 @@ class Product extends Model implements HasMedia
         return $this->hasOne(ProductDetail::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class)->latest();
+    }
+
     public function discount(): HasOne
     {
         return $this->hasOne(Discount::class)
@@ -52,6 +57,14 @@ class Product extends Model implements HasMedia
     public function hasPromoPrice(): bool
     {
         return $this->hasDiscount() || ($this->selling_price < $this->cost_price);
+    }
+
+    public function evaluateReviews()
+    {
+        $reviews = $this->reviews;
+
+        $this->rating = $reviews->avg('rating');
+        $this->save();
     }
 
     public function category(): BelongsTo

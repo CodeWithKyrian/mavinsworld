@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SettingsController;
 
 /*
@@ -25,6 +26,9 @@ Route::name('admin.')->group(function () {
         Route::resource('product', ProductController::class);
         Route::resource('order', OrderController::class)->only(['index', 'show', 'destroy', 'update']);
         Route::resource('category', CategoryController::class)->except(['show']);
+
+        Route::resource('review', ReviewController::class)->only(['index',  'destroy']);
+
         Route::get('settings/general', [SettingsController::class, 'general'])->name('settings.general.index');
         Route::get('settings/shipping', [SettingsController::class, 'shipping'])->name('settings.shipping.index');
         Route::get('settings/shipping/{cost}', [SettingsController::class, 'editShippingCost'])->name('settings.shipping.edit');

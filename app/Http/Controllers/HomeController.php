@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\FlashDeal;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\User;
 use App\Notifications\ContactForm;
 use Illuminate\Http\Request;
@@ -99,14 +100,24 @@ class HomeController extends Controller
     public function product_details(Product $product)
     {
         $product->load(['media', 'category', 'discount']);
+        $product->loadCount('reviews');
         $related = Product::with(['media', 'discount'])
             ->where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
             ->limit(4)
             ->get();
+
+        $hasReviewed = (auth()->check()
+            && Review::where('user_id', auth()->id())->where('product_id', $product->id)->exists()
+        ) ? true : false;
+
+
+        redirect()->setIntendedUrl(route('product.details', $product));
+
         return view('frontend.pages.product_details', [
             'product' => $product,
-            'related_products' => $related
+            'related_products' => $related,
+            'has_reviewed' => $hasReviewed
         ]);
     }
 
