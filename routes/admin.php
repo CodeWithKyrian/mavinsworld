@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\SettingsController;
 
 Route::name('admin.')->group(function () {
     Route::middleware('auth.admin')->group(function () {
-        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index']);
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('product', ProductController::class);
         Route::resource('order', OrderController::class)->only(['index', 'show', 'destroy', 'update']);
