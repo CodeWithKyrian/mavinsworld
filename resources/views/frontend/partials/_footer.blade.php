@@ -3,37 +3,37 @@ $testmonials = [
     [
         'name' => 'Michael',
         'comment' => 'The dick enlargement is really doing a great job 👏 I’m actually seeing the improvements. It’s my 3rd week now',
-        'image' => asset('img/people/male.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Micheal'
     ],
     [
         'name' => 'Obi Official',
         'comment' => 'I bought the infection dosage during your December promo, I must say, I felt the difference and it’s the best so far💯',
-        'image' => asset('img/people/male.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Obi+Official'
     ],
     [
         'name' => 'Miss Beauty',
         'comment' => 'Your infection dosage is lit🔥. The pains I feel around my waist and legs is gradually fading away. I don’t feel it too well again. I don’t regret buying your products.',
-        'image' => asset('img/people/female.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Miss+Beauty'
     ],
     [
         'name' => 'Dennison',
         'comment' => 'Since I started using your products, I now get my early morning erection very hard unlike before. I’m still taking the infection dosage. Ur products are very good 👍',
-        'image' => asset('img/people/male.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Dennison'
     ],
     [
         'name' => 'Okeke',
         'comment' => 'Ever since I started ur infection dosage, my stomach drastically changed. I used to feel pain and inches rounds my waist but they are no more. All thanks to ur products. Thou I have not seen much changes on the breast firming but am still using.',
-        'image' => asset('img/people/female.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Okeke'
     ],
     [
         'name' => 'Sixtus',
         'comment' => 'I ordered ur quick ejaculation treatment for my friend and it really worked very well for him. Ur products are very nice. Keep it up',
-        'image' => asset('img/people/male.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Sixtus'
     ],
     [
         'name' => 'Fabian',
         'comment' => 'This is the only herbal brand I know that sells good and effective products. I love ur products.',
-        'image' => asset('img/people/male.png')
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Fabian'
     ],
 ];
 @endphp

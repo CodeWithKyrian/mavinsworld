@@ -20,7 +20,6 @@ $categories = App\Models\Category::all();
                         <ul>
                             <!-- <li><a href="page-about.htlm">About Us</a></li>
                                 <li><a href="page-account.html">My Account</a></li> -->
-                            <li><a href="shop-wishlist.html">Wishlist</a></li>
                             <li><a href="shop-order.html">Order Tracking</a></li>
                         </ul>
                     </div>
@@ -69,18 +68,6 @@ $categories = App\Models\Category::all();
                     </div>
                     <div class="header-action-right">
                         <div class="header-action-2">
-                            <div class="header-action-icon-2">
-                                <a href="shop-wishlist.html">
-                                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                        </path>
-                                    </svg>
-                                    <span class="pro-count blue">6</span>
-                                </a>
-                                <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
-                            </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="{{ route('cart.index') }}">
                                     <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -168,17 +155,6 @@ $categories = App\Models\Category::all();
                 </div>
                 <div class="header-action-right d-block d-lg-none">
                     <div class="header-action-2">
-                        <div class="header-action-icon-2">
-                            <a href="shop-wishlist.html">
-                                <svg width="30" height="30" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                                    </path>
-                                </svg>
-                                <span class="pro-count white">4</span>
-                            </a>
-                        </div>
                         <div class="header-action-icon-2">
                             <a class="mini-cart-icon white">
                                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"

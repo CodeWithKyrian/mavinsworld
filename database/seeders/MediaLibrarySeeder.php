@@ -17,15 +17,12 @@ class MediaLibrarySeeder extends Seeder
     {
         $mediaLibrary = MediaLibrary::firstOrCreate([]);
         
-        $mediaLibrary->addMediaFromUrl(asset('img/banner-two.png'))->toMediaCollection('banners_xl');
+        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_three.jpg'))->toMediaCollection('banners_xl');
+        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_four.jpg'))->toMediaCollection('banners_xl');
+        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_five.jpg'))->toMediaCollection('banners_xl');
 
-        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_one.jpeg'))->toMediaCollection('banners_xl');
-        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_two.jpeg'))->toMediaCollection('banners_xl');
+        $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_one.jpg'))->toMediaCollection('hero_banners_sm');
+        $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_two.jpg'))->toMediaCollection('hero_banners_sm');
 
-        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_md_one.jpeg'))->toMediaCollection('hero_banners_sm');
-        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_md_three.jpeg'))->toMediaCollection('hero_banners_sm');
-
-        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_lands_one.jpeg'))->toMediaCollection('hero_banners_md');
-        
     }
 }
