@@ -94,7 +94,82 @@
                             <!-- Detail Info -->
                         </div>
                     </div>
-                    
+                    <div class="product-info">
+                        <div class="tab-style3">
+                            <div class="tab-content shop_info_tab entry-main-content">
+                                <div class="tab-pane fade show active" id="Reviews">
+                                    <!--Comments-->
+                                    <div class="comments-area position-relative">
+                                        <div class="loading-overlay">
+                                            <div class="spinner-border" style="width: 20px;height:20px" role="status">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @auth
+                                        @if (!$has_reviewed)
+                                            <!--comment form-->
+                                            <div class="comment-form">
+                                                <h4 class="mb-15">Leave a review</h4>
+                                                <div class="rating">
+                                                    <div class="rating__star star-empty"></div>
+                                                    <div class="rating__star star-empty"></div>
+                                                    <div class="rating__star star-empty"></div>
+                                                    <div class="rating__star star-empty"></div>
+                                                    <div class="rating__star star-empty"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-8 col-md-12">
+                                                        <form class="form-contact comment_form" method="POST"
+                                                            action="{{ route('product.reviews.store', $product) }}"
+                                                            id="reviewForm">
+                                                            @csrf
+                                                            <input type="hidden" id="inputRating" required name="rating"
+                                                                autocomplete="off">
+                                                            <div class="row">
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input class="form-control" name="display_name"
+                                                                            type="text" placeholder="Display Name"
+                                                                            required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <input class="form-control" name="title"
+                                                                            type="text" placeholder="Review Title"
+                                                                            required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control w-100" name="content"
+                                                                            id="comment" cols="30" rows="9"
+                                                                            placeholder="Write Review" required></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <button type="submit"
+                                                                    class="button button-contactForm">Submit
+                                                                    Review</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endauth
+
+                                    @guest
+
+                                    @endguest
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row mt-60">
                         <div class="col-12">
                             <h2 class="section-title style-1 mb-30">Related products</h2>
