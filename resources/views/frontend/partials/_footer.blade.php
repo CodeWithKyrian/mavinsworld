@@ -66,7 +66,6 @@ $testmonials = [
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
-                    <h4 class="my-3">Check what our Customers are Saying</h4>
                     <p class="subtitle font-weight-normal">You can relay on our amazing features list and also our
                         customer services will be great experience for you without doubt</p>
                 </div>
