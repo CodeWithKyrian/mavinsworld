@@ -162,17 +162,16 @@ $testmonials = [
                     </strong> <br />All rights reserved
                 </p>
             </div>
-            <div class="col-md-6 text-end d-none d-md-block">
+            <div class="col-md-5 text-end d-none d-md-block">
                 <div class="mobile-social-icon">
                     <h6>Follow Us</h6>
                     <a href="#"><img src="/img/theme/icons/icon-facebook-white.svg" alt="" /></a>
                     <a href="#"><img src="/img/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                    <a href="#"><img src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
-                    <a href="#"><img src="/img/theme/icons/icon-pinterest-white.svg" alt="" /></a>
-                    <a href="#"><img src="/img/theme/icons/icon-youtube-white.svg" alt="" /></a>
+                    <a href="https://www.instagram.com/_marvins.world/" target="_blank"><img src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
                 </div>
                 <p class="font-sm">Up to 15% discount on your first subscribe</p>
             </div>
+            <div class="col-md-1 text-end d-none d-md-block"></div>
         </div>
     </div>
 </footer>

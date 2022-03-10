@@ -9,17 +9,15 @@ $categories = App\Models\Category::all();
 @endphp
 
 <header class="header-area header-style-1 header-height-2">
-    <div class="mobile-promotion">
+    {{-- <div class="mobile-promotion">
         <span>Grand opening, <strong>up to 25%</strong> off all items. Only <strong>3 days</strong> left</span>
-    </div>
+    </div> --}}
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info">
                         <ul>
-                            <!-- <li><a href="page-about.htlm">About Us</a></li>
-                                <li><a href="page-account.html">My Account</a></li> -->
                             <li><a href="shop-order.html">Order Tracking</a></li>
                         </ul>
                     </div>
@@ -38,7 +36,7 @@ $categories = App\Models\Category::all();
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         <ul>
-                            <li>Need help? Call Us: <strong class="text-brand"> + 234 907 646 3437</strong></li>
+                            <li>Need help? Call Us:  <strong class="text-brand"> <a href="tel:+2349033510205"></a> +234 903 351 0205</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -231,20 +229,20 @@ $categories = App\Models\Category::all();
                     <a href="{{ route('contact') }}"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
                 </div>
 
-                <div class="single-mobile-header-info">
+                {{-- <div class="single-mobile-header-info">
                     @guest
                         <a href="{{ route('auth.login') }}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
                     @endguest
                     @auth
                         <a href="{{ route('account.dashboard') }}"><i class="fi-rs-user"></i>My Account</a>
                     @endauth
-                </div>
-                @auth
+                </div> --}}
+                {{-- @auth
                     <div class="single-mobile-header-info">
                         <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();"><i
                                 class="fi-rs-sign-out"></i>Sign Out</a>
                     </div>
-                @endauth
+                @endauth --}}
                 <div class="single-mobile-header-info">
                     <a href="tel:+2349033510205"><i class="fi-rs-headphones"></i>+234 903 351 0205 </a>
                 </div>
@@ -253,12 +251,10 @@ $categories = App\Models\Category::all();
                 <h6 class="mb-15">Follow Us</h6>
                 <a href="#"><img src="/img/theme/icons/icon-facebook-white.svg" alt="" /></a>
                 <a href="#"><img src="/img/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                <a href="#"><img src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
-                <a href="#"><img src="/img/theme/icons/icon-pinterest-white.svg" alt="" /></a>
-                <a href="#"><img src="/img/theme/icons/icon-youtube-white.svg" alt="" /></a>
+                <a href="https://www.instagram.com/_marvins.world/" target="_blank"><img src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
             </div>
             <div class="site-copyright">Copyright 2022 © <strong class="text-brand">Marvins World</strong> . All
-                rights reserved. Powered by <a href="https://codewithkyrian.com" target="_blank">CodeWithKyrian.</a>
+                rights reserved. Powered by <a href="https://codewithkyrian.com" target="_blank"><strong>CodeWithKyrian</strong>.</a>
             </div>
         </div>
     </div>
