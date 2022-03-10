@@ -55,24 +55,18 @@ if (!function_exists('calc_percentage_off')) {
     }
 }
 
-/**Get the current cart for the authenticated or temporary user */
+/**Get the current cart for the  temporary user */
 if (!function_exists('get_current_cart')) {
     function get_current_cart(): Cart
     {
-        if (auth()->check()) {
-            $user_id = auth()->user()->id;
-            $cart = Cart::with('items')
-                ->firstOrCreate(['user_id' => $user_id]);
+        if (request()->session()->has('temp_user_id')) {
+            $temp_user_id = request()->session()->get('temp_user_id');
         } else {
-            if (request()->session()->has('temp_user_id')) {
-                $temp_user_id = request()->session()->get('temp_user_id');
-            } else {
-                $temp_user_id = bin2hex(random_bytes(10));
-                request()->session()->put('temp_user_id', $temp_user_id);
-            }
-            $cart = Cart::with('items')
-                ->firstOrCreate(['temp_user_id' => $temp_user_id]);
+            $temp_user_id = bin2hex(random_bytes(10));
+            request()->session()->put('temp_user_id', $temp_user_id);
         }
+        $cart = Cart::with('items')
+            ->firstOrCreate(['temp_user_id' => $temp_user_id]);
 
         return $cart;
     }

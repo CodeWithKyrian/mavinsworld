@@ -107,17 +107,12 @@ class HomeController extends Controller
             ->limit(4)
             ->get();
 
-        $hasReviewed = (auth()->check()
-            && Review::where('user_id', auth()->id())->where('product_id', $product->id)->exists()
-        ) ? true : false;
-
 
         redirect()->setIntendedUrl(route('product.details', $product));
 
         return view('frontend.pages.product_details', [
             'product' => $product,
             'related_products' => $related,
-            'has_reviewed' => $hasReviewed
         ]);
     }
 

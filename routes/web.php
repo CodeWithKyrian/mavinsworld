@@ -57,7 +57,7 @@ Route::resource('product.reviews', ReviewController::class)->only(['index']);
 
 // PAYMENT
 Route::post('/checkout', [OrderController::class, 'store'])->name('order.checkout');
-
+Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
 Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])->name('order.payment.cancelled');
 
 
@@ -73,5 +73,4 @@ Route::middleware('auth')->group(function (){
     Route::put('/account/password', [AccountController::class, 'update_password'])->name('account.password.update');
     Route::resource('product.reviews', ReviewController::class)->only(['store', 'update']);
     Route::get('/pay/{order}', [OrderController::class, 'pay'])->name('order.pay');
-    Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
 });

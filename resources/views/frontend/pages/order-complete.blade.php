@@ -5,7 +5,7 @@
                 <div class="receipt bg-white p-3 rounded">
                     <img src="{{ asset('img/theme/check-mark.png') }}" width="120">
                     <h4 class="mt-2 mb-3">Your order is confirmed!</h4>
-                    <h6 class="name">Hello {{ auth()->user()->firstname }},</h6>
+                    <h6 class="name">Hello {{ $order->user->firstname }},</h6>
                     <span class="font-xxs text-black-50">your order has been confirmed and will be shipped in a few days
                         time</span>
                     <hr>
@@ -103,8 +103,6 @@
         <div class="d-flex justify-content-center mb-15">
             <a href="{{ route('home') }}" class="btn mt-10 mb-sm-15 mr-5">
                 <i class="fi-rs-arrow-left mr-20"></i>Back to Shop</a>
-            <a href="{{ route('account.orders.index') }}" class="btn mt-10 mb-sm-15 ml-5">
-                My Orders<i class="fi-rs-arrow-right"></i></a>
         </div>
 
     </div>

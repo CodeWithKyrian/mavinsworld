@@ -3,37 +3,37 @@ $testmonials = [
     [
         'name' => 'Michael',
         'comment' => 'The dick enlargement is really doing a great job 👏 I’m actually seeing the improvements. It’s my 3rd week now',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Micheal'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Micheal',
     ],
     [
         'name' => 'Obi Official',
         'comment' => 'I bought the infection dosage during your December promo, I must say, I felt the difference and it’s the best so far💯',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Obi+Official'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Obi+Official',
     ],
     [
         'name' => 'Miss Beauty',
         'comment' => 'Your infection dosage is lit🔥. The pains I feel around my waist and legs is gradually fading away. I don’t feel it too well again. I don’t regret buying your products.',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Miss+Beauty'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Miss+Beauty',
     ],
     [
         'name' => 'Dennison',
         'comment' => 'Since I started using your products, I now get my early morning erection very hard unlike before. I’m still taking the infection dosage. Ur products are very good 👍',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Dennison'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Dennison',
     ],
     [
         'name' => 'Okeke',
         'comment' => 'Ever since I started ur infection dosage, my stomach drastically changed. I used to feel pain and inches rounds my waist but they are no more. All thanks to ur products. Thou I have not seen much changes on the breast firming but am still using.',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Okeke'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Okeke',
     ],
     [
         'name' => 'Sixtus',
         'comment' => 'I ordered ur quick ejaculation treatment for my friend and it really worked very well for him. Ur products are very nice. Keep it up',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Sixtus'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Sixtus',
     ],
     [
         'name' => 'Fabian',
         'comment' => 'This is the only herbal brand I know that sells good and effective products. I love ur products.',
-        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Fabian'
+        'image' => 'https://ui-avatars.com/api/?length=1&background=0D8ABC&color=FFF&name=Fabian',
     ],
 ];
 @endphp
@@ -79,8 +79,8 @@ $testmonials = [
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <div class="position-relative thumb bg-brand d-inline-block text-white mb-4"><img
-                                            src="{{$testmonial['image']}}"
-                                            alt="wrapkit" class="thumb-img position-absolute rounded-circle" />
+                                            src="{{ $testmonial['image'] }}" alt="wrapkit"
+                                            class="thumb-img position-absolute rounded-circle" />
                                         {{ $testmonial['name'] }}</div>
                                     <p>{{ $testmonial['comment'] }}
                                     </p>
@@ -118,11 +118,10 @@ $testmonials = [
                     </ul>
                 </div>
                 <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <h4 class="widget-title">Account</h4>
+                    <h4 class="widget-title">Store</h4>
                     <ul class="footer-list mb-sm-5 mb-md-0">
-                        <li><a href="{{ route('auth.login') }}">Sign In</a></li>
+                        <li><a href="{{ route('shop') }}">Shop</a></li>
                         <li><a href="{{ route('cart.index') }}">View Cart</a></li>
-                        {{-- <li><a href="#">My Wishlist</a></li> --}}
                         <li><a href="#">Track My Order</a></li>
                     </ul>
                 </div>
@@ -154,9 +153,7 @@ $testmonials = [
             <div class="col-md-6">
                 <p class="font-sm mb-0">
                     &copy;
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>, <strong class="text-brand">Marvins World</strong> -
+                    {{ now()->year }}, <strong class="text-brand">Marvins World</strong> -
                     Powered By <strong class="text-brand">
                         <a href="https://codewithkyrian.com" target="_blank">CodeWithKyrian</a>
                     </strong> <br />All rights reserved
@@ -167,7 +164,8 @@ $testmonials = [
                     <h6>Follow Us</h6>
                     <a href="#"><img src="/img/theme/icons/icon-facebook-white.svg" alt="" /></a>
                     <a href="#"><img src="/img/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                    <a href="https://www.instagram.com/_marvins.world/" target="_blank"><img src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
+                    <a href="https://www.instagram.com/_marvins.world/" target="_blank"><img
+                            src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
                 </div>
                 <p class="font-sm">Up to 15% discount on your first subscribe</p>
             </div>

@@ -74,7 +74,7 @@
                             Status: <span
                                 class="badge rounded-pill {{ $order->status_color }}">{{ $order->status }}</span>
                             <br />
-                            Additional Info:
+                            Additional Info: {{$order->additional_info}}
                         </p>
                     </div>
                 </article>

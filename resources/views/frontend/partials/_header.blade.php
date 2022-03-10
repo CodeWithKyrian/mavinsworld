@@ -36,7 +36,8 @@ $categories = App\Models\Category::all();
                 <div class="col-xl-3 col-lg-4">
                     <div class="header-info header-info-right">
                         <ul>
-                            <li>Need help? Call Us:  <strong class="text-brand"> <a href="tel:+2349033510205"></a> +234 903 351 0205</strong></li>
+                            <li>Need help? Call Us: <strong class="text-brand"> <a href="tel:+2349033510205"></a>
+                                    +234 903 351 0205</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -82,7 +83,7 @@ $categories = App\Models\Category::all();
                                 </div>
                             </div>
                             <div class="header-action-icon-2">
-                                <a href="page-account.html">
+                                <a href="{{ route('about') }}">
                                     <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -90,47 +91,7 @@ $categories = App\Models\Category::all();
                                         </path>
                                     </svg>
                                 </a>
-                                <a href="javascript:void(0)"><span class="lable ml-0">Account</span></a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
-                                    <ul>
-                                        @auth
-                                            <li>
-                                                <a href="{{ route('account.dashboard') }}"><i
-                                                        class="fi fi-rs-user mr-10"></i>My
-                                                    Account</a>
-                                            </li>
-                                        @endauth
-
-                                        @auth
-                                            <li>
-                                                <a href="{{ route('account.orders.index') }}"><i
-                                                        class="fi fi-rs-receipt mr-10"></i>My Orders</a>
-                                            </li>
-                                        @endauth
-                                        <li>
-                                            <a href="{{ route('about') }}"><i class="fi fi-rs-heart mr-10"></i>About
-                                                Us</a>
-                                        </li>
-                                        @auth
-                                            <li>
-                                                <a onclick="document.getElementById('logout-form').submit();"
-                                                    href="javascript:void(0)"><i class="fi fi-rs-sign-out mr-10"></i>Sign
-                                                    out</a>
-                                            </li>
-                                        @endauth
-                                        @guest
-                                            <li>
-                                                <a href="{{ route('auth.login') }}"><i
-                                                        class="fi fi-rs-sign-in mr-10"></i>Login</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ route('auth.register') }}"><i class="fi fi-rs-add mr-10"></i>
-                                                    Register</a>
-                                            </li>
-                                        @endguest
-
-                                    </ul>
-                                </div>
+                                <a href="{{ route('about') }}"><span class="lable ml-0">About Us</span></a>
                             </div>
                         </div>
                     </div>
@@ -229,20 +190,6 @@ $categories = App\Models\Category::all();
                     <a href="{{ route('contact') }}"><i class="fi-rs-marker"></i> Onitsha, Anambra State.</a>
                 </div>
 
-                {{-- <div class="single-mobile-header-info">
-                    @guest
-                        <a href="{{ route('auth.login') }}"><i class="fi-rs-user"></i>Log In / Sign Up </a>
-                    @endguest
-                    @auth
-                        <a href="{{ route('account.dashboard') }}"><i class="fi-rs-user"></i>My Account</a>
-                    @endauth
-                </div> --}}
-                {{-- @auth
-                    <div class="single-mobile-header-info">
-                        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();"><i
-                                class="fi-rs-sign-out"></i>Sign Out</a>
-                    </div>
-                @endauth --}}
                 <div class="single-mobile-header-info">
                     <a href="tel:+2349033510205"><i class="fi-rs-headphones"></i>+234 903 351 0205 </a>
                 </div>
@@ -251,18 +198,17 @@ $categories = App\Models\Category::all();
                 <h6 class="mb-15">Follow Us</h6>
                 <a href="#"><img src="/img/theme/icons/icon-facebook-white.svg" alt="" /></a>
                 <a href="#"><img src="/img/theme/icons/icon-twitter-white.svg" alt="" /></a>
-                <a href="https://www.instagram.com/_marvins.world/" target="_blank"><img src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
+                <a href="https://www.instagram.com/_marvins.world/" target="_blank"><img
+                        src="/img/theme/icons/icon-instagram-white.svg" alt="" /></a>
             </div>
-            <div class="site-copyright">Copyright 2022 © <strong class="text-brand">Marvins World</strong> . All
-                rights reserved. Powered by <a href="https://codewithkyrian.com" target="_blank"><strong>CodeWithKyrian</strong>.</a>
+            <div class="site-copyright">
+                Copyright {{ now()->year }} © <strong class="text-brand">Marvins World</strong> . All rights
+                reserved. Powered by <a href="https://codewithkyrian.com"
+                    target="_blank"><strong>CodeWithKyrian</strong>.</a>
             </div>
         </div>
     </div>
 </div>
-
-<form id="logout-form" action="{{ route('auth.logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
 
 <a href="https://api.whatsapp.com/send?phone=2347019906126&text=Hello Marvins! I just came from your website and my name is"
     target="_blank" class="whatsapp-button">

@@ -16,7 +16,7 @@ class Order extends Model
     const STATUS_DELIVERED = 'Delivered';
 
     protected $fillable = [
-        'code', 'user_id', 'address_id', 'sub_total', 'shipping_fee', 'grand_total', 'shipping_method', 'paid_at', 'dispatched_at',
+        'code', 'user_id', 'address_id', 'sub_total', 'shipping_fee', 'grand_total', 'shipping_method', 'additional_info', 'paid_at', 'dispatched_at',
         'ordered_at', 'delivered_at'
     ];
 

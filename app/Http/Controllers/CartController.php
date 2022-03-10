@@ -86,13 +86,6 @@ class CartController extends Controller
 
         $addresses = collect();
 
-        if (auth()->check()) {
-            $user = request()->user();
-            $user->load('addresses');
-            $addresses = $user->addresses;
-            $default_address = $addresses->where('is_default', true)->first();
-        }
-
         $cart->items->load(['product.discount', 'product.media']);
         return view('frontend.pages.checkout', compact('cart', 'countries', 'addresses'));
     }

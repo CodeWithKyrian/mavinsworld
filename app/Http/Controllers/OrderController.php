@@ -3,19 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Http\Requests\UpdateOrderRequest;
 use App\Mail\OrderCreated;
-use App\Models\Address;
 use App\Models\Cart;
-use App\Models\ShippingCost;
 use App\Models\State;
 use App\Models\User;
-use Auth;
-use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Validator;
 use Mail;
 use Str;
 
@@ -37,66 +30,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        if (auth()->check()) {
+        $user = User::create([
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'phone' => $request->phone,
+        ]);
 
-            $user = $request->user();
-            $cart = Cart::with('items.product.discount')->find($request->cart_id);
-            $state = State::find($request->state_id);
+        $address = $user->addresses()->create([
+            'country_id' => $request->country_id,
+            'name' => $request->address,
+            'state_id' => $request->state_id,
+            'is_default' => true
+        ]);
 
-            if ($user->addresses()->exists()) {
-                $address = Address::query()
-                    ->where('user_id', $user->id)
-                    ->whereRelation('state', 'id', '=', $request->state_id)
-                    ->first();
-            } else {
-                $address = $user->addresses()->create([
-                    'country_id' => $request->country_id,
-                    'name' => $request->address,
-                    'state_id' => $request->state_id,
-                    'is_default' => true
-                ]);
-            }
-        } else {
+        $cart = Cart::with('items.product.discount')->find($request->cart_id);
 
-            $validator = Validator::make($request->all(), [
-                'email' => ['unique:users', 'email']
-            ]);
-            
-            if($validator->fails()) {
-                flash('You already have an account with this email. Login to continue')->error();
-                return redirect()->route('auth.login');
-            }
+        $cart->user_id = $user->id;
+        // $cart->temp_user_id = null;
+        $cart->save();
 
-            $user = User::create([
-                'firstname' => $request->input('firstname'),
-                'lastname' => $request->input('lastname'),
-                'email' => $request->input('email'),
-                'phone' => $request->phone,
-                'password' =>  Hash::make($request->password),
-            ]);
+        $state = State::find($request->state_id);
 
-            $address = $user->addresses()->create([
-                'country_id' => $request->country_id,
-                'name' => $request->address,
-                'state_id' => $request->state_id,
-                'is_default' => true
-            ]);
-
-            Auth::login($user);
-
-            $cart = Cart::with('items.product.discount')->find($request->cart_id);
-
-            $cart->user_id = $user->id;
-            $cart->temp_user_id = null;
-            $cart->save();
-
-            $request->session()->regenerate();
-
-            $state = State::find($request->state_id);
-        }
-
-
-        // By now, I should have four variables ready - $user, $address, $state and $cart
 
         $shipping_fee = get_shipping_fee($state, $request->shipping_method);
 
@@ -105,6 +60,7 @@ class OrderController extends Controller
             'address_id' => $address->id,
             'sub_total' => $cart->total,
             'shipping_fee' => $shipping_fee,
+            'additional_info' => $request->additional_info,
             'grand_total' => $cart->total + $shipping_fee,
             'shipping_method' => $request->shipping_method,
             'ordered_at' => now(),
@@ -120,7 +76,7 @@ class OrderController extends Controller
             ]);
         }
 
-        $cart->delete();
+
 
         return $this->pay($order);
     }
@@ -128,7 +84,7 @@ class OrderController extends Controller
     // public function checkout(Request $request)
     // {
     //     $order = $this->store($request);
-        
+
     // }
 
     public function pay(Order $order)
@@ -212,15 +168,13 @@ class OrderController extends Controller
 
             $order->save();
 
-            $order->load('user');
+            $order->load('user.cart');
+            $order->user->cart->delete();
+
 
             Mail::to($order->user)->send(new OrderCreated($order));
-            
         } else {
-            session()->flash('flash_notification', [
-                'message' => 'Payment Error',
-                'level' => 'success'
-            ]);
+            flash('Payment Error!')->error();
             return redirect()->route('home');
         }
 
@@ -233,33 +187,25 @@ class OrderController extends Controller
 
     public function cancelled(Order $order)
     {
+        $order->load(['user', 'address']);
+
+        $user = $order->user;
+        $user->cart()->update(['user_id' => null]);
+
+        $user->delete();
+        $order->delete();
+
         flash('Payment Cancelled. Try again!')->error();
-        return redirect()
-            ->route('account.orders.show', $order);
-    }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateOrderRequest  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
+        return redirect()->route('cart.checkout')->withInput([
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'email' => $user->email,
+            'phone' => $user->phone,
+            'additional_info' => $order->additional_info,
+            'country_id' => $order->address->country_id,
+            'address' => $order->address->name
+        ]);
     }
 
     /**
