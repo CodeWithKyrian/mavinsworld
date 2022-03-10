@@ -18,6 +18,7 @@ class MediaLibrarySeeder extends Seeder
         $mediaLibrary = MediaLibrary::firstOrCreate([]);
         
         $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_three.jpg'))->toMediaCollection('banners_xl');
+        $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_two.jpg'))->toMediaCollection('banners_xl');
         $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_four.jpg'))->toMediaCollection('banners_xl');
         $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_five.jpg'))->toMediaCollection('banners_xl');
 

@@ -111,7 +111,7 @@
         <div class="my-container section-title wow animate__animated animate__fadeIn">
             <h3 class="">Popular Deals</h3>
             <a class="show-all" href="{{ route('shop') }}">
-                All Deals
+                Shop Now
                 <i class="fi-rs-angle-right"></i>
             </a>
         </div>
@@ -183,7 +183,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mb-10">
-                        <a href="{{ route('shop') }}" class="btn btn-primary">All Deals</a>
+                        <a href="{{ route('shop') }}" class="btn btn-primary">Shop Now</a>
                     </div>
                 </div>
                 <!--End Col-lg-9-->
