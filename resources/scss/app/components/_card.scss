@@ -111,16 +111,16 @@
         &.icon-left {
             width: 135px;
             -webkit-box-align: start;
-            -webkit-align-items: start;
+            -webkit-align-items: flex-start;
             -ms-flex-align: start;
-            align-items: start;
+            align-items: flex-start;
         }
         &.icon-left-2 {
             width: 265px;
             -webkit-box-align: start;
-            -webkit-align-items: start;
+            -webkit-align-items: flex-start;
             -ms-flex-align: start;
-            align-items: start;
+            align-items: flex-start;
         }
         i {
             font-size: 25px;

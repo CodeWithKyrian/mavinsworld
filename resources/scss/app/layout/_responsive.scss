@@ -296,7 +296,7 @@
 	}
 	.product-list {
 		.product-cart-wrap {
-			align-items: start;
+			align-items: flex-start;
 			.product-img-action-wrap {
 				max-width: 45%;
 			}
@@ -862,7 +862,7 @@
 		}
 	}
 	.entry-meta.meta-1 {
-		justify-content: start;
+		justify-content: flex-start;
 	}
 	.single-header-meta .single-share {
 		display: none;
@@ -969,7 +969,7 @@
 	.nav.right {
 		-webkit-box-pack: start;
 		-ms-flex-pack: start;
-		justify-content: start;
+		justify-content: flex-start;
 	}
 	.hero-slider-1.style-2 .single-slider-img {
 		display: none;

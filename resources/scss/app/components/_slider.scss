@@ -68,11 +68,11 @@
 	-webkit-animation-name: fadeInUp;
 	animation-name: fadeInUp;
 }
-.single-hero-slider:nth-child(n+1){
-		display: none;
+.single-hero-slider:nth-child(n+2){
+		height: 0px;
 }
-.slick-initialized .single-hero-slider:nth-child(n+1){
-	display: block;
+.slick-initialized .single-hero-slider:nth-child(n+2){
+	height: 100%;
 }
 
 .hero-slider-1 {

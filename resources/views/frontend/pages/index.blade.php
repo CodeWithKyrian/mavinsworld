@@ -19,7 +19,7 @@
                             <div class="banner-img">
                                 {{ $media }}
                                 <div class="banner-text d-none d-md-block">
-                                    <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i
+                                    <a href="{{route('shop')}}" class="btn btn-xs">Shop Now <i
                                             class="fi-rs-arrow-small-right"></i></a>
                                 </div>
                             </div>
@@ -28,10 +28,6 @@
                     <div class="col-12 d-md-none">
                         <div class="banner-img mb-sm-0">
                             {{ $mediaLibrary->getFirstMedia('hero_banners_md') }}
-                            <div class="banner-text d-none d-md-block">
-                                <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i
-                                        class="fi-rs-arrow-small-right"></i></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -51,20 +47,10 @@
                     <div class="col-lg-1-4 col-md-4 col-12 col-sm-6">
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
-                                <div class="product-img product-img-zoom">
+                                <div class="product-img product-img-zoo">
                                     <a href="{{ route('product.details', $product) }}">
-                                        {{-- <img class="default-img" src="/img/shop/product-15-1.jpg" alt="" />
-                                <img class="hover-img" src="/img/shop/product-15-2.jpg" alt="" /> --}}
                                         {{ $product->getFirstMedia('thumbnail') }}
                                     </a>
-                                </div>
-                                <div class="product-action-1">
-                                    <a aria-label="Add To Wishlist" class="action-btn" href="shop-wishlist.html"><i
-                                            class="fi-rs-heart"></i></a>
-                                    <a aria-label="Compare" class="action-btn" href="shop-compare.html"><i
-                                            class="fi-rs-shuffle"></i></a>
-                                    <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
-                                        data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                 </div>
                                 @if ($product->hasDiscount())
                                     <div class="product-badges product-badges-position product-badges-mrg">
@@ -144,15 +130,6 @@
                                             <a href="{{ route('product.details', $product) }}">
                                                 {{ $product->getFirstMedia('thumbnail') }}
                                             </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn small hover-up"
-                                                data-bs-toggle="modal" data-bs-target="#quickViewModal"> <i
-                                                    class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            {{-- <a aria-label="Compare" class="action-btn small hover-up"
-                                                href="shop-compare.html"><i class="fi-rs-shuffle"></i></a> --}}
                                         </div>
                                         @if ($product->hasDiscount())
                                             <div class="product-badges product-badges-position product-badges-mrg">

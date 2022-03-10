@@ -11,11 +11,19 @@ mix.disableSuccessNotifications();
  | file for the application as well as bundling up all the JS files.
  |
  */
+// mix.webpackConfig({
+//     stats: {
+//         children: true,
+//         warningsFilter: [
+//             /\-\-underline\-color/,
+//         ]
+//     },
+// });
 
 mix.options({
     processCssUrls: false,
 })
-.sourceMaps(false, 'source-map');
+    .sourceMaps(false, 'source-map');
 
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/scss/app/main.scss', 'public/css/app')

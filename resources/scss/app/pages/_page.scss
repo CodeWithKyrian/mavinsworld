@@ -169,9 +169,9 @@
 	&.icon-left {
 		width: 165px;
 		-webkit-box-align: start;
-		-webkit-align-items: start;
+		-webkit-align-items: flex-start;
 		-ms-flex-align: start;
-		align-items: start;
+		align-items: flex-start;
 	}
 }
 
