@@ -51,13 +51,9 @@ $testmonials = [
                     <p class="mb-45">Get started with all sexual enhancement products from <span
                             class="text-brand">Marvins
                             World</span></p>
-                    @php
-                        $sex_enh_category = \App\Models\Category::where('name', 'LIKE', '%Sexual%')->first();
-                    @endphp
-                    <a href="{{ route('category.show', $sex_enh_category) }}" class="btn">Shop Now <i
-                            class="fi-rs-arrow-small-right"></i></a>
+                    
+                    <div class="btn">Click on SHOP NOW to get started</div>
                 </div>
-                {{-- <img src="/img/light-gold-bg.svg" alt="newsletter" /> --}}
             </div>
         </div>
     </section>
