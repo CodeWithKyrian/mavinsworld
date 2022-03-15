@@ -24,6 +24,8 @@ class Kernel extends ConsoleKernel
             ->everyMinute()
             ->withoutOverlapping()
             ->sendOutputTo(storage_path('/logs/queue-jobs.log'));
+
+            $schedule->command('model:prune')->daily();
     }
 
     /**

@@ -20233,7 +20233,7 @@ h6.post-title {
 }
 .header-action-2 .header-action-icon-2 > a span {
   font-size: 14px;
-  color: #7E7E7E;
+  color: #fff;
 }
 .header-action-2 .header-action-icon-2 > a span.pro-count {
   position: absolute;
@@ -24048,7 +24048,7 @@ footer .hotline img {
   }
 
   .cart-dropdown-wrap {
-    width: 370px;
+    width: 320px;
     right: -39px;
   }
   .cart-dropdown-wrap ul li .shopping-cart-img {
@@ -24070,7 +24070,7 @@ footer .hotline img {
   }
 
   .mobile-header-wrapper-style {
-    width: 380px;
+    width: 320px;
   }
   .mobile-header-wrapper-style .mobile-header-wrapper-inner .mobile-header-top {
     padding: 15px 30px 13px 30px;
