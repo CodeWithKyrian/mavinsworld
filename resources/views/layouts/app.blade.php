@@ -15,6 +15,8 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
+    @stack('head-links')
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="/css/plugins/animate.min.css" />
     <link rel="stylesheet" href="/css/app/main.css" />
