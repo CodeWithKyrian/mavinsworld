@@ -105,7 +105,7 @@
                                 {{-- <img style="width: 100%" src="{{asset('img/16-9-video.png')}}" alt="" class="mb-md-3 mb-lg-0 mb-sm-4" /> --}}
                                 <div id="video-player">
                                     <video width="100%" controls poster="{{ asset('img/about/about-poster.png') }}">
-                                        {{-- <source src="{{ asset('videos/about-marvins.mov') }}" type="video/mov"> --}}
+                                        <source src="{{ asset('videos/about-marvins.mov') }}" type="video/mov">
                                         <source src="{{ asset('videos/about-marvins.mp4') }}" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
