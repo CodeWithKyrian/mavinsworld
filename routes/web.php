@@ -30,6 +30,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact-us', [HomeController::class, 'contactPost'])->name('contact');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/terms-and-conditions', [HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('privacy-policy');
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');

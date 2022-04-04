@@ -59,6 +59,10 @@ class HomeController extends Controller
         return redirect()->route('home');
     }
 
+    public function gallery()
+    {
+        return view('frontend.pages.gallery');
+    }
     public function shop(Request $request)
     {
 
