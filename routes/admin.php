@@ -33,6 +33,7 @@ Route::name('admin.')->group(function () {
         Route::get('settings/shipping', [SettingsController::class, 'shipping'])->name('settings.shipping.index');
         Route::get('settings/shipping/{cost}', [SettingsController::class, 'editShippingCost'])->name('settings.shipping.edit');
         Route::put('settings/shipping/{cost}', [SettingsController::class, 'updateShippingCost'])->name('settings.shipping.update');
+        Route::delete('settings/shipping/{cost}', [SettingsController::class, 'deleteShippingCost'])->name('settings.shipping.destroy');
     });
 
     Route::get('login', [AuthController::class, 'loginForm'])->name('login');

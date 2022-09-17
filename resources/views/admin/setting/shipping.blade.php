@@ -39,7 +39,7 @@
                                             <i class="material-icons md-more_horiz"></i> </a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="{{route('admin.settings.shipping.edit', $cost)}}">Edit</a>
-                                            <a class="dropdown-item text-danger" href="">Delete</a>
+                                            <button onclick="confirmDelete({{$cost}})" class="dropdown-item text-danger" href="">Delete</button>
                                         </div>
                                     </div>
                                     <!-- dropdown //end -->
@@ -55,5 +55,21 @@
     <!-- card .//end -->
 
     @push('inline-scripts')
+    <script>
+        function confirmDelete(cost) {
+            $.ajax({
+                url: route('admin.settings.shipping.destroy', cost),
+                type: 'delete',
+                data: {
+                    _token: MARVINS.data.csrf,
+                },
+                success: function(data) {
+                    MARVINS.plugins.notify('success', 'Product Deleted Succesfully')
+                    window.location.reload()
+                }
+            })
+            // $('#confirm-delete-modal').modal()
+        }
+    </script>
     @endpush
 </x-admin-layout>

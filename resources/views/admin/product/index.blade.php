@@ -94,7 +94,6 @@
     @push('inline-scripts')
         <script>
             function confirmDelete(product) {
-                console.log(product);
                 $.ajax({
                     url: route('admin.product.destroy', product),
                     type: 'delete',

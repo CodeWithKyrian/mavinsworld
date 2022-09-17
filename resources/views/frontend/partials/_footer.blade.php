@@ -45,8 +45,8 @@ $testmonials = [
       <div class="position-relative newsletter-inner">
         <div class="newsletter-content">
           <h2 class="mb-20">
-            Are you worried about your <br />
-            sexual performance in bed?
+            Are you worried and tired of <br />
+            your poor sex life?
           </h2>
           <p class="mb-45">Get started with all sexual enhancement products from <span
               class="text-brand">Marvins

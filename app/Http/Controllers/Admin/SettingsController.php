@@ -55,7 +55,7 @@ class SettingsController extends Controller
     {
         $cost->update([
             'group_name' => $request->group_name,
-             'pickup_amount' => $request->pickup_amount, 
+             'pickup_amount' => $request->pickup_amount,
              'delivery_amount' => $request->delivery_amount
         ]);
 
@@ -73,5 +73,12 @@ class SettingsController extends Controller
         flash('Shipping Cost updated successfully')->success();
 
         return redirect()->route('admin.settings.shipping.index');
+    }
+
+    public function deleteShippingCost(Request $request, ShippingCost $cost)
+    {
+        $cost->delete();
+
+        return "";
     }
 }
