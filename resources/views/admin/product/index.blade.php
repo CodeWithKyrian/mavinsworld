@@ -52,7 +52,7 @@
                                     <i class="material-icons md-edit"></i>
                                     Edit </a>
                                 <button class="btn btn-sm font-sm btn-light rounded"
-                                    onclick="confirmDelete({{ $product->slug }})">
+                                    onclick="confirmDelete({{ $product }})">
                                     <i class="material-icons md-delete_forever"></i> Delete
                                 </button>
                             </div>
@@ -93,10 +93,10 @@
 
     @push('inline-scripts')
         <script>
-            function confirmDelete(slug) {
-                console.log(slug);
+            function confirmDelete(product) {
+                console.log(product);
                 $.ajax({
-                    url: route('admin.product.destroy', slug),
+                    url: route('admin.product.destroy', product),
                     type: 'delete',
                     data: {
                         _token: MARVINS.data.csrf,
@@ -106,7 +106,7 @@
                         window.location.reload()
                     }
                 })
-                $('#confirm-delete-modal').modal()
+                // $('#confirm-delete-modal').modal()
             }
         </script>
     @endpush
