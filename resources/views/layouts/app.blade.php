@@ -32,7 +32,7 @@
         {{$slot}}
     </main>
 
-    @include('frontend.partials._footer')
+    @include('frontend.partials._footer', ['instagramFeeds' => $feeds])
 
     <script src="/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="/js/vendor/jquery-3.6.0.min.js"></script>
@@ -121,7 +121,7 @@
 
             const myObj = this;
             const product_id = $(this).data('product-id');
-            
+
             $.ajax({
                 type:"POST",
                 url: route('cart.add'),
@@ -140,7 +140,7 @@
                 }
             });
         })
-        
+
         function switchAction()
         {
             const action = $('#search-form-lg option:selected').data('action')

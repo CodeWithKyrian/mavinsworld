@@ -20,12 +20,12 @@ class ProductSeeder extends Seeder
     public function run()
     {
         $categories = Category::factory()->count(2)->create();
-        $categories->push(Category::create([
-            'name' => 'Sexual Enhancement',
-            'slug' => 'sexual-enhancement',
-            'tags' => ['secual'],
-            'description' => 'Some description'
-        ]));
+        // $categories->push(Category::create([
+        //     'name' => 'Sexual Enhancement',
+        //     'slug' => 'sexual-enhancement',
+        //     'tags' => ['secual'],
+        //     'description' => 'Some description'
+        // ]));
         $products = [
             [
                 'name' => 'Boob Enlargement', 'slug' => 'boob-enlargement', 'sku' => Str::random(8), 'tags' => ['sperm', 'booster'], 'cost_price' => 20000, 'selling_price' => 10000, 'current_stock' => 10, 'total_stock' => 50, 'unit' => 'bottles', 'is_published' => true, 'rating' => 3.5, 'url' => asset('img/product/boob-enlargement.jpg'), 'is_featured' => true
@@ -78,7 +78,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Pussy Drip', 'slug' => 'pussy-drip', 'sku' => Str::random(8), 'tags' => ['pussy', 'tightner'], 'cost_price' => 5000, 'selling_price' => 4500, 'current_stock' => 10, 'total_stock' => 50, 'unit' => 'bottles', 'is_published' => true, 'rating' => 4.6, 'url' => asset('img/product/pussy-drip.jpg'), 'is_featured' => true
             ],
-            
+
             [
                 'name' => 'Quick Ejaculation Cure', 'slug' => 'quick-ejaculation-cure', 'sku' => Str::random(8), 'tags' => ['quick', 'ejaculation'], 'cost_price' => 34000, 'selling_price' => 30000, 'current_stock' => 10, 'total_stock' => 50, 'unit' => 'bottles', 'is_published' => true, 'rating' => 4.0, 'url' => asset('img/product/quick-ejaculation-cure.jpg')
             ],
@@ -100,7 +100,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Women Fertility Kit', 'slug' => 'women-fertility-kit', 'sku' => Str::random(8), 'tags' => ['prostrate', 'kit'], 'cost_price' => 10000, 'selling_price' => 8500, 'current_stock' => 10, 'total_stock' => 50, 'unit' => 'bottles', 'is_published' => true, 'rating' => 4.3, 'url' => asset('img/product/women-fertility-kit.jpg')
             ],
-            
+
         ];
 
         foreach ($products as $prod) {

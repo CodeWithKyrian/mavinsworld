@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->mediumText('code')->unique();
+            $table->string('code')->unique();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('address_id')->nullable()->constrained()->nullOnDelete();
             $table->float('sub_total', 8, 0);

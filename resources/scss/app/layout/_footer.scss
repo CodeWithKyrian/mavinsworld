@@ -116,6 +116,20 @@ footer {
     }
 }
 
+.instagram-testmonial {
+    .wrapper{
+        position: relative;
+        padding-bottom: 3rem;
+    }
+    .instagram-testmonial-slider-arrow{
+        top: unset;
+        padding-top: 1.2rem;
+    }
+    .item{
+        aspect-ratio: 1/1;
+    }
+}
+
 .widget-about {
     min-width: 300px;
     font-size: 15px;

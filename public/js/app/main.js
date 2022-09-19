@@ -295,6 +295,43 @@
         ]
     });
 
+    /*------ Instagram Testimonial active 1 ----*/
+    $(".instagram-testmonial-slider").slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        fade: false,
+        loop: true,
+        dots: false,
+        arrows: true,
+        prevArrow: '<span class="slider-btn slider-prev"><i class="fi-rs-angle-left"></i></span>',
+        nextArrow: '<span class="slider-btn slider-next"><i class="fi-rs-angle-right"></i></span>',
+        appendArrows: ".instagram-testmonial-slider-arrow",
+        responsive: [
+            {
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
+        ],
+    });
+
     /*----------------------------
         Category toggle function
     ------------------------------*/
@@ -357,7 +394,7 @@
     }
 
     /*-----------------------
-        Shop filter active 
+        Shop filter active
     ------------------------- */
     $(".shop-filter-toogle").on("click", function (e) {
         e.preventDefault();
@@ -450,7 +487,7 @@
     $(".checkout-toggle").on("click", function () {
         $(".open-toggle").slideToggle(1000);
     });
-    
+
 
     /*---- CounterUp ----*/
     // $(".count").counterUp({

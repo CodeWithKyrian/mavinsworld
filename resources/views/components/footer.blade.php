@@ -1,3 +1,6 @@
+@props(['feeds'])
+
+
 <footer class="main">
   <section class="newsletter wow animate__animated animate__fadeIn">
     <div class="d-flex">
@@ -18,32 +21,18 @@
 
 
   <section class="instagram-testmonial py-4">
-    <div class="row justify-content-center">
-      <div class="col-md-8 text-center">
-        <h4 class="my-4">Check what our Customers are Saying on social media</h4>
-      </div>
-    </div>
     <div class="wrapper">
       <div class="instagram-testmonial-slider">
         @foreach ($instagramFeeds as $feed)
-          @if (!$feed->isCarousel())
-            <div class="item">
-              @if ($feed->isImage())
-                <a href="{{ $feed->permalink }}" target="_blank">
-                  <img src="{{ $feed->url }}" alt="">
-                </a>
-              @elseif ($feed->isVideo())
-                <a href="{{ $feed->permalink }}" target="_blank">
-                  <video src="{{ $feed->url }}" alt="" poster="{{ $feed->thumbnail_url }}"></video>
-                </a>
-              @endif
-            </div>
-          @endif
+          <div class="item">
+            <a href="{{ $feed['permalink'] }}">
+              <img src="{{ $feed['url'] }}" alt="">
+            </a>
+          </div>
         @endforeach
       </div>
-      <div class="slider-arrow instagram-testmonial-slider-arrow"></div>
-
     </div>
+    <div class="slider-arrow instagram-testmonial-slider-arrow"></div>
   </section>
 
   <section class="section-padding footer-mid">

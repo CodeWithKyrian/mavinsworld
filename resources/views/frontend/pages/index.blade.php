@@ -38,7 +38,8 @@
 
     <section class="product-tabs section-padding position-relative">
         <div class="my-container section-title style-2">
-            <h3>Featured Products</h3>
+            <h3 class="my-title">Featured Products</h3>
+            <a href="{{ route('shop') }}" class="btn btn-primary">See All</a>
         </div>
         <!--End nav-tabs-->
         <div class="my-container">
@@ -109,11 +110,8 @@
 
     <section class="section-padding pb-5">
         <div class="my-container section-title wow animate__animated animate__fadeIn">
-            <h3 class="">Popular Deals</h3>
-            <a class="show-all" href="{{ route('shop') }}">
-                Shop Now
-                <i class="fi-rs-angle-right"></i>
-            </a>
+            <h3 class="my-title">Popular Deals</h3>
+            <a href="{{ route('shop') }}" class="btn btn-primary">Shop Now</a>
         </div>
         <div class="my-container">
             <div class="row">

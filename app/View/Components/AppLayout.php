@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Dymantic\InstagramFeed\InstagramFeed;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
@@ -18,6 +19,7 @@ class AppLayout extends Component
      */
     public function render()
     {
-        return view('layouts.app');
+        $feeds = InstagramFeed::for('marvinsworld');
+        return view('layouts.app', ['feeds' => $feeds]);
     }
 }

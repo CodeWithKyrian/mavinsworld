@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Country;
-use App\Models\FlashDeal;
 use App\Models\Product;
-use App\Models\Review;
 use App\Models\User;
 use App\Notifications\ContactForm;
 use Illuminate\Http\Request;

@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
+use App\Models\MediaLibrary;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test-order-dispatched', function() {
-    $order = \App\Models\Order::with('user')->where('code', '20220228-5136')->first();
+Route::get('/upload_new_banners', function () {
+    $mediaLibrary = MediaLibrary::firstOrCreate([]);
 
-    return new \App\Mail\OrderDispatched($order);
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_six.jpg'))->toMediaCollection('banners_xl');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_seven.jpg'))->toMediaCollection('banners_xl');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_eight.jpg'))->toMediaCollection('banners_xl');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_nine.jpg'))->toMediaCollection('banners_xl');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_three.jpg'))->toMediaCollection('banners_xl');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_two.jpg'))->toMediaCollection('banners_xl');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_four.jpg'))->toMediaCollection('banners_xl');
+
+
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_three.jpg'))->toMediaCollection('hero_banners_sm');
+    $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_four.jpg'))->toMediaCollection('hero_banners_sm');
+
+    return "Done";
 });
 
 // HOME PAGES
@@ -63,7 +76,7 @@ Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])-
 
 
 
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->group(function () {
     Route::get('/account/dashboard', [AccountController::class, 'dashboard'])->name('account.dashboard');
     Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders.index');
     Route::get('/account/orders/track', [AccountController::class, 'trackOrder'])->name('account.orders.track');

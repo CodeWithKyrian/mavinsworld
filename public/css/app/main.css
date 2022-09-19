@@ -14947,7 +14947,7 @@ strong,
 
 .section-title {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 44px;
   position: relative;
   justify-content: space-between;
@@ -22282,6 +22282,18 @@ footer .hotline img {
   background: #316ce8;
 }
 
+.instagram-testmonial .wrapper {
+  position: relative;
+  padding-bottom: 3rem;
+}
+.instagram-testmonial .instagram-testmonial-slider-arrow {
+  top: unset;
+  padding-top: 1.2rem;
+}
+.instagram-testmonial .item {
+  aspect-ratio: 1/1;
+}
+
 .widget-about {
   min-width: 300px;
   font-size: 15px;
@@ -24717,14 +24729,6 @@ footer .hotline img {
     display: none;
   }
 
-  .section-title.style-2 {
-    display: block;
-  }
-  .section-title.style-2 h3 {
-    margin-bottom: 25px;
-    font-size: 28px;
-  }
-
   .modal-open .modal {
     padding-right: 0 !important;
   }
@@ -25136,15 +25140,13 @@ footer .hotline img {
   }
 
   .section-title {
-    display: block;
     margin-bottom: 15px;
   }
   .section-title .title {
     display: block;
   }
   .section-title h3 {
-    margin-bottom: 20px;
-    font-size: 28px;
+    font-size: 20px;
   }
   .section-title .show-all {
     display: none;

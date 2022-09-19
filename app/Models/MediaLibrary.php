@@ -14,7 +14,7 @@ class MediaLibrary extends Model implements HasMedia
     {
         $this
             ->addMediaCollection('banners_xl')
-            ->onlyKeepLatest(4)
+            ->onlyKeepLatest(7)
             ->withResponsiveImages();
         $this
             ->addMediaCollection('hero_banners_sm')
