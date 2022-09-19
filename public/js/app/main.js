@@ -297,7 +297,7 @@
 
     /*------ Instagram Testimonial active 1 ----*/
     $(".instagram-testmonial-slider").slick({
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
         fade: false,
@@ -311,21 +311,21 @@
             {
                 breakpoint: 1025,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                     slidesToScroll: 1
                 }
             },
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 1,
                     slidesToScroll: 1
                 }
             }
