@@ -94,8 +94,8 @@ class SettingsController extends Controller
 
     public function listTestmonialsFromInstagram()
     {
-        InstagramFeed::for('marvinsworld')->refresh(10);
-        $feeds = InstagramFeed::for('marvinsworld', 10);
+        InstagramFeed::for('marvinsworld')->refresh(100);
+        $feeds = InstagramFeed::for('marvinsworld', 100);
         return view('admin.setting.list-instagram-testmonials', compact('feeds'));
     }
 
