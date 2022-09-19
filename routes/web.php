@@ -20,23 +20,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/upload_new_banners', function () {
-    $mediaLibrary = MediaLibrary::firstOrCreate([]);
+// Route::get('/upload_new_banners', function () {
+//     $mediaLibrary = MediaLibrary::firstOrCreate([]);
 
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_six.jpg'))->toMediaCollection('banners_xl');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_seven.jpg'))->toMediaCollection('banners_xl');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_eight.jpg'))->toMediaCollection('banners_xl');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_nine.jpg'))->toMediaCollection('banners_xl');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_three.jpg'))->toMediaCollection('banners_xl');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_two.jpg'))->toMediaCollection('banners_xl');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_four.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_six.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_seven.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_eight.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_nine.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_three.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_two.jpg'))->toMediaCollection('banners_xl');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_four.jpg'))->toMediaCollection('banners_xl');
 
 
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_three.jpg'))->toMediaCollection('hero_banners_sm');
-    $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_four.jpg'))->toMediaCollection('hero_banners_sm');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_three.jpg'))->toMediaCollection('hero_banners_sm');
+//     $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_four.jpg'))->toMediaCollection('hero_banners_sm');
 
-    return "Done";
+//     return "Done";
+// });
+
+Route::get('/auth_instagram', function () {
+    $profile = \Dymantic\InstagramFeed\Profile::for('marvinsworld');
+    $auth_url = $profile->getInstagramAuthUrl();
+
+    return redirect()->away($auth_url);
 });
+
 
 // HOME PAGES
 Route::get('/', [HomeController::class, 'index'])->name('home');
