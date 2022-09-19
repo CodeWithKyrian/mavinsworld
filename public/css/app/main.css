@@ -22284,7 +22284,7 @@ footer .hotline img {
 
 .instagram-testmonial .wrapper {
   position: relative;
-  padding-bottom: 3rem;
+  padding: 0 2px 3rem 2px;
 }
 .instagram-testmonial .instagram-testmonial-slider-arrow {
   top: unset;
@@ -22292,6 +22292,7 @@ footer .hotline img {
 }
 .instagram-testmonial .item {
   aspect-ratio: 1/1;
+  padding: 0 2px;
 }
 .instagram-testmonial .item img {
   width: 100%;

@@ -297,7 +297,7 @@
 
     /*------ Instagram Testimonial active 1 ----*/
     $(".instagram-testmonial-slider").slick({
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         fade: false,

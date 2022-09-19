@@ -18,21 +18,19 @@
 
 
   <section class="instagram-testmonial py-4">
-    <div class="d-flex flex-wrap section-title  justify-content-center">
+    <div class="d-flex section-title justify-content-center flex-wrap">
       <div class="col-md-8 text-center">
         <h3 class="my-4">Check what our Customers are Saying on social media</h3>
       </div>
     </div>
     <div class="wrapper">
       <div class="instagram-testmonial-slider">
-        @foreach ($instagramFeeds as $feed)
-          @if ($feed->is_image)
-            <div class="item">
-              <a href="{{ $feed->permalink }}" target="_blank">
-                <img src="{{ $feed->url }}" alt="">
-              </a>
-            </div>
-          @endif
+        @foreach ($feeds as $feed)
+          <div class="item">
+            <a href="{{ $feed->permalink }}" target="_blank">
+              <img src="{{ $feed->url }}" alt="">
+            </a>
+          </div>
         @endforeach
       </div>
       <div class="slider-arrow instagram-testmonial-slider-arrow"></div>

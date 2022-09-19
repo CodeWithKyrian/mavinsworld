@@ -28,8 +28,6 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('model:prune')->daily();
 
-        $schedule->call(fn () => Profile::for('marvinsworld')->refreshFeed(30))->twiceDaily();
-
         $schedule->command("instagram-feed:refresh-tokens")->monthly();
     }
 

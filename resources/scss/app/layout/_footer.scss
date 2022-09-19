@@ -119,7 +119,7 @@ footer {
 .instagram-testmonial {
     .wrapper{
         position: relative;
-        padding-bottom: 3rem;
+        padding: 0 2px 3rem 2px;
     }
     .instagram-testmonial-slider-arrow{
         top: unset;
@@ -127,6 +127,7 @@ footer {
     }
     .item{
         aspect-ratio: 1/1;
+        padding: 0 2px;
 
         img {
             width: 100%;

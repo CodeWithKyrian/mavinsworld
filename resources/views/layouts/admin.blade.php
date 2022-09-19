@@ -91,6 +91,7 @@
                     <div class="submenu">
                         <a href="{{route('admin.settings.general.index')}}">General Settings</a>
                         <a href="{{route('admin.settings.shipping.index')}}">Shipping Settings</a>
+                        <a href="{{route('admin.settings.instagram-testmonials.index')}}">Instagram Testmonials Settings</a>
                     </div>
                 </li>
             </ul>

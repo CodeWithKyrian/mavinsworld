@@ -3,7 +3,6 @@
 namespace App\View\Components;
 
 use App\Models\ReviewImage;
-use Dymantic\InstagramFeed\InstagramFeed;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
@@ -21,7 +20,6 @@ class AppLayout extends Component
     public function render()
     {
         $feeds = ReviewImage::query()->limit(15)->latest()->get();
-        // $feeds = InstagramFeed::for('marvinsworld', 30);
-        return view('layouts.app', ['feeds' => $feeds]);
+        return view('layouts.app', compact('feeds'));
     }
 }

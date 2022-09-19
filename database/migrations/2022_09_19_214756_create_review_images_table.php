@@ -15,9 +15,7 @@ return new class extends Migration
     {
         Schema::create('review_images', function (Blueprint $table) {
             $table->id();
-            $table->string('type')->default('image');
             $table->string('permalink');
-            $table->longText('poster')->nullable();
             $table->longText('url');
             $table->timestamps();
         });

@@ -34,6 +34,10 @@ Route::name('admin.')->group(function () {
         Route::get('settings/shipping/{cost}', [SettingsController::class, 'editShippingCost'])->name('settings.shipping.edit');
         Route::put('settings/shipping/{cost}', [SettingsController::class, 'updateShippingCost'])->name('settings.shipping.update');
         Route::delete('settings/shipping/{cost}', [SettingsController::class, 'deleteShippingCost'])->name('settings.shipping.destroy');
+        Route::get('settings/instagram-testmonials', [SettingsController::class, 'instagramTestmonials'])->name('settings.instagram-testmonials.index');
+        Route::get('settings/instagram-testmonials/list-all', [SettingsController::class, 'listTestmonialsFromInstagram'])->name('settings.instagram-testmonials.list-all');
+        Route::get('settings/instagram-testmonials/link', [SettingsController::class, 'linkInstagramTestmonial'])->name('settings.instagram-testmonials.link');
+        Route::delete('settings/instagram-testmonials/{reviewImage}', [SettingsController::class, 'unlinkInstagramTestmonial'])->name('settings.instagram-testmonials.unlink');
     });
 
     Route::get('login', [AuthController::class, 'loginForm'])->name('login');

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
+use App\Models\ReviewImage;
 use App\Models\ShippingCost;
 use App\Models\State;
+use Dymantic\InstagramFeed\InstagramFeed;
+use Dymantic\InstagramFeed\Profile;
 use Illuminate\Http\Request;
 use stdClass;
 
@@ -81,4 +85,48 @@ class SettingsController extends Controller
 
         return "";
     }
+
+    public function instagramTestmonials(Request $request)
+    {
+        $images = ReviewImage::query()->limit(15)->latest()->get();
+        return view('admin.setting.instagram-testmonials', compact('images'));
+    }
+
+    public function listTestmonialsFromInstagram()
+    {
+        InstagramFeed::for('marvinsworld')->refresh(10);
+        $feeds = InstagramFeed::for('marvinsworld', 10);
+        return view('admin.setting.list-instagram-testmonials', compact('feeds'));
+    }
+
+    public function newInstagramTestmonial()
+    {
+        return view('admin.setting.link-instagram-testmonial');
+    }
+
+    public function linkInstagramTestmonial(Request $request)
+    {
+        $request->validate([
+            'permalink' => 'required',
+            'url' => 'required|url'
+        ]);
+
+        $reviewImage = ReviewImage::create([
+            'permalink' => $request->permalink,
+            'url' => $request->url
+        ]);
+
+        flash('Post Linked Successfully')->success();
+
+        return redirect()->route('admin.settings.instagram-testmonials.index');
+    }
+
+    public function unlinkInstagramTestmonial(Request $request, ReviewImage $reviewImage)
+    {
+        $reviewImage->delete();
+        flash('Post unLinked Successfully')->success();
+
+        return redirect()->route('admin.settings.instagram-testmonials.index');
+    }
+
 }
