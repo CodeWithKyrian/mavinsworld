@@ -22293,6 +22293,10 @@ footer .hotline img {
 .instagram-testmonial .item {
   aspect-ratio: 1/1;
 }
+.instagram-testmonial .item img {
+  width: 100%;
+  height: 100%;
+}
 
 .widget-about {
   min-width: 300px;

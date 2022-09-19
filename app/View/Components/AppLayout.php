@@ -19,7 +19,7 @@ class AppLayout extends Component
      */
     public function render()
     {
-        $feeds = InstagramFeed::for('marvinsworld');
+        $feeds = InstagramFeed::for('marvinsworld', 30);
         return view('layouts.app', ['feeds' => $feeds]);
     }
 }

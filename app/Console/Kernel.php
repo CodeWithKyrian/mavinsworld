@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use Dymantic\InstagramFeed\Profile;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,7 +26,11 @@ class Kernel extends ConsoleKernel
             ->withoutOverlapping()
             ->sendOutputTo(storage_path('/logs/queue-jobs.log'));
 
-            $schedule->command('model:prune')->daily();
+        $schedule->command('model:prune')->daily();
+
+        $schedule->call(fn () => Profile::for('marvinsworld')->refreshFeed(30))->twiceDaily();
+
+        $schedule->command("instagram-feed:refresh-tokens")->monthly();
     }
 
     /**

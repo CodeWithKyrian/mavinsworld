@@ -26,17 +26,11 @@
     <div class="wrapper">
       <div class="instagram-testmonial-slider">
         @foreach ($instagramFeeds as $feed)
-          @if (!$feed->isCarousel())
+          @if ($feed->isImage())
             <div class="item">
-              @if ($feed->isImage())
-                <a href="{{ $feed->permalink }}" target="_blank">
-                  <img src="{{ $feed->url }}" alt="">
-                </a>
-              @elseif ($feed->isVideo())
-                <a href="{{ $feed->permalink }}" target="_blank">
-                  <video src="{{ $feed->url }}" alt="" poster="{{ $feed->thumbnail_url }}"></video>
-                </a>
-              @endif
+              <a href="{{ $feed->permalink }}" target="_blank">
+                <img src="{{ $feed->url }}" alt="">
+              </a>
             </div>
           @endif
         @endforeach
