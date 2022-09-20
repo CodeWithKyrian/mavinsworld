@@ -302,7 +302,7 @@
         autoplay: true,
         fade: false,
         loop: true,
-        dots: false,
+        dots: true,
         arrows: true,
         prevArrow: '<span class="slider-btn slider-prev"><i class="fi-rs-angle-left"></i></span>',
         nextArrow: '<span class="slider-btn slider-next"><i class="fi-rs-angle-right"></i></span>',
