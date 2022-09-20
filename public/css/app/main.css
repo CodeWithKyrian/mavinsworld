@@ -22197,7 +22197,8 @@ footer .hotline img {
   position: relative;
 }
 .newsletter .newsletter-inner {
-  background: url(../../img/banner/long-banner.jpeg) no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   background-position: top right;
   padding: 84px 78px;
@@ -22284,7 +22285,7 @@ footer .hotline img {
 
 .instagram-testmonial .wrapper {
   position: relative;
-  padding: 0 2px 3rem 2px;
+  padding-bottom: 3rem;
 }
 .instagram-testmonial .instagram-testmonial-slider-arrow {
   top: unset;

@@ -1,7 +1,7 @@
 <footer class="main">
   <section class="newsletter wow animate__animated animate__fadeIn">
     <div class="d-flex">
-      <div class="position-relative newsletter-inner">
+      <div class="position-relative newsletter-inner" style="background-image: url({{asset('img/long-banner.jpeg')}})">
         <div class="newsletter-content">
           <h2 class="mb-20">
             Are you worried and tired of <br />

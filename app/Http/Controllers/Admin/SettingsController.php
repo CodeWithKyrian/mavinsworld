@@ -94,8 +94,8 @@ class SettingsController extends Controller
 
     public function listTestmonialsFromInstagram()
     {
-        InstagramFeed::for('marvinsworld')->refresh(100);
-        $feeds = InstagramFeed::for('marvinsworld', 100);
+        InstagramFeed::for('marvinsworld')->refresh(10);
+        $feeds = InstagramFeed::for('marvinsworld', 10);
         return view('admin.setting.list-instagram-testmonials', compact('feeds'));
     }
 
@@ -121,12 +121,12 @@ class SettingsController extends Controller
         return redirect()->route('admin.settings.instagram-testmonials.index');
     }
 
-    public function unlinkInstagramTestmonial(Request $request, ReviewImage $reviewImage)
+    public function unlinkInstagramTestmonial(ReviewImage $reviewImage)
     {
         $reviewImage->delete();
         flash('Post unLinked Successfully')->success();
 
-        return redirect()->route('admin.settings.instagram-testmonials.index');
+        return $reviewImage;
     }
 
 }
