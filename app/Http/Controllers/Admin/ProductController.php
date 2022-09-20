@@ -49,6 +49,8 @@ class ProductController extends Controller
             'cost_price' => $request->cost_price,
             'selling_price' => $request->sell_price,
             'unit' => 'capsules',
+            'total_stock' => 50,
+            'current_stock' => 50,
             'is_published' => $request->should_publish,
             'is_featured' => $request->boolean('is_featured'),
             'is_popular' => $request->boolean('is_popular'),
