@@ -1,7 +1,7 @@
 <x-app-layout title="{!! request()->has('s') ? __('product.search_results', ['search' => request()->input('s')]) : 'Shop' !!}">
     <div class="page-header mt-5 pl-5 pr-5 mb-50">
         <div class="my-container">
-            <div class="sub-page-header">
+            <div class="sub-page-header" style="background-image: url({{asset('img/banner/long-banner-two.jpeg')}})">
                 <div class="row align-items-center">
                     <div class="col-xl-5">
                         @if (request()->has('s'))
