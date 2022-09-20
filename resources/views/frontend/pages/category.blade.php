@@ -1,7 +1,7 @@
 <x-app-layout title="{{ $category->name }}">
-    <div class="page-header mt-5 pl-5 pr-5 mb-50">
-        <div class="">
-            <div class="sub-page-header">
+    <div class="page-header mb-50">
+        <div class="pl-5 pr-5 mt-5">
+            <div class="sub-page-header" style="background-image: url({{asset('img/long-banner-two.jpeg')}})">
                 <div class="row align-items-center">
                     <div class="col-xl-3">
                         @if (request()->has('s'))
