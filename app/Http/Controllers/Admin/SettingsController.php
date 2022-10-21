@@ -89,13 +89,15 @@ class SettingsController extends Controller
     public function instagramTestmonials(Request $request)
     {
         $images = ReviewImage::query()->limit(15)->latest()->get();
+
         return view('admin.setting.instagram-testmonials', compact('images'));
     }
 
     public function listTestmonialsFromInstagram()
     {
-        InstagramFeed::for('marvinsworld')->refresh(10);
-        $feeds = InstagramFeed::for('marvinsworld', 10);
+        InstagramFeed::for('marvinsworld')->refresh(100);
+        $feeds = InstagramFeed::for('marvinsworld', 100);
+
         return view('admin.setting.list-instagram-testmonials', compact('feeds'));
     }
 
@@ -107,11 +109,13 @@ class SettingsController extends Controller
     public function linkInstagramTestmonial(Request $request)
     {
         $request->validate([
+            'instagram_id' => 'required',
             'permalink' => 'required',
             'url' => 'required|url'
         ]);
 
         $reviewImage = ReviewImage::create([
+            'instagram_id' => $request->instagram_id,
             'permalink' => $request->permalink,
             'url' => $request->url
         ]);

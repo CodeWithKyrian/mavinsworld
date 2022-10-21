@@ -13,7 +13,13 @@
           @if ($feed->isImage())
             <div class="col">
               <div class="card card-product-grid">
-                <a href="{{ route('admin.settings.instagram-testmonials.link', ['url' => $feed->url, 'permalink' => $feed->permalink]) }}"
+                <a href="{{ route('admin.settings.instagram-testmonials.link',
+                [
+                    'instagram_id' => $feed->id,
+                    'url' => $feed->url,
+                    'permalink' => $feed->permalink
+                ])
+                }}"
                   class="img-wrap" style="aspect-ratio: 1/1">
                   <img src="{{ $feed->url }}" alt="">
                 </a>
@@ -25,7 +31,14 @@
             @foreach ($feed->children as $feed_child)
               <div class="col">
                 <div class="card card-product-grid">
-                  <a href="{{ route('admin.settings.instagram-testmonials.link', ['url' => $feed_child['url'], 'permalink' => $feed->permalink]) }}"
+                  <a href="{{
+                    route('admin.settings.instagram-testmonials.link',
+                        [
+                            'instagram_id' => $feed_child['id'],
+                            'url' => $feed_child['url'],
+                            'permalink' => $feed->permalink
+                        ])
+                    }}"
                     class="img-wrap" style="aspect-ratio: 1/1">
                     <img src="{{ $feed_child['url'] }}" alt="">
                   </a>

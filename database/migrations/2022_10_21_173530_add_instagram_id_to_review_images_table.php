@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('is_popular')->default(0)->after('is_featured');
+        Schema::table('review_images', function (Blueprint $table) {
+            $table->bigInteger("instagram_id")->after('id');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('is_popular');
+        Schema::table('review_images', function (Blueprint $table) {
+            $table->dropColumn('instagram_id');
         });
     }
 };

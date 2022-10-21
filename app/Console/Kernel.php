@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\ReviewImage;
 use Dymantic\InstagramFeed\Profile;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -29,6 +30,11 @@ class Kernel extends ConsoleKernel
         $schedule->command('model:prune')->daily();
 
         $schedule->command("instagram-feed:refresh-tokens")->monthly();
+
+        $schedule->call(function () {
+            $reviewImages = ReviewImage::all();
+            foreach ($reviewImages as $reviewImage) $reviewImage->refreshUrl();
+        })->weekly();
     }
 
     /**
