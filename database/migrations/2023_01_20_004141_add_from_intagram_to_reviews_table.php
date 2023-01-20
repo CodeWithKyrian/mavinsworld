@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('review_images', function (Blueprint $table) {
-            $table->bigInteger("instagram_id")->after('id')->nullable();
+            $table->boolean('from_instagram')->after('id')->default(false);
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('review_images', function (Blueprint $table) {
-            $table->dropColumn('instagram_id');
+        Schema::table('intagram_to_reviews', function (Blueprint $table) {
+            $table->dropColumn('from_instagram');
         });
     }
 };
