@@ -17,6 +17,8 @@ class ReviewImage extends Model
 
     protected $guarded = [];
 
+    protected $casts = ['from_instagram' => 'boolean'];
+
     public function getIsImageAttribute()
     {
         return $this->type == "image";
@@ -29,6 +31,7 @@ class ReviewImage extends Model
 
     public function refreshUrl()
     {
+        if(!$this->from_instagram) return;
 
         $profile = Profile::for('marvinsworld');
 
@@ -46,6 +49,5 @@ class ReviewImage extends Model
             'permalink' => $result->permalink,
             'url' => $result->media_url
         ]);
-
     }
 }

@@ -19,7 +19,7 @@ class AppLayout extends Component
      */
     public function render()
     {
-        $feeds = ReviewImage::query()->limit(15)->latest()->get();
+        $feeds = ReviewImage::query()->latest()->limit(15)->get();
         return view('layouts.app', compact('feeds'));
     }
 }

@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
         ->sundays();
 
         $schedule->call(function () {
-            $reviewImages = ReviewImage::where('from_instagram', true);
+            $reviewImages = ReviewImage::all();
             foreach ($reviewImages as $reviewImage) $reviewImage->refreshUrl();
         })
         ->wednesdays();
