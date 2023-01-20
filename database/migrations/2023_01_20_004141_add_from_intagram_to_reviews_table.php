@@ -25,6 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
+
         Schema::table('review_images', function (Blueprint $table) {
             $table->dropColumn('from_instagram');
         });
