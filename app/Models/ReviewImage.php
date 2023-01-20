@@ -41,6 +41,7 @@ class ReviewImage extends Model
 
         $result = Http::get($url)->object();
 
+
         $this->update([
             'permalink' => $result->permalink,
             'url' => $result->media_url

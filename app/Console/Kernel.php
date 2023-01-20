@@ -34,7 +34,14 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             $reviewImages = ReviewImage::all();
             foreach ($reviewImages as $reviewImage) $reviewImage->refreshUrl();
-        })->weekly();
+        })
+        ->sundays();
+
+        $schedule->call(function () {
+            $reviewImages = ReviewImage::all();
+            foreach ($reviewImages as $reviewImage) $reviewImage->refreshUrl();
+        })
+        ->wednesdays();
     }
 
     /**

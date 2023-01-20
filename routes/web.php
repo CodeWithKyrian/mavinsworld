@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReviewController;
 use App\Models\MediaLibrary;
+use App\Models\ReviewImage;
+use Dymantic\InstagramFeed\Profile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,8 +40,14 @@ use Illuminate\Support\Facades\Route;
 //     return "Done";
 // });
 
+Route::get('refresh_urls', function () {
+    $reviewImages = ReviewImage::all();
+    foreach ($reviewImages as $reviewImage) $reviewImage->refreshUrl();
+
+});
+
 Route::get('/auth_instagram', function () {
-    $profile = \Dymantic\InstagramFeed\Profile::for('marvinsworld');
+    $profile = Profile::for('marvinsworld');
     $auth_url = $profile->getInstagramAuthUrl();
 
     return redirect()->away($auth_url);
