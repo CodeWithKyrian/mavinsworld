@@ -9,5 +9,6 @@ class CreateGeneralSettings extends SettingsMigration
         $this->migrator->add('general.site_name', 'Marvins World');
         $this->migrator->add('general.phone', '09067463437');
         $this->migrator->add('general.email', 'contact@marvinsworld.com.ng');
+        $this->migrator->add('general.usd_price', 780);
     }
 }

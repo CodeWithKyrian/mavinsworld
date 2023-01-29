@@ -63,10 +63,7 @@
 	}
 	.logo {
 		&.logo-width-1 {
-			margin-right: 0;
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
+			padding: 0 .5rem;
 			a {
 				img {
 					width: 150px;
@@ -76,7 +73,7 @@
 		}
 	}
 	.header-bottom  {
-		padding: 20px 0;
+		padding: 12px 0;
 	}
 	.header-action {
 		.header-action-icon {

@@ -8,10 +8,24 @@ use App\Models\Product;
 use Carbon\Carbon;
 
 if (!function_exists('format_price')) {
+    // Convert price to the approriate currency and format as required.
+    // Eg. From 4000 to ₦4000 or $6.00
     function format_price($price)
     {
-        $formated_price = number_format($price, 0);
-        return "₦" . $formated_price;
+        $currency = Request::cookie('currency');
+
+        if($currency == "USD")
+        {
+            $usd_price = app(GeneralSettings::class)->usd_price ?? 780;
+            $price =  ceil($price / $usd_price);
+            $formated_price = number_format($price, 0);
+            return "$" . $formated_price . ".00";
+        }
+        else{
+            $formated_price = number_format($price, 0);
+            return "₦" . $formated_price;
+        }
+
     }
 }
 

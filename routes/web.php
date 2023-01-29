@@ -70,6 +70,10 @@ Route::get('/product/{product}', [HomeController::class, 'product_details'])->na
 
 Route::get('/get_states/{country}', [HomeController::class, 'getStates'])->name('states.get');
 
+// CURRENCY
+Route::get('/change_currency', [HomeController::class, 'changeCurrency'])->name('change_currency');
+
+
 // CART AND SHIPPING
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
@@ -89,6 +93,7 @@ Route::resource('product.reviews', ReviewController::class)->only(['index']);
 Route::post('/checkout', [OrderController::class, 'store'])->name('order.checkout');
 Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
 Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])->name('order.payment.cancelled');
+
 
 
 

@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\ContactForm;
+use Cookie;
 use Illuminate\Http\Request;
 use Mail;
 use Notification;
@@ -139,5 +140,16 @@ class HomeController extends Controller
     {
         $categories = Category::withCount('products')->get();
         return view('frontend.pages.privacy-policy', compact('categories'));
+    }
+
+    public function changeCurrency(Request $request)
+    {
+        $currency = $request->query('c', "NGN");
+
+        Cookie::queue('currency', $currency, 360000);
+
+        flash('Currency changed successfully!')->success();
+
+        return redirect()->back();
     }
 }

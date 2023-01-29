@@ -1,10 +1,10 @@
 @php
 
-if (!isset($cart)) {
-    $cart = get_current_cart();
-}
+  if (!isset($cart)) {
+      $cart = get_current_cart();
+  }
 
-$categories = App\Models\Category::all();
+  $categories = App\Models\Category::all();
 
 @endphp
 
@@ -36,8 +36,31 @@ $categories = App\Models\Category::all();
         <div class="col-xl-3 col-lg-4">
           <div class="header-info header-info-right">
             <ul>
+              <li>
+                <a class="language-dropdown-active" href="#">
+                  @if (Request::cookie('currency') == 'USD')
+                    <img src="/img/theme/flag-us.png" alt="" />
+                    USD <i class="fi-rs-angle-small-down"></i>
+                  @else
+                    <img src="/img/theme/flag-ng.png" alt="" />
+                    NGN <i class="fi-rs-angle-small-down"></i>
+                  @endif
+                </a>
+                <ul class="language-dropdown">
+                  <li>
+                    <a href="{{ route('change_currency', ['c' => 'NGN']) }}"><img src="/img/theme/flag-ng.png"
+                        alt="" />NGN</a>
+                  </li>
+                  <li>
+                    <a href="{{ route('change_currency', ['c' => 'USD']) }}"><img src="/img/theme/flag-us.png"
+                        alt="" />USD</a>
+                  </li>
+                </ul>
+              </li>
               <li>Need help? Call Us: <strong class="text-brand"> <a href="tel:+2349033510205"></a>
-                  +234 903 351 0205</strong></li>
+                  +234 903 351 0205</strong>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -104,14 +127,31 @@ $categories = App\Models\Category::all();
         <div class="logo logo-width-1 d-block d-lg-none">
           <a href="{{ route('home') }}"><img src="/img/mavinsworld.png" alt="logo" /></a>
         </div>
-        <div class="header-action-icon-2 d-block d-lg-none white">
-          <svg class="mobile-menu-open" width="30" height="30" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
-          </svg>
-        </div>
-        <div class="header-action-right d-block d-lg-none">
+        <div class="header-action-right d-flex d-lg-none">
           <div class="header-action-2">
+            <div class="header-action-icon-2 pr-0">
+              <a class="language-dropdown-active" href="javascript:void(0)">
+                {{-- {{ Request::cookie('currency') == 'USD' ? 'USD' : 'NGN ' }}
+                <i class="fi-rs-angle-small-down"></i> --}}
+                @if (Request::cookie('currency') == 'USD')
+                    <img src="/img/theme/flag-us.png" alt="" />
+                    USD <i class="fi-rs-angle-small-down"></i>
+                  @else
+                    <img src="/img/theme/flag-ng.png" alt="" />
+                    NGN <i class="fi-rs-angle-small-down"></i>
+                  @endif
+              </a>
+              <ul class="language-dropdown">
+                <li>
+                  <a href="{{ route('change_currency', ['c' => 'NGN']) }}"><img src="/img/theme/flag-ng.png"
+                      alt="" />NGN</a>
+                </li>
+                <li>
+                  <a href="{{ route('change_currency', ['c' => 'USD']) }}"><img src="/img/theme/flag-us.png"
+                      alt="" />USD</a>
+                </li>
+              </ul>
+            </div>
             <div class="header-action-icon-2">
               <a class="mini-cart-icon white">
                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -125,6 +165,13 @@ $categories = App\Models\Category::all();
               <div class="cart-dropdown-wrap cart-dropdown cart-dropdown-hm2">
                 @include('frontend.partials._cart-dropdown')
               </div>
+            </div>
+            <div class="header-action-icon-2 white pl-5">
+              <svg class="mobile-menu-open" width="30" height="30" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16">
+                </path>
+              </svg>
             </div>
           </div>
         </div>
