@@ -20,7 +20,7 @@
   <section class="instagram-testmonial dot-style-1 dot-style-1-position-1 py-4">
     <div class="d-flex section-title justify-content-center flex-wrap">
       <div class="col-md-8 text-center">
-        <h3 class="my-4">Check what our Customers are Saying on social media</h3>
+        <h3 class="my-4">Check what our Customers are saying on social media</h3>
       </div>
     </div>
     <div class="wrapper">
