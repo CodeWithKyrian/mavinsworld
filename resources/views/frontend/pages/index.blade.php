@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mb-10">
-                        <a href="{{ route('shop') }}" class="btn btn-primary">Shop Now</a>
+                        <a href="{{ route('shop') }}" class="btn btn-primary">View All Products</a>
                     </div>
                 </div>
                 <!--End Col-lg-9-->

@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReviewImage extends Model
 {
-    use HasFactory;
 
     const SINGLE_MEDIA_FORMAT = "https://graph.instagram.com/%s?fields=%s&access_token=%s";
 
@@ -43,7 +42,6 @@ class ReviewImage extends Model
         );
 
         $result = Http::get($url)->object();
-
 
         $this->update([
             'permalink' => $result->permalink,

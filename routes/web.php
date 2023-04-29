@@ -22,23 +22,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/upload_new_banners', function () {
-//     $mediaLibrary = MediaLibrary::firstOrCreate([]);
+ Route::get('/upload_new_banners', function () {
+     $mediaLibrary = MediaLibrary::firstOrCreate([]);
 
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_six.jpg'))->toMediaCollection('banners_xl');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_seven.jpg'))->toMediaCollection('banners_xl');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_eight.jpg'))->toMediaCollection('banners_xl');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_nine.jpg'))->toMediaCollection('banners_xl');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_three.jpg'))->toMediaCollection('banners_xl');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_two.jpg'))->toMediaCollection('banners_xl');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/banner_xl_four.jpg'))->toMediaCollection('banners_xl');
-
+     $mediaLibrary->addMediaFromUrl(asset('img/banners/sitemarvins2-red.png'))->toMediaCollection('banners_xl');
+     $mediaLibrary->addMediaFromUrl(asset('img/banners/sitemarvins3-red.png'))->toMediaCollection('banners_xl');
+     $mediaLibrary->addMediaFromUrl(asset('img/banners/sitemarvins4-red.png'))->toMediaCollection('banners_xl');
 
 //     $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_three.jpg'))->toMediaCollection('hero_banners_sm');
-//     $mediaLibrary->addMediaFromUrl(asset('img/banners/new_banner_md_four.jpg'))->toMediaCollection('hero_banners_sm');
 
-//     return "Done";
-// });
+     return "Done";
+ });
 
 Route::get('refresh_urls', function () {
     $reviewImages = ReviewImage::all();
@@ -63,16 +57,13 @@ Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/terms-and-conditions', [HomeController::class, 'terms'])->name('terms');
 Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('privacy-policy');
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
-
 Route::get('/category/{category}', [HomeController::class, 'category'])->name('category.show');
-
 Route::get('/product/{product}', [HomeController::class, 'product_details'])->name('product.details');
 
 Route::get('/get_states/{country}', [HomeController::class, 'getStates'])->name('states.get');
 
 // CURRENCY
 Route::get('/change_currency', [HomeController::class, 'changeCurrency'])->name('change_currency');
-
 
 // CART AND SHIPPING
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -94,9 +85,7 @@ Route::post('/checkout', [OrderController::class, 'store'])->name('order.checkou
 Route::get('/payment/callback', [OrderController::class, 'callback'])->name('order.payment.callback');
 Route::get('/payment/cancelled/{order}', [OrderController::class, 'cancelled'])->name('order.payment.cancelled');
 
-
-
-
+// ACCOUNT
 Route::middleware('auth')->group(function () {
     Route::get('/account/dashboard', [AccountController::class, 'dashboard'])->name('account.dashboard');
     Route::get('/account/orders', [AccountController::class, 'orders'])->name('account.orders.index');

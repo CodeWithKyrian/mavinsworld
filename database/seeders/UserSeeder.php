@@ -23,10 +23,11 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'phone' => '09076463437',
             'email_verified_at' => now(),
-            'password' => Hash::make('123456'), 
+            'password' => Hash::make('123456'),
             'is_admin' => true
         ]);
 
         User::factory(10)->has(Address::factory())->create();
     }
+
 }
